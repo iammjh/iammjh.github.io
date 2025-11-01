@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Md. Jahidul Hasan — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Colorful creative portfolio built with HTML, CSS & JS">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-wrap">
+        <a class="brand" href="#home">Md. Jahidul <span>Hasan</span></a>
+      </div>
+      <nav class="nav" id="nav">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-controls">
+        <button id="themeToggle" class="btn icon-btn" aria-label="Toggle theme">🌓</button>
+        <button id="navToggle" class="btn mobile-only icon-btn" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero" aria-label="Home / Hero section">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1 class="name">Hi, I'm <span class="accent">Md. Jahidul Hasan</span></h1>
+          <h2 class="role">Creative Front-End Developer</h2>
+          <p class="tagline">I design colorful, accessible interfaces and build delightful web experiences.</p>
+
+          <div class="hero-ctas">
+            <!-- View Projects / Download Resume: enable brand-like hover animation -->
+            <a class="btn outline" href="#projects">View Projects</a>
+            <a class="btn outline" href="assets/resume.pdf" download>Download Resume</a>
+          </div>
+
+          <div class="hero-meta">
+            <span class="meta-item">📍 Bangladesh</span>
+          </div>
+
+        </div>
+
+        <div class="hero-card">
+          <div class="avatar">
+            <!-- Replace src with your photo -->
+            <img src="assets/jahid.jpg" alt="Md. Jahidul Hasan">
+          </div>
+
+          <div class="wave-card">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#projects">Featured Projects</a></li>
+              <li><a href="#skills">Top Skills</a></li>
+              <li><a href="#contact">Say Hello</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm a front-end developer who loves vibrant design and smooth interactions.
+            I build responsive websites that are both beautiful and accessible. I enjoy learning new libraries, exploring animations and improving performance.
+          </p>
+
+          <ul class="about-list">
+            <li><strong>Experience:</strong> 1 year building web interfaces</li>
+            <li><strong>Education:</strong> BRAC University — CSE</li>
+            <li><strong>Interests:</strong> UI animation, Games, Music</li>
+          </ul>
+
+          <div class="socials">
+            <a class="social-btn" href="https://github.com/mrjahid11" aria-label="Visit GitHub profile" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" class="icon"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.2-3.5-1.2-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 .1 1.6.8 2 1.4.1-1 .4-1.7.8-2.1-2.3-.3-4.7-1.2-4.7-5.3 0-1.2.4-2.1 1-2.9-.1-.3-.4-1.4.1-3 0 0 .8-.3 2.9 1 1-.3 2-.4 3-.4s2 .1 3 .4c2.1-1.3 2.9-1 2.9-1 .5 1.6.2 2.7.1 3 0 .8 1 1.7 1 2.9 0 4.1-2.4 5-4.7 5.3.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+              <span class="label">GitHub</span>
+            </a>
+
+            <a class="social-btn" href="https://www.linkedin.com/in/mdjahid11" aria-label="Visit LinkedIn profile" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" class="icon"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4zM8 8h3.85v2.07h.05c.54-1.02 1.86-2.07 3.83-2.07 4.1 0 4.85 2.7 4.85 6.2V23h-4V14.5c0-2.04-.04-4.67-2.85-4.67-2.85 0-3.28 2.22-3.28 4.53V23H8z"/></svg>
+              <span class="label">LinkedIn</span>
+            </a>
+            
+              <a class="social-btn" href="https://facebook.com/captain.jahid45" aria-label="Visit Facebook profile" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" class="icon"><path d="M22 12a10 10 0 10-11.5 9.9v-7h-2.2v-2.9h2.2V9.1c0-2.2 1.3-3.4 3.3-3.4.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.3v1.6h2.2l-.4 2.9h-1.8v7A10 10 0 0022 12z"/></svg>
+                <span class="label">Facebook</span>
+              </a>
+          </div>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-val">6</div>
+            <div class="stat-label">Completed Projects</div>
+          </div>
+          <div class="stat">
+            <div class="stat-val">1</div>
+            <div class="stat-label">Year Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-val">1</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Front-End</h3>
+            <div class="skill-list">
+              <div class="skill">
+                <span>HTML</span>
+                <div class="bar"><div style="width:90%"></div></div>
+              </div>
+              <div class="skill">
+                <span>CSS</span>
+                <div class="bar"><div style="width:75%"></div></div>
+              </div>
+              <div class="skill">
+                <span>JavaScript</span>
+                <div class="bar"><div style="width:35%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>Tools</h3>
+            <div class="tool-grid">
+              <div class="tool">Git</div>
+              <div class="tool">VS Code</div>
+              <div class="tool">Figma</div>
+              <div class="tool">NPM</div>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>Extras</h3>
+            <p>Accessibility, performance tuning, responsive design, small animations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section projects container">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="projects-controls">
+          <div class="filter-group" id="projectFilter">
+          <button class="chip active no-hover" data-filter="all">All</button>
+          <button class="chip no-hover" data-filter="js">JavaScript</button>
+          <button class="chip no-hover" data-filter="web">Web</button>
+          <button class="chip no-hover" data-filter="game">Game</button>
+        </div>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!-- project item -->
+        <article class="project" data-tags="js game">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop" alt="project 1 screenshot">
+          <div class="project-body">
+            <h3>Snake Game</h3>
+            <p>Classic canvas-based snake with responsive controls and highscore saving.</p>
+            <div class="project-cta">
+              <a class="btn small" href="#">Live</a>
+              <a class="btn small outline" href="#">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project" data-tags="web js">
+          <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=800&auto=format&fit=crop" alt="project 2 screenshot">
+          <div class="project-body">
+            <h3>Portfolio Builder</h3>
+            <p>Interactive portfolio generator with drag-and-drop sections.</p>
+            <div class="project-cta">
+              <a class="btn small" href="#">Live</a>
+              <a class="btn small outline" href="#">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project" data-tags="web">
+          <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=800&auto=format&fit=crop" alt="project 3 screenshot">
+          <div class="project-body">
+            <h3>Recipe Finder</h3>
+            <p>Search recipes by ingredient; uses a public API and caching for speed.</p>
+            <div class="project-cta">
+              <a class="btn small" href="#">Live</a>
+              <a class="btn small outline" href="#">Code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-grid">
+          <form id="contactForm" class="contact-form" action="https://formsubmit.co/your-email@example.com" method="POST">
+            <!-- Replace your-email@example.com with your email at formsubmit.co or use your own backend -->
+            <input type="hidden" name="_subject" value="New message from Portfolio site">
+            <input type="hidden" name="_captcha" value="false">
+
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" required />
+            </label>
+
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" required />
+            </label>
+
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="6" required></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button class="btn primary" type="submit">Send Message</button>
+              <button class="btn outline" type="reset">Reset</button>
+            </div>
+          </form>
+
+          <div class="contact-info">
+            <h3>Get in touch</h3>
+            <p>Prefer email? <a href="mailto:your.email@example.com">captainjahid45@gmail.com</a></p>
+            <p>Or find me on social media.</p>
+
+            <div class="contact-cards">
+              <div class="card">
+                <strong>Availability</strong>
+                <p>Remote / Part-time</p>
+              </div>
+              <div class="card">
+                <strong>Location</strong>
+                <p>Merul Badda, Dhaka, Bangladesh</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+  <small>© <span id="year"></span> Md. Jahidul Hasan — Built with ❤️</small>
+      <div class="foot-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
