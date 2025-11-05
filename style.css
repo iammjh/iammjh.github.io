@@ -258,6 +258,32 @@ body{
 .project-body{padding:1rem}
 .project-cta{margin-top:0.75rem;display:flex;gap:0.5rem}
 
+/* Project button hover and focus animations */
+.project-cta .btn{
+  transition: color 260ms var(--anim-ease), background 260ms var(--anim-ease), border-color 220ms var(--anim-ease), transform 200ms var(--anim-ease), box-shadow 220ms var(--anim-ease);
+}
+.project-cta .btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,95,109,0.15);
+}
+.project-cta .btn.small:hover{
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  color: var(--chip-text);
+  border-color: transparent;
+}
+.project-cta .btn.outline:hover{
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  color: var(--chip-text);
+  border-color: transparent;
+}
+.project-cta .btn:focus-visible{
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  color: var(--chip-text);
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(255,95,109,0.25);
+}
+.project-cta .btn:focus{outline:3px solid rgba(59,130,246,0.18);outline-offset:3px}
+
 /* Contact */
 .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:1rem;align-items:start}
 .contact-form label{display:block;margin-bottom:0.75rem;color:var(--muted);font-weight:500}
