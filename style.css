@@ -331,12 +331,12 @@ body{
 @media (max-width:720px){
   :root{ --header-height: 56px; }
   .container{padding:1rem}
-  .hero-grid{grid-template-columns:1fr;gap:1.2rem}
+  .hero-grid{display:flex;flex-direction:column;gap:1.2rem}
   .about-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
   .projects-grid{grid-template-columns:1fr}
   .mobile-only{display:inline-block}
-  .nav{position:absolute;right:12px;top:var(--header-height);background:var(--card);padding:0.6rem;border-radius:10px;display:none;flex-direction:column}
+  .nav{position:fixed;right:12px;top:calc(var(--header-height) + 8px);background:var(--card);padding:0.6rem;border-radius:10px;display:none;flex-direction:column;z-index:1100;box-shadow:0 10px 30px rgba(0,0,0,0.35);min-width:160px}
   .nav.open{display:flex}
   .nav-link{padding:0.6rem 0}
 }
