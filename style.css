@@ -1,4 +1,5 @@
 :root{
+  --header-height: 64px;
   --bg:#0a0a0f;
   --card:#151821;
   --muted:#b4bdd4;
@@ -146,13 +147,14 @@ body{
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   line-height:1.5;
+  padding-top: var(--header-height);
 }
 
 /* Container */
 .container{max-width:var(--maxwidth);margin:0 auto;padding:2rem}
 
 /* Header */
-.site-header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg, var(--header-overlay), transparent);backdrop-filter: blur(12px);-webkit-backdrop-filter: blur(12px);box-shadow: 0 2px 12px rgba(0,0,0,0.4);border-bottom:1px solid var(--outline-border)}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:1000;width:100%;height:var(--header-height);background:linear-gradient(180deg, var(--header-overlay), transparent);backdrop-filter: blur(12px);-webkit-backdrop-filter: blur(12px);box-shadow: 0 2px 12px rgba(0,0,0,0.4);border-bottom:1px solid var(--outline-border)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 0}
 .brand{font-weight:700;letter-spacing:0.2px;color:var(--accent1);text-decoration:none}
 .brand span{color:var(--link-color);margin-left:6px}
@@ -320,19 +322,27 @@ body{
 @media (max-width:980px){
   .hero-grid{grid-template-columns:1fr 320px}
   .skills-grid{grid-template-columns:1fr 1fr}
+  /* Show avatar / hero-card before the intro on small screens */
+  .hero-card{order:-1;align-items:center}
+  .hero-card .avatar{width:180px;height:180px}
   .projects-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 @media (max-width:720px){
+  :root{ --header-height: 56px; }
   .container{padding:1rem}
   .hero-grid{grid-template-columns:1fr;gap:1.2rem}
   .about-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
   .projects-grid{grid-template-columns:1fr}
   .mobile-only{display:inline-block}
-  .nav{position:absolute;right:12px;top:64px;background:var(--card);padding:0.6rem;border-radius:10px;display:none;flex-direction:column}
+  .nav{position:absolute;right:12px;top:var(--header-height);background:var(--card);padding:0.6rem;border-radius:10px;display:none;flex-direction:column}
   .nav.open{display:flex}
   .nav-link{padding:0.6rem 0}
+}
+
+@media (max-width:420px){
+  :root{ --header-height: 52px; }
 }
 
 /* small polish: highlight animation */
