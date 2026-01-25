@@ -21,6 +21,23 @@
   --gap: 1.25rem;
 }
 
+/* Expertise chips used in About section */
+.skill-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+.chip{background:var(--card-overlay);border:1px solid var(--chip-border);color:var(--text);padding:.35rem .6rem;border-radius:999px;font-size:.85rem;display:inline-flex;align-items:center}
+.chip:hover{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#08111a;border-color:transparent}
+
+
+/* Education card layout */
+.education {margin-top:.5rem}
+.education-grid{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.5rem}
+.edu-card{background:var(--card-overlay);border:1px solid var(--chip-border);padding:.6rem .8rem;border-radius:10px;min-width:200px}
+.edu-heading{margin:0 0 .25rem 0}
+.edu-meta{color:var(--muted);font-size:.9rem;margin-top:.25rem}
+
+/* Small vertical space before Expertise block in About */
+.skills-overview{margin-top:1.5rem}
+
+
 /* Motion & transitions */
 @media (prefers-reduced-motion: no-preference) {
   :root{ --anim-duration: 600ms; --anim-ease: cubic-bezier(.2,.9,.3,1); }
