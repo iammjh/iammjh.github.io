@@ -1,4 +1,15 @@
 // Simple interactions: nav toggle, theme toggle, year, project filter, progress load
+
+// Initialize theme IMMEDIATELY (before DOM ready) to prevent flash
+(function() {
+  const themeKey = 'portfolio-theme';
+  const saved = localStorage.getItem(themeKey);
+  if (saved === 'light') {
+    document.documentElement.classList.add('light');
+    document.body.classList.add('light');
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   const nav = document.getElementById('nav');
   const navToggle = document.getElementById('navToggle');
@@ -7,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Year
   yearEl.textContent = new Date().getFullYear();
+
+  // Mark theme as loaded (prevents FOUC)
+  document.body.classList.add('theme-loaded');
 
   // Hide loading screen
   hideLoadingScreen();
@@ -42,12 +56,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Theme toggle (persist in localStorage)
   const themeKey = 'portfolio-theme';
   const saved = localStorage.getItem(themeKey);
-  if (saved === 'light') document.body.classList.add('light');
+  // Already applied in early script, just for consistency
+  if (saved === 'light' && !document.body.classList.contains('light')) {
+    document.body.classList.add('light');
+  }
 
-  themeToggle.addEventListener('click', () => {
+  themeToggle.addEventListener('click', (e) => {
+    e.preventDefault();
     document.body.classList.toggle('light');
     const current = document.body.classList.contains('light') ? 'light' : 'dark';
     localStorage.setItem(themeKey, current);
+    
+    // Update theme-color meta tag for mobile browsers
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute('content', current === 'light' ? '#ebe9e6' : '#ff5f6d');
+    }
   });
 
   // Project filtering
@@ -291,9 +315,13 @@ function addTypingEffect() {
       charIndex++;
       setTimeout(typeChar, typingSpeed);
     } else {
-      // Remove cursor after typing is complete
+      // Start cursor blinking after typing is complete
       setTimeout(() => {
         cursor.style.animation = 'blink 0.7s step-end infinite';
+        // Stop cursor blinking after 2 seconds
+        setTimeout(() => {
+          cursor.style.opacity = '0';
+        }, 2000);
       }, 500);
     }
   }
