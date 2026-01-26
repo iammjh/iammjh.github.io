@@ -21,6 +21,7 @@
   --maxwidth: 1100px;
   --gap: 1.25rem;
   scroll-behavior: smooth;
+  font-display: swap;
 }
 
 /* Expertise chips used in About section */
@@ -279,7 +280,7 @@ body::before {
 .wave-card a:hover{color:var(--accent1);text-decoration:underline}
 
 /* Sections */
-.section{padding:4rem 0}
+.section{padding:4rem 0;position:relative;padding-top:5rem;content-visibility:auto;contain-intrinsic-size:auto 500px}
 .section-title{font-size:1.75rem;margin-bottom:1.5rem;color:var(--accent2);font-weight:700;letter-spacing:-0.01em;position:relative;display:inline-block}
 .section-title::after{content:'';position:absolute;bottom:-8px;left:0;width:60px;height:3px;background:linear-gradient(90deg,var(--accent1),var(--accent2));border-radius:2px}
 
@@ -379,7 +380,7 @@ h4{font-size:1rem}
 .chip.active{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:var(--chip-text);border:0;box-shadow:0 4px 12px rgba(255,95,109,0.25)}
 .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .project{background:rgba(21,24,33,0.6);backdrop-filter:blur(10px);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 12px 40px rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
-.project img{width:100%;height:160px;object-fit:cover;display:block;border-bottom:1px solid var(--outline-border)}
+.project img{width:100%;height:160px;object-fit:cover;display:block;border-bottom:1px solid var(--outline-border);aspect-ratio:16/9}
 .project-body{padding:1rem}
 .project-cta{margin-top:0.75rem;display:flex;gap:0.5rem}
 
@@ -515,6 +516,7 @@ h4{font-size:1rem}
   pointer-events: none;
   z-index: -1;
   overflow: hidden;
+  will-change: transform;
 }
 
 .particle {
@@ -523,6 +525,7 @@ h4{font-size:1rem}
   background: linear-gradient(135deg, var(--accent1), var(--accent2));
   opacity: 0.15;
   animation: float linear infinite;
+  will-change: transform, opacity;
 }
 
 @keyframes float {
@@ -730,4 +733,33 @@ h4{font-size:1rem}
   .typing-cursor {
     display: none !important;
   }
+}
+
+/* Optimize heavy animations on mobile for better performance */
+@media (max-width: 768px) {
+  /* Remove expensive background animations only */
+  body::before,
+  .hero::before {
+    animation: none;
+    opacity: 0.3;
+  }
+  
+  /* Disable particles on mobile (most expensive) */
+  .particles,
+  .particle {
+    display: none !important;
+  }
+  
+  /* Simplify border glow animation */
+  .skill-card::after {
+    animation: none;
+  }
+  
+  /* Keep avatar float but make it simpler */
+  .avatar {
+    animation-duration: 8s !important;
+  }
+  
+  /* Keep other animations - they're lightweight and add personality */
+  /* Pop animations, hover effects, and transitions stay enabled */
 }

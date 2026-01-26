@@ -11,17 +11,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Hide loading screen
   hideLoadingScreen();
 
-  // Create floating particles
-  createFloatingParticles();
+  // Only create particles and heavy animations on desktop
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
+  if (!isMobile && !prefersReduce) {
+    createFloatingParticles();
+    addTypingEffect();
+  }
 
-  // Add scroll-triggered animations
+  // Add scroll-triggered animations (lightweight)
   initScrollAnimations();
 
-  // Add magnetic hover effect to buttons
-  initMagneticButtons();
-
-  // Add typing effect to hero name
-  addTypingEffect();
+  // Add magnetic hover effect to buttons (desktop only)
+  if (!isMobile) {
+    initMagneticButtons();
+  }
 
   // Initialize back to top button
   initBackToTop();
@@ -194,7 +199,7 @@ function createFloatingParticles() {
   particlesContainer.className = 'particles';
   document.body.appendChild(particlesContainer);
 
-  const particleCount = 25;
+  const particleCount = 20; // Reduced from 25 for better performance
   for (let i = 0; i < particleCount; i++) {
     const particle = document.createElement('div');
     particle.className = 'particle';
@@ -301,16 +306,14 @@ function hideLoadingScreen() {
   const loadingScreen = document.getElementById('loading-screen');
   if (!loadingScreen) return;
   
-  // Wait for all critical resources to load
-  window.addEventListener('load', () => {
+  // Hide loading screen as soon as DOM is ready (faster)
+  setTimeout(() => {
+    loadingScreen.classList.add('hidden');
+    // Remove from DOM after transition
     setTimeout(() => {
-      loadingScreen.classList.add('hidden');
-      // Remove from DOM after transition
-      setTimeout(() => {
-        loadingScreen.remove();
-      }, 500);
-    }, 300);
-  });
+      loadingScreen.remove();
+    }, 500);
+  }, 100);
 }
 
 // Back to top button functionality

@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Md. Jahidul Hasan — Backend Developer | AI/ML Enthusiast</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+  
+  <!-- Preload critical CSS -->
+  <link rel="preload" href="style.css" as="style">
   <link rel="stylesheet" href="style.css" />
   
   <!-- Primary Meta Tags -->
@@ -12,7 +15,7 @@
   <meta name="description" content="Portfolio of Md. Jahidul Hasan - CSE Student at BRAC University, Backend Developer, and AI/ML Enthusiast. Explore my projects, skills, and leadership experience." />
   <meta name="keywords" content="Md. Jahidul Hasan, Backend Developer, Python, JavaScript, MongoDB, AI/ML, BRAC University, Portfolio" />
   <meta name="author" content="Md. Jahidul Hasan" />
-  
+
   <!-- Google -->
   <meta name="google-site-verification" content="q9c3Bb6OedeqilD11PNTs4IgS_AJhRVNldypH9ippzw" />
   
@@ -250,7 +253,7 @@
       <div class="projects-grid" id="projectsGrid">
         <!-- project item: Singularity-Wars -->
         <article class="project" data-tags="python game">
-          <img src="assets/singularity-wars.jpg" alt="Singularity-Wars screenshot">
+          <img src="assets/singularity-wars.jpg" alt="Singularity-Wars screenshot" loading="lazy" width="800" height="450">
           <div class="project-body">
             <h3>Singularity-Wars</h3>
             <p>3D space combat game built with OpenGL and Python.</p>
@@ -263,7 +266,7 @@
 
         <!-- TripBloom -->
         <article class="project" data-tags="web js">
-          <img src="assets/tripbloom.jpg" alt="TripBloom screenshot">
+          <img src="assets/tripbloom.jpg" alt="TripBloom screenshot" loading="lazy" width="800" height="450">
           <div class="project-body">
             <h3>TripBloom</h3>
             <p>JavaScript travel planning app (interactive UI & routing).</p>
@@ -277,7 +280,7 @@
 
         <!-- Tic-Tac-Toe -->
         <article class="project" data-tags="python game">
-          <img src="assets/tic-tac-toe.jpg" alt="Tic Tac Toe screenshot">
+          <img src="assets/tic-tac-toe.jpg" alt="Tic Tac Toe screenshot" loading="lazy" width="800" height="450">
           <div class="project-body">
             <h3>Tic-Tac-Toe</h3>
             <p>Python implementation with AI opponent (minimax).</p>
@@ -289,7 +292,7 @@
 
         <!-- Weather-Forecast -->
         <article class="project" data-tags="web js">
-          <img src="assets/weather.jpg" alt="Weather Forecast screenshot">
+          <img src="assets/weather.jpg" alt="Weather Forecast screenshot" loading="lazy" width="800" height="450">
           <div class="project-body">
             <h3>Weather-Forecast</h3>
             <p>Interactive weather forecasting app using real-time APIs.</p>
@@ -302,7 +305,7 @@
 
         <!-- Snake-Game -->
         <article class="project" data-tags="js game">
-          <img src="assets/snake.jpg" alt="Snake Game screenshot">
+          <img src="assets/snake.jpg" alt="Snake Game screenshot" loading="lazy" width="800" height="450">
           <div class="project-body">
             <h3>Snake-Game</h3>
             <p>Classic canvas-based snake with responsive controls and highscore saving.</p>
@@ -315,7 +318,7 @@
 
         <!-- banijjo -->
         <article class="project" data-tags="web js">
-          <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=800&auto=format&fit=crop" alt="trading website screenshot">
+          <img src="assets/banijjo.jpg" alt="trading website screenshot" loading="lazy" width="800" height="450">
           <div class="project-body">
             <h3>banijjo</h3>
             <p>JavaScript e-commerce style project showcasing product listings and cart UI.</p>
@@ -327,7 +330,7 @@
 
         <!-- PCB-WEBSITE -->
         <article class="project" data-tags="web php">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop" alt="PCB Website screenshot">
+          <img src="assets/pcb.jpg" alt="PCB Website screenshot" loading="lazy" width="800" height="450">
           <div class="project-body">
             <h3>PCB-WEBSITE</h3>
             <p>PHP-based website project demonstrating server-side rendering and forms.</p>
@@ -339,7 +342,7 @@
         
         <!-- ATM-Machine -->
         <article class="project" data-tags="other asm">
-          <img src="assets/atm.png" alt="Assembly / microprocessor screenshot">
+          <img src="assets/atm.png" alt="Assembly / microprocessor screenshot" loading="lazy" width="800" height="450">
           <div class="project-body">
             <h3>ATM-Machine</h3>
             <p>Assembly-language ATM machine with user interaction and basic transaction handling.</p>
@@ -521,6 +524,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
