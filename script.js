@@ -138,4 +138,28 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch (err) {
     // ignore
   }
+
+  // Leadership cards: expand/collapse details
+  const leadToggleButtons = document.querySelectorAll('.toggle-details');
+  leadToggleButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const card = btn.closest('.lead-card');
+      if (!card) return;
+      const details = card.querySelector('.lead-details');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      if (details) {
+        if (expanded) {
+          details.hidden = true;
+          btn.textContent = 'Show more';
+          btn.setAttribute('aria-expanded', 'false');
+          card.dataset.expanded = 'false';
+        } else {
+          details.hidden = false;
+          btn.textContent = 'Show less';
+          btn.setAttribute('aria-expanded', 'true');
+          card.dataset.expanded = 'true';
+        }
+      }
+    });
+  });
 });
