@@ -3,11 +3,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Md. Jahidul Hasan — Portfolio</title>
+  <title>Md. Jahidul Hasan — Backend Developer | AI/ML Enthusiast</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
   <link rel="stylesheet" href="style.css" />
-  <meta name="description" content="Colorful creative portfolio built with HTML, CSS & JS">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio of Md. Jahidul Hasan - CSE Student at BRAC University, Backend Developer, and AI/ML Enthusiast. Explore my projects, skills, and leadership experience.">
+  <meta name="keywords" content="Md. Jahidul Hasan, Backend Developer, Python, JavaScript, MongoDB, AI/ML, BRAC University, Portfolio">
+  <meta name="author" content="Md. Jahidul Hasan">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Md. Jahidul Hasan — Backend Developer | AI/ML Enthusiast">
+  <meta property="og:description" content="CSE Student at BRAC University passionate about backend development, AI/ML, and leadership.">
+  <meta property="og:image" content="assets/jahidul.jpg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Md. Jahidul Hasan — Portfolio">
+  <meta name="twitter:description" content="Backend Developer | AI/ML Enthusiast | CSE Student">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#ff5f6d">
 </head>
 <body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader">
+      <div class="loader-circle"></div>
+      <p>Loading Portfolio...</p>
+    </div>
+  </div>
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand-wrap">
@@ -53,7 +79,7 @@
         <div class="hero-card">
           <div class="avatar">
             <!-- Replace src with your photo -->
-            <img src="assets/jahid.jpg" alt="Md. Jahidul Hasan">
+            <img src="assets/jahid.jpg" alt="Md. Jahidul Hasan" loading="eager">
           </div>
 
           <div class="wave-card">
@@ -469,6 +495,13 @@
     </section>
 
   </main>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
 
   <footer class="site-footer">
     <div class="container footer-inner">
