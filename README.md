@@ -4,7 +4,7 @@
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-FF5F6D?style=for-the-badge&logo=google-chrome&logoColor=white)](https://iammjh.github.io/portfolio/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/iammjh/)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:md.jahidul.hasan1@g.bracu.ac.bd)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:captainjahid45@gmail.com)
 [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/iammjh.io)
 
 **Backend Developer** | **CSE Student @ BRAC University** | **Assistant Director @ BUCC**
@@ -21,7 +21,7 @@ I'm a **Computer Science & Engineering** undergraduate at **BRAC University** (C
 - 🌱 Learning **FastAPI**, **Advanced Python**, and **Machine Learning**
 - 👯 Looking to collaborate on **open-source Python projects**
 - 💬 Ask me about **Backend Development**, **Event Management**, or **Python**
-- 📫 Reach me: **md.jahidul.hasan1@g.bracu.ac.bd**
+- 📫 Reach me: **captainjahid45@gmail.com**
 - ⚡ Fun fact: I built a **3D space combat game** with OpenGL!
 
 ---
@@ -137,11 +137,28 @@ skills = {
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=iammjh&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=FF5F6D&icon_color=FFC371&text_color=FFFFFF)
+<a href="https://github.com/iammjh">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=iammjh&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=iammjh&layout=compact&langs_count=8&theme=tokyonight"/>
+</a>
 
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=iammjh&theme=radical&hide_border=true&background=0D1117&stroke=FF5F6D&ring=FFC371&fire=FF5F6D&currStreakLabel=FFFFFF)
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=iammjh&theme=tokyonight" alt="iammjh" /></p>
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=iammjh&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=FF5F6D&text_color=FFFFFF)
+</div>
+
+---
+
+## 📈 Activity Graph
+
+[![iammjh's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=iammjh&theme=tokyo-night&hide_border=true&area=true)](https://github.com/iammjh)
+
+---
+
+## 🏆 GitHub Trophies
+
+<div align="center">
+
+[![trophy](https://github-profile-trophy.vercel.app/?username=iammjh&theme=radical&no-frame=true&no-bg=false&margin-w=4&row=1)](https://github.com/ryo-ma/github-profile-trophy)
 
 </div>
 
