@@ -164,9 +164,74 @@ document.addEventListener('DOMContentLoaded', () => {
         target.scrollIntoView({behavior:'smooth', block:'start'});
         // close mobile nav after click
         nav.classList.remove('open');
+        // mark clicked nav link active immediately
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        a.classList.add('active');
       }
     });
   });
+
+  // Scrollspy: observe sections and highlight corresponding nav link
+  (function initScrollSpy(){
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('main section[id]');
+    if (!sections.length || !navLinks.length) return;
+
+    const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 64;
+
+    // create moving indicator
+    const indicator = document.createElement('div');
+    indicator.className = 'nav-indicator';
+    nav.appendChild(indicator);
+
+    function moveIndicatorToLink(link){
+      if (!link) {
+        indicator.style.width = '0';
+        return;
+      }
+      const rect = link.getBoundingClientRect();
+      const navRect = nav.getBoundingClientRect();
+      const left = rect.left - navRect.left;
+      indicator.style.left = Math.round(left) + 'px';
+      indicator.style.width = Math.round(rect.width) + 'px';
+    }
+
+    function setActive(id){
+      let activeLink = null;
+      navLinks.forEach(a => {
+        const href = a.getAttribute('href');
+        if (href === '#' + id) { a.classList.add('active'); activeLink = a; } else a.classList.remove('active');
+      });
+      // move indicator to active link
+      if (activeLink) moveIndicatorToLink(activeLink);
+    }
+
+    // reposition indicator on resize
+    window.addEventListener('resize', () => {
+      const current = document.querySelector('.nav-link.active');
+      if (current) moveIndicatorToLink(current);
+    });
+
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+    }, {
+      root: null,
+      // offset by header height so section becomes active when it appears under header
+      rootMargin: `-${headerHeight}px 0px -40% 0px`,
+      threshold: 0
+    });
+
+    sections.forEach(s => spy.observe(s));
+    // ensure indicator positioned on initial load
+    setTimeout(() => {
+      const current = document.querySelector('.nav-link.active') || document.querySelector('.nav-link[href="#home"]');
+      if (current) moveIndicatorToLink(current);
+    }, 120);
+  })();
 
   // Optional: intercept contact form to show a quick client-side message
   const contactForm = document.getElementById('contactForm');
