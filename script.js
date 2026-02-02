@@ -51,6 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile nav toggle
   navToggle && navToggle.addEventListener('click', () => {
     nav.classList.toggle('open');
+    // Reposition indicator after menu opens/closes (mobile)
+    window.dispatchEvent(new Event('resize'));
   });
 
   // Theme toggle (persist in localStorage)
@@ -187,13 +189,26 @@ document.addEventListener('DOMContentLoaded', () => {
     function moveIndicatorToLink(link){
       if (!link) {
         indicator.style.width = '0';
+        indicator.style.height = '0';
+        indicator.style.left = '';
+        indicator.style.top = '';
+        indicator.style.bottom = '';
         return;
       }
       const rect = link.getBoundingClientRect();
       const navRect = nav.getBoundingClientRect();
+
+      // Keep indicator horizontal: calculate left & top so it sits just below the link
+      const indicatorHeight = 3; // px
       const left = rect.left - navRect.left;
+      // position the bar a few pixels below the link (rect.height - small offset)
+      const top = rect.top - navRect.top + rect.height - (indicatorHeight - 1);
+
+      indicator.style.bottom = '';
       indicator.style.left = Math.round(left) + 'px';
+      indicator.style.top = Math.round(top) + 'px';
       indicator.style.width = Math.round(rect.width) + 'px';
+      indicator.style.height = indicatorHeight + 'px';
     }
 
     function setActive(id){

@@ -271,7 +271,8 @@ body::before {
 }
 
 /* Light theme: make active nav link clearly visible (white) and adjust indicator contrast */
-body.light .nav-link.active { color: #ffffff; }
+/* In light theme the nav background is light; ensure active link remains readable */
+body.light .nav-link.active { color: var(--chip-active-text); font-weight:700; }
 body.light .nav-indicator { background: linear-gradient(90deg, var(--accent1), var(--accent2)); opacity: 1; }
 
 /* Dark theme: reduce contrast for inactive tabs, active becomes white */
