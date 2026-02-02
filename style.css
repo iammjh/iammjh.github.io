@@ -118,23 +118,7 @@
 a:focus{outline:3px solid rgba(59,130,246,0.25);outline-offset:3px}
 
 
-/* Light theme variables override (JS toggles .light on body) */
-body.light {
-  --bg: #ebe9e6;
-  --card: #ffffff;
-  --muted: #2d3748;
-  --glass: rgba(15,15,20,0.04);
-  --text: #0a0d14;
-  --outline-border: rgba(2,6,23,0.14);
-  --input-border: rgba(2,6,23,0.12);
-  --chip-border: rgba(2,6,23,0.14);
-  --card-overlay: rgba(2,6,23,0.08);
-  --header-overlay: rgba(2,6,23,0.06);
-  --tile-shadow: 0 6px 18px rgba(2,6,23,0.10);
-  --link-color: #0a0d14;
-  --chip-active-text: #08111a;
-  --chip-text: #08111a;
-}
+/* Light theme removed — site uses single dark theme. */
 
 /* Reset & base */
 *{box-sizing:border-box}
@@ -412,7 +396,20 @@ h4{font-size:1rem}
 
 /* Tools */
 .tool-grid{display:flex;flex-wrap:wrap;gap:0.5rem}
-.tool{background:var(--glass);padding:8px 10px;border-radius:8px;color:var(--muted);border:1px solid var(--outline-border)}
+.tool{background:transparent;padding:0;border-radius:8px;color:var(--muted);border:0}
+
+/* Icon-like badge used where brand logos are shown without text */
+.tool-icon{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:12px;background:var(--card-overlay);border:1px solid var(--chip-border);box-shadow:var(--tile-shadow);}
+.tool-icon:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,0.45);}
+.tool-initial{font-weight:700;color:var(--text);letter-spacing:0.6px}
+
+/* Iconify / SVG icon sizing and color */
+.tool-icon .iconify{width:28px;height:28px;display:inline-block;color:var(--link-color)}
+/* When icon loads hide the fallback initials */
+.tool-icon .iconify ~ .tool-initial{display:none}
+
+/* Visually hidden text for screen readers */
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px}
 
 /* Projects */
 .projects-controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
@@ -457,6 +454,17 @@ h4{font-size:1rem}
 .contact-form input:focus, .contact-form textarea:focus{outline:2px solid var(--accent3);outline-offset:1px;border-color:transparent}
 .form-actions{display:flex;gap:0.6rem;margin-top:0.5rem}
 .contact-info .card{background:rgba(21,24,33,0.6);backdrop-filter:blur(10px);padding:1.25rem;border-radius:14px;margin-top:1rem;box-shadow:0 8px 32px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.08)}
+
+/* Make contact links clearly visible in dark mode and accessible */
+.contact-info a { color: var(--accent3); text-decoration: underline; font-weight:600 }
+.contact-info a:hover { color: var(--accent1); text-decoration: none }
+.contact-info a:focus { outline: 3px solid rgba(122,252,255,0.18); outline-offset: 3px }
+
+/* Ensure standalone pages (privacy/terms) and other main content links
+  match the contact link styling so mailto links aren't browser-blue */
+main a, .container a { color: var(--accent3); text-decoration: underline; font-weight:600 }
+main a:hover, .container a:hover { color: var(--accent1); text-decoration: none }
+main a:focus, .container a:focus { outline: 3px solid rgba(122,252,255,0.18); outline-offset: 3px }
 
 /* Footer */
 .site-footer{padding:0.05rem 0;background:linear-gradient(180deg, var(--header-overlay), transparent);margin-top:2rem}

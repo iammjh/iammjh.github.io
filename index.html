@@ -9,6 +9,8 @@
   <!-- Preload critical CSS -->
   <link rel="preload" href="style.css" as="style">
   <link rel="stylesheet" href="style.css" />
+  <!-- Iconify: wide collection of brand icons (used for tool logos) -->
+  <script src="https://code.iconify.design/2/2.2.1/iconify.min.js" defer></script>
   
   <!-- Canonical URL -->
   <link rel="canonical" href="https://iammjh.github.io/portfolio/" />
@@ -490,7 +492,6 @@
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
       <div class="header-controls">
-        <button id="themeToggle" class="btn icon-btn" aria-label="Toggle theme">🌓</button>
         <button id="navToggle" class="btn mobile-only icon-btn" aria-label="Toggle menu">☰</button>
       </div>
     </div>
@@ -624,44 +625,85 @@
 
         <div class="skills-grid">
           <div class="skill-card">
-            <h3>Programming Languages</h3>
-            <div class="skill-list">
-              <div class="skill">
-                <span>Python</span>
-                <div class="bar"><div style="width:90%"></div></div>
+            <h3>Languages &amp; Databases</h3>
+            <div class="tool-grid" role="list" aria-label="Languages and Databases">
+              <div class="tool tool-icon" role="listitem" aria-label="Python">
+                <span class="iconify" data-icon="simple-icons:python" data-inline="false" aria-hidden="true"></span>
+                <span class="tool-initial">PY</span>
+                <span class="visually-hidden">Python</span>
               </div>
-              <div class="skill">
-                <span>JavaScript</span>
-                <div class="bar"><div style="width:75%"></div></div>
+
+              <div class="tool tool-icon" role="listitem" aria-label="JavaScript">
+                <span class="iconify" data-icon="simple-icons:javascript" data-inline="false" aria-hidden="true"></span>
+                <span class="tool-initial">JS</span>
+                <span class="visually-hidden">JavaScript</span>
               </div>
-              <div class="skill">
-                <span>MySQL</span>
-                <div class="bar"><div style="width:70%"></div></div>
+
+              <div class="tool tool-icon" role="listitem" aria-label="MySQL">
+                <span class="iconify" data-icon="simple-icons:mysql" data-inline="false" aria-hidden="true"></span>
+                <span class="tool-initial">SQL</span>
+                <span class="visually-hidden">MySQL</span>
               </div>
-              <div class="skill">
-                <span>HTML/CSS</span>
-                <div class="bar"><div style="width:80%"></div></div>
+
+              <div class="tool tool-icon" role="listitem" aria-label="MongoDB">
+                <span class="iconify" data-icon="simple-icons:mongodb" data-inline="false" aria-hidden="true"></span>
+                <span class="tool-initial">MDB</span>
+                <span class="visually-hidden">MongoDB</span>
+              </div>
+
+              <div class="tool tool-icon" role="listitem" aria-label="HTML5">
+                <span class="iconify" data-icon="simple-icons:html5" data-inline="false" aria-hidden="true"></span>
+                <span class="tool-initial">HTML</span>
+                <span class="visually-hidden">HTML5</span>
               </div>
             </div>
           </div>
 
           <div class="skill-card">
-            <h3>Tools & Technologies</h3>
-            <div class="tool-grid">
-              <div class="tool">MongoDB</div>
-              <div class="tool">Git</div>
-              <div class="tool">VS Code</div>
-              <div class="tool">Postman</div>
-              <div class="tool">Adobe Photoshop</div>
-              <div class="tool">Adobe Lightroom</div>
-              <div class="tool">MacOS</div>
-              <div class="tool">Windows OS</div>
+            <h3>Dev Tools &amp; Environments</h3>
+            <div class="tool-grid" role="list" aria-label="Dev tools and environments">
+
+              <div class="tool tool-icon" role="listitem" aria-label="Git">
+                <span class="iconify" data-icon="simple-icons:git" data-inline="false" aria-hidden="true"></span>
+                <span class="tool-initial">GIT</span>
+                <span class="visually-hidden">Git</span>
+              </div>
+
+              <div class="tool tool-icon" role="listitem" aria-label="GitHub">
+                <span class="iconify" data-icon="simple-icons:github" data-inline="false" aria-hidden="true"></span>
+                <span class="tool-initial">GH</span>
+                <span class="visually-hidden">GitHub</span>
+              </div>
+
+              <div class="tool tool-icon" role="listitem" aria-label="VS Code">
+                <span class="iconify" data-icon="simple-icons:visualstudiocode" data-inline="false" aria-hidden="true"></span>
+                <span class="tool-initial">VS</span>
+                <span class="visually-hidden">VS Code</span>
+              </div>
+
+              <div class="tool tool-icon" role="listitem" aria-label="Postman">
+                <span class="iconify" data-icon="simple-icons:postman" data-inline="false" aria-hidden="true"></span>
+                <span class="tool-initial">PM</span>
+                <span class="visually-hidden">Postman</span>
+              </div>
+
+              <div class="tool tool-icon" role="listitem" aria-label="MacOS">
+                <span class="iconify" data-icon="simple-icons:apple" data-inline="false" aria-hidden="true"></span>
+                <span class="tool-initial">mac</span>
+                <span class="visually-hidden">MacOS</span>
+              </div>
+
+              <div class="tool tool-icon" role="listitem" aria-label="Windows OS">
+                <span class="iconify" data-icon="simple-icons:microsoft" data-inline="false" aria-hidden="true"></span>
+                <span class="tool-initial">win</span>
+                <span class="visually-hidden">Windows OS</span>
+              </div>
             </div>
           </div>
 
           <div class="skill-card">
             <h3>Soft Skills</h3>
-            <p>Leadership, Team Management, Event Coordination, Project Management, Communication, Negotiation, Graphic Design.</p>
+            <p>Leadership, Team Management, Event Coordination, Project Management.</p>
           </div>
         </div>
       </div>
@@ -673,7 +715,8 @@
 
       <div class="projects-controls">
           <div class="filter-group" id="projectFilter">
-          <button class="chip active no-hover" data-filter="all">All</button>
+          <button class="chip active no-hover" data-filter="featured">Featured</button>
+          <button class="chip no-hover" data-filter="all">All</button>
           <button class="chip no-hover" data-filter="js">JavaScript</button>
           <button class="chip no-hover" data-filter="python">Python</button>
           <button class="chip no-hover" data-filter="web">Web</button>
@@ -683,20 +726,20 @@
 
       <div class="projects-grid" id="projectsGrid">
         <!-- project item: Singularity-Wars -->
-        <article class="project" data-tags="python game">
+        <article class="project featured" data-tags="python game">
           <img src="assets/singularity-wars.jpg" alt="Singularity-Wars screenshot" loading="lazy" width="800" height="450">
           <div class="project-body">
             <h3>Singularity-Wars</h3>
             <p>3D space combat game built with OpenGL and Python.</p>
             <div class="project-cta">
-              <a class="btn small" href="https://github.com/iammjh/Singularity-Wars/releases" target="_blank" rel="noopener">Live</a>
+              <a class="btn small" href="https://github.com/iammjh/Singularity-Wars/releases" target="_blank" rel="noopener">Releases</a>
               <a class="btn small outline" href="https://github.com/iammjh/Singularity-Wars" target="_blank" rel="noopener">Code</a>
             </div>
           </div>
         </article>
 
         <!-- TripBloom -->
-        <article class="project" data-tags="web js">
+        <article class="project featured" data-tags="web js">
           <img src="assets/tripbloom.jpg" alt="TripBloom screenshot" loading="lazy" width="800" height="450">
           <div class="project-body">
             <h3>TripBloom</h3>

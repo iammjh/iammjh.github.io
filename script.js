@@ -1,19 +1,10 @@
 // Simple interactions: nav toggle, theme toggle, year, project filter, progress load
 
-// Initialize theme IMMEDIATELY (before DOM ready) to prevent flash
-(function() {
-  const themeKey = 'portfolio-theme';
-  const saved = localStorage.getItem(themeKey);
-  if (saved === 'light') {
-    document.documentElement.classList.add('light');
-    document.body.classList.add('light');
-  }
-})();
+// Note: light theme feature removed — site uses single dark theme.
 
 document.addEventListener('DOMContentLoaded', () => {
   const nav = document.getElementById('nav');
   const navToggle = document.getElementById('navToggle');
-  const themeToggle = document.getElementById('themeToggle');
   const yearEl = document.getElementById('year');
 
   // Year
@@ -55,48 +46,38 @@ document.addEventListener('DOMContentLoaded', () => {
     window.dispatchEvent(new Event('resize'));
   });
 
-  // Theme toggle (persist in localStorage)
-  const themeKey = 'portfolio-theme';
-  const saved = localStorage.getItem(themeKey);
-  // Already applied in early script, just for consistency
-  if (saved === 'light' && !document.body.classList.contains('light')) {
-    document.body.classList.add('light');
-  }
-
-  themeToggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    document.body.classList.toggle('light');
-    const current = document.body.classList.contains('light') ? 'light' : 'dark';
-    localStorage.setItem(themeKey, current);
-    
-    // Update theme-color meta tag for mobile browsers
-    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-    if (themeColorMeta) {
-      themeColorMeta.setAttribute('content', current === 'light' ? '#ebe9e6' : '#ff5f6d');
-    }
-  });
+  // Light/dark toggle removed; site uses single dark theme.
 
   // Project filtering
   const filterWrap = document.getElementById('projectFilter');
   const projectsGrid = document.getElementById('projectsGrid');
   if (filterWrap && projectsGrid){
-    filterWrap.addEventListener('click', (e) => {
-      const btn = e.target.closest('button[data-filter]');
-      if (!btn) return;
-      const allBtns = filterWrap.querySelectorAll('button');
-      allBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.getAttribute('data-filter');
+    const applyProjectFilter = (filter) => {
+      const allBtns = filterWrap.querySelectorAll('button[data-filter]');
+      allBtns.forEach(b => b.classList.toggle('active', b.getAttribute('data-filter') === filter));
+
       const projects = projectsGrid.querySelectorAll('.project');
       projects.forEach(p => {
         const tags = p.getAttribute('data-tags') || '';
-        if (filter === 'all' || tags.includes(filter)) {
-          p.style.display = '';
-        } else {
-          p.style.display = 'none';
-        }
+        let show = false;
+        if (filter === 'all') show = true;
+        else if (filter === 'featured') show = p.classList.contains('featured');
+        else show = tags.includes(filter);
+
+        p.style.display = show ? '' : 'none';
       });
+    };
+
+    // Click handler for filter buttons
+    filterWrap.addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-filter]');
+      if (!btn) return;
+      const filter = btn.getAttribute('data-filter');
+      applyProjectFilter(filter);
     });
+
+    // Default: show featured projects on page load
+    applyProjectFilter('featured');
   }
 
   // Animate skill bars (appear on scroll)
