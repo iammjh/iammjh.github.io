@@ -456,15 +456,17 @@ h4{font-size:1rem}
 .contact-info .card{background:rgba(21,24,33,0.6);backdrop-filter:blur(10px);padding:1.25rem;border-radius:14px;margin-top:1rem;box-shadow:0 8px 32px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.08)}
 
 /* Make contact links clearly visible in dark mode and accessible */
-.contact-info a { color: var(--accent3); text-decoration: underline; font-weight:600 }
+.contact-info a { color: var(--accent2); text-decoration: underline; font-weight:600 }
 .contact-info a:hover { color: var(--accent1); text-decoration: none }
 .contact-info a:focus { outline: 3px solid rgba(122,252,255,0.18); outline-offset: 3px }
 
 /* Ensure standalone pages (privacy/terms) and other main content links
   match the contact link styling so mailto links aren't browser-blue */
-main a, .container a { color: var(--accent3); text-decoration: underline; font-weight:600 }
-main a:hover, .container a:hover { color: var(--accent1); text-decoration: none }
+main a:hover, .container a:not(.nav-link):hover { color: var(--accent1); text-decoration: none }
 main a:focus, .container a:focus { outline: 3px solid rgba(122,252,255,0.18); outline-offset: 3px }
+
+/* Privacy & Terms: make explicit mailto links use accent1 instead of default blue */
+main.container a[href^="mailto:"] { color: var(--accent2); }
 
 /* Footer */
 .site-footer{padding:0.05rem 0;background:linear-gradient(180deg, var(--header-overlay), transparent);margin-top:2rem}
