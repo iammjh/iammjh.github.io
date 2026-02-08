@@ -129,16 +129,6 @@ skills = {
 
 ---
 
-## 🏆 GitHub Trophies
-
-<div align="center">
-
-[![trophy](https://github-profile-trophy.vercel.app/?username=iammjh&theme=radical&no-frame=true&no-bg=false&margin-w=4&row=1)](https://github.com/ryo-ma/github-profile-trophy)
-
-</div>
-
----
-
 ## 🏆 Achievements
 
 - 🥇 **HSC GPA 5.00/5.00** - Science (2020)
