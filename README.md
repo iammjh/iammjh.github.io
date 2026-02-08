@@ -90,29 +90,6 @@ skills = {
 - Interactive travel planning application with dynamic UI
 - Features routing system and destination management
 
-### 🌤️ [Weather-Forecast](https://github.com/iammjh/Weather-Forecast)
-**Weather App** | `JavaScript` `API Integration` `Real-time Data`
-- Real-time weather data using external APIs
-- Responsive design with location-based forecasting
-- [Live Demo](https://iammjh.github.io/Weather-Forecast)
-
-### 🐍 [Snake-Game](https://github.com/iammjh/Snake-Game)
-**Classic Canvas Game** | `JavaScript` `Canvas API` `Game Logic`
-- Canvas-based game with responsive controls
-- High score saving and smooth animations
-- [Play Now](https://iammjh.github.io/Snake-Game)
-
-### 🛒 [banijjo](https://github.com/iammjh/banijjo)
-**Trading Platform** | `JavaScript` `Web Development`
-- Product listing and bidding functionality
-- Modern UI/UX with interactive features
-- [Live Demo](https://banijjo471.vercel.app)
-
-### 🎲 [Tic-Tac-Toe](https://github.com/iammjh/Tic-Tac-Toe)
-**AI Game** | `Python` `Minimax Algorithm` `AI`
-- Unbeatable AI opponent using minimax algorithm
-- Clean Python implementation with GUI
-
 ---
 
 ## 🎓 Education
@@ -137,8 +114,7 @@ skills = {
 <div align="center">
 
 <a href="https://github.com/iammjh">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=iammjh&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=iammjh&layout=compact&langs_count=8&theme=tokyonight"/>
+  
 </a>
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=iammjh&theme=tokyonight" alt="iammjh" /></p>
