@@ -44,17 +44,6 @@ I'm a **Computer Science & Engineering** undergraduate at **BRAC University** (C
 ![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
 ![OpenGL](https://img.shields.io/badge/OpenGL-5586A4?style=for-the-badge&logo=opengl&logoColor=white)
 
-### Proficiency Levels
-```python
-skills = {
-    'Python': '90%',
-    'JavaScript': '75%',
-    'HTML/CSS': '80%',
-    'MySQL': '70%',
-    'MongoDB': '75%',
-    'FastAPI': '70%',
-    'Node.js': '65%'
-}
 ```
 
 ---
