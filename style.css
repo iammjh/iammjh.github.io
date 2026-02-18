@@ -37,6 +37,13 @@
 .edu-heading{margin:0 0 .25rem 0}
 .edu-meta{color:var(--muted);font-size:.9rem;margin-top:.25rem}
 
+/* Academic achievements styles */
+.achievements{margin-top:1rem}
+.achievements .ach-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.6rem}
+.achievement-item{background:var(--card-overlay);border:1px solid var(--chip-border);padding:.6rem .8rem;border-radius:10px}
+.achievement-item strong{display:block;color:var(--text);margin-bottom:.25rem}
+.achievement-item .edu-meta{color:var(--muted);font-size:.9rem;margin-top:0}
+
 /* Small vertical space before Expertise block in About */
 .skills-overview{margin-top:1.5rem}
 
