@@ -273,6 +273,50 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Leadership "View all" toggle: move controls and animate extra items
+  (function initLeadToggle(){
+    const toggle = document.getElementById('lead-toggle');
+    const extraContainer = document.getElementById('lead-extra-container');
+    const controls = document.querySelector('.lead-controls');
+    if (!toggle || !extraContainer || !controls) return;
+
+    toggle.addEventListener('click', function(){
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+
+      if (expanded){
+        // collapsing: remove visible class to trigger hide animation,
+        // then set hidden after transition and move controls back above.
+        extraContainer.classList.remove('is-visible');
+        const onTransitionEnd = function(e){
+          if (e.target !== extraContainer) return;
+          extraContainer.setAttribute('hidden','');
+          extraContainer.removeEventListener('transitionend', onTransitionEnd);
+          // move controls back above the extra container
+          extraContainer.parentNode.insertBefore(controls, extraContainer);
+        };
+        extraContainer.addEventListener('transitionend', onTransitionEnd);
+
+        this.textContent = 'View all';
+        this.setAttribute('aria-expanded','false');
+        this.scrollIntoView({behavior:'smooth', block:'nearest'});
+      } else {
+        // expanding: move the controls below the extra container,
+        // un-hide the container then add the visible class to animate in.
+        extraContainer.parentNode.insertBefore(controls, extraContainer.nextSibling);
+        extraContainer.removeAttribute('hidden');
+        // allow layout to update before adding class
+        requestAnimationFrame(function(){
+          extraContainer.classList.add('is-visible');
+        });
+
+        this.textContent = 'Show less';
+        this.setAttribute('aria-expanded','true');
+        // scroll to the button after animation so it sits under the results
+        setTimeout(()=> this.scrollIntoView({behavior:'smooth', block:'nearest'}), 420);
+      }
+    });
+  })();
 });
 
 // Create floating particles in the background

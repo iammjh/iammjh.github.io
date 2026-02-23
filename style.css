@@ -346,6 +346,43 @@ h4{font-size:1rem}
 .lead-details{margin-top:0.8rem;padding-left:1rem}
 .toggle-details{margin-top:0.6rem;align-self:flex-start}
 
+/* Controls for leadership section (centered and spaced from grid) */
+.lead-controls{display:flex;justify-content:center;margin-top:1.5rem}
+.lead-controls .btn{min-width:160px}
+
+/* Simplified visual for the leadership "View all" control */
+#lead-toggle{
+  background: transparent;
+  border: 1px solid var(--chip-border);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+#lead-toggle:hover{ background: rgba(255,255,255,0.03); }
+#lead-toggle:focus{ outline: 3px solid rgba(59,130,246,0.12); outline-offset:3px }
+
+/* small chevron indicator */
+#lead-toggle::after{ content: '▾'; margin-left:8px; font-size:0.9rem; transition: transform 180ms ease; }
+#lead-toggle[aria-expanded="true"]::after{ transform: rotate(180deg); }
+
+@media (max-width:640px){
+  .lead-controls .btn{min-width:0;width:92%;max-width:420px}
+  #lead-toggle{justify-content:center}
+  .lead-extra-container{grid-template-columns:1fr; padding:0 1rem}
+}
+
+/* Container for extra leadership items shown under the View all button */
+.lead-extra-container{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:var(--maxwidth);margin:1rem auto 0;padding:0 1rem;opacity:0;transform:translateY(12px);transition:opacity .36s var(--anim-ease), transform .36s var(--anim-ease);}
+.lead-extra-container .lead-card{margin:0}
+/* Respect the native `hidden` attribute even when display is set by CSS */
+.lead-extra-container[hidden]{display:none !important;}
+.lead-extra-container.is-visible{opacity:1;transform:translateY(0)}
+
 
 /* About */
 .about-grid{display:grid;grid-template-columns:1fr 260px;gap:1.25rem;align-items:start}
