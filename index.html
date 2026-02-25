@@ -513,8 +513,14 @@
           </div>
 
           <div class="hero-meta">
-            <span class="meta-item">📍 Dhaka, Bangladesh</span>
-            <span class="meta-item">🎓 BRAC University</span>
+            <span class="meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Dhaka, Bangladesh
+            </span>
+            <span class="meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              BRAC University
+            </span>
           </div>
 
         </div>
@@ -548,52 +554,94 @@
 
           <ul class="about-list">
             <li>
-              <div class="education">
+                <div class="education">
                 <h3 class="edu-heading">Education</h3>
-                <div class="education-grid">
-                  <div class="edu-card">
-                    <strong>BRAC University</strong>
-                    <div class="edu-meta">B.Sc. in Computer Science & Engineering (Summer 2022–Present)</div>
-                    <div class="edu-meta">Expected Graduation: Spring 2026</div>
-                  </div>
+                <ol class="education-grid timeline" aria-label="Education timeline">
 
-                  <div class="edu-card">
-                    <strong>Ispahani Public School &amp; College</strong>
-                    <div class="edu-meta">Cumilla Cantonment — HSC (Science)</div>
-                    <div class="edu-meta">GPA: 5.00/5.00 (2018-2020)</div>
-                  </div>
+                  <li class="timeline-item" aria-current="true">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">
+                      <div class="timeline-date">2022 — Present</div>
+                      <strong>BRAC University</strong>
+                      <div class="edu-meta">B.Sc. in Computer Science &amp; Engineering (Summer 2022–Present)</div>
+                      <div class="edu-meta">Expected Graduation: Spring 2026</div>
+                    </div>
+                  </li>
 
-                  <div class="edu-card">
-                    <strong>Ispahani Public School &amp; College</strong>
-                    <div class="edu-meta">Cumilla Cantonment — SSC (Science)</div>
-                    <div class="edu-meta">GPA: 5.00/5.00 (2016-2018)</div>
-                  </div>
+                  <li class="timeline-item">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">
+                      <div class="timeline-date">2018 — 2020</div>
+                      <strong>Ispahani Public School &amp; College</strong>
+                      <div class="edu-meta">Cumilla Cantonment — HSC (Science)</div>
+                      <div class="edu-meta">GPA: 5.00/5.00</div>
+                    </div>
+                  </li>
 
-                  <div class="edu-card">
-                    <strong>Cumilla Zilla School</strong>
-                    <div class="edu-meta">Cumilla - Attended (2013-2013) (later transferred)</div>
-                  </div>
+                  <li class="timeline-item">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">
+                      <div class="timeline-date timeline-date--split">
+                        <span class="tl-pill">2009 — 2013</span>
+                        <span class="tl-pill-arrow" aria-hidden="true">→</span>
+                        <span class="tl-pill">2013 — 2018</span>
+                      </div>
+                      <strong>Ispahani Public School &amp; College</strong>
+                      <div class="edu-meta">Cumilla Cantonment — SSC (Science)</div>
+                      <div class="edu-meta">GPA: 5.00/5.00</div>
+                    </div>
+                  </li>
 
-                  <div class="edu-card">
-                    <strong>Chittagong Cantonment Public College</strong>
-                    <div class="edu-meta">Chittagong Cantonment - Attended (2006-2009) (later transferred)</div>
-                  </div>
+                  <li class="timeline-item">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">
+                      <div class="timeline-date">2013</div>
+                      <strong>Cumilla Zilla School</strong>
+                      <div class="edu-meta">Attended 2013 (later transferred)</div>
+                    </div>
+                  </li>
 
-                </div>
+                  <li class="timeline-item">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">
+                      <div class="timeline-date">2006 — 2009</div>
+                      <strong>Chittagong Cantonment Public College</strong>
+                      <div class="edu-meta">Attended 2006–2009 (later transferred)</div>
+                    </div>
+                  </li>
+
+                </ol>
               </div>
             </li>
             <li>
               <div class="achievements">
                 <h3 class="edu-heading">Academic Achievements</h3>
                 <ul class="ach-list">
+
                   <li class="achievement-item">
-                    <strong>General Scholarship — Higher Secondary Certificate (HSC) — 2020</strong>
-                    <div class="edu-meta">Awarded government scholarship for outstanding academic performance.</div>
+                    <div class="ach-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-2"/><path d="M6 9V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4"/><path d="M6 13v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3"/><path d="M9 21h6"/><path d="M12 17v4"/></svg>
+                    </div>
+                    <div class="ach-body">
+                      <div class="ach-year">2020</div>
+                      <strong>General Scholarship</strong>
+                      <div class="ach-subtitle">Higher Secondary Certificate (HSC)</div>
+                      <div class="edu-meta">Awarded government scholarship for outstanding academic performance.</div>
+                    </div>
                   </li>
+
                   <li class="achievement-item">
-                    <strong>Talent Pool Scholarship — Primary School Certificate (PSC) — 2012</strong>
-                    <div class="edu-meta">Recognized among top-performing students nationwide for exceptional academic merit.</div>
+                    <div class="ach-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <div class="ach-body">
+                      <div class="ach-year">2012</div>
+                      <strong>Talent Pool Scholarship</strong>
+                      <div class="ach-subtitle">Primary School Certificate (PSC)</div>
+                      <div class="edu-meta">Recognized among top-performing students nationwide for exceptional academic merit.</div>
+                    </div>
                   </li>
+
                 </ul>
               </div>
             </li>
@@ -718,7 +766,14 @@
 
           <div class="skill-card">
             <h3>Soft Skills</h3>
-            <p>Leadership, Team Management, Event Coordination, Project Management.</p>
+            <div class="skill-chips" style="margin-top:.75rem">
+              <span class="chip">Leadership</span>
+              <span class="chip">Team Management</span>
+              <span class="chip">Event Coordination</span>
+              <span class="chip">Public Speaking</span>
+              <span class="chip">Project Management</span>
+              <span class="chip">Problem Solving</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1023,7 +1078,7 @@
               </div>
               <div class="card">
                 <strong>Location</strong>
-                <p>House no: 5, Road 17, DIT Project<br>Merul Badda, Dhaka, Bangladesh</p>
+                <p>Merul Badda, Dhaka<br>Bangladesh</p>
               </div>
             </div>
           </div>
