@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!isMobile && !prefersReduce) {
     createFloatingParticles();
     addTypingEffect();
+    initHeroParallax();
   }
 
   // Add scroll-triggered animations (lightweight)
@@ -42,8 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile nav toggle
   navToggle && navToggle.addEventListener('click', () => {
     nav.classList.toggle('open');
-    // Reposition indicator after menu opens/closes (mobile)
-    window.dispatchEvent(new Event('resize'));
+    navToggle.classList.toggle('open');
   });
 
   // Light/dark toggle removed; site uses single dark theme.
@@ -78,6 +78,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Default: show featured projects on page load
     applyProjectFilter('featured');
+  }
+
+  // Style 2 — Tabbed Panel tab switching
+  const skp2Shell = document.querySelector('.skp2-shell');
+  if (skp2Shell) {
+    skp2Shell.addEventListener('click', (e) => {
+      const tab = e.target.closest('.skp2-tab');
+      if (!tab) return;
+      const key = tab.getAttribute('data-tab');
+      skp2Shell.querySelectorAll('.skp2-tab').forEach(t => t.classList.toggle('active', t === tab));
+      skp2Shell.querySelectorAll('.skp2-panel').forEach(p => p.classList.toggle('active', p.getAttribute('data-panel') === key));
+    });
   }
 
   // Animate skill bars (appear on scroll)
@@ -147,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         target.scrollIntoView({behavior:'smooth', block:'start'});
         // close mobile nav after click
         nav.classList.remove('open');
+        navToggle && navToggle.classList.remove('open');
         // mark clicked nav link active immediately
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         a.classList.add('active');
@@ -162,34 +175,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 64;
 
-    // create moving indicator
-    const indicator = document.createElement('div');
-    indicator.className = 'nav-indicator';
-    nav.appendChild(indicator);
+    // use the static .nav-pill element as the sliding highlight
+    const indicator = nav.querySelector('.nav-pill');
+    if (indicator) indicator.style.opacity = '1';
 
     function moveIndicatorToLink(link){
-      if (!link) {
-        indicator.style.width = '0';
-        indicator.style.height = '0';
-        indicator.style.left = '';
-        indicator.style.top = '';
-        indicator.style.bottom = '';
-        return;
-      }
+      if (!link || !indicator) return;
       const rect = link.getBoundingClientRect();
       const navRect = nav.getBoundingClientRect();
-
-      // Keep indicator horizontal: calculate left & top so it sits just below the link
-      const indicatorHeight = 3; // px
       const left = rect.left - navRect.left;
-      // position the bar a few pixels below the link (rect.height - small offset)
-      const top = rect.top - navRect.top + rect.height - (indicatorHeight - 1);
-
-      indicator.style.bottom = '';
-      indicator.style.left = Math.round(left) + 'px';
-      indicator.style.top = Math.round(top) + 'px';
-      indicator.style.width = Math.round(rect.width) + 'px';
-      indicator.style.height = indicatorHeight + 'px';
+      const top  = rect.top  - navRect.top;
+      indicator.style.left   = Math.round(left) + 'px';
+      indicator.style.top    = Math.round(top)  + 'px';
+      indicator.style.width  = Math.round(rect.width)  + 'px';
+      indicator.style.height = Math.round(rect.height) + 'px';
+      indicator.style.opacity = '1';
     }
 
     function setActive(id){
@@ -251,22 +251,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Leadership cards: expand/collapse details
-  const leadToggleButtons = document.querySelectorAll('.toggle-details');
+  const leadToggleButtons = document.querySelectorAll('.lc-toggle');
   leadToggleButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const card = btn.closest('.lead-card');
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.lc');
       if (!card) return;
-      const details = card.querySelector('.lead-details');
+      const details = card.querySelector('.lc-details');
+      const txtEl = btn.querySelector('.lc-toggle-txt');
       const expanded = btn.getAttribute('aria-expanded') === 'true';
       if (details) {
         if (expanded) {
           details.hidden = true;
-          btn.textContent = 'Show more';
+          if (txtEl) txtEl.textContent = 'Show details';
           btn.setAttribute('aria-expanded', 'false');
           card.dataset.expanded = 'false';
         } else {
           details.hidden = false;
-          btn.textContent = 'Show less';
+          if (txtEl) txtEl.textContent = 'Hide details';
           btn.setAttribute('aria-expanded', 'true');
           card.dataset.expanded = 'true';
         }
@@ -318,6 +319,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   })();
 });
+
+// Mouse parallax on hero orbs
+function initHeroParallax() {
+  const orbs = document.querySelectorAll('.hero-orb');
+  const hero = document.getElementById('home');
+  if (!orbs.length || !hero) return;
+  const factors = [0.022, -0.016, 0.012];
+  let rafId = null;
+  let tx = 0, ty = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+    tx = e.clientX - cx;
+    ty = e.clientY - cy;
+    if (!rafId) rafId = requestAnimationFrame(moveOrbs);
+  });
+
+  function moveOrbs() {
+    orbs.forEach((orb, i) => {
+      const f = factors[i] ?? 0.01;
+      orb.style.transform = `translate(${tx * f}px, ${ty * f}px)`;
+    });
+    rafId = null;
+  }
+}
 
 // Create floating particles in the background
 function createFloatingParticles() {
@@ -438,15 +465,27 @@ function addTypingEffect() {
 function hideLoadingScreen() {
   const loadingScreen = document.getElementById('loading-screen');
   if (!loadingScreen) return;
-  
-  // Hide loading screen as soon as DOM is ready (faster)
+
+  // Animate percentage counter
+  const pct = loadingScreen.querySelector('.ls-pct');
+  if (pct) {
+    let val = 0;
+    const duration = 1400; // matches ls-fill animation
+    const start = performance.now();
+    const tick = (now) => {
+      const elapsed = now - start;
+      val = Math.min(100, Math.round((elapsed / duration) * 100));
+      pct.textContent = val + '%';
+      if (val < 100) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  // Hide loading screen after bar fills
   setTimeout(() => {
     loadingScreen.classList.add('hidden');
-    // Remove from DOM after transition
-    setTimeout(() => {
-      loadingScreen.remove();
-    }, 500);
-  }, 100);
+    setTimeout(() => loadingScreen.remove(), 620);
+  }, 1750);
 }
 
 // Back to top button functionality

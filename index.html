@@ -472,17 +472,39 @@
 <body>
   <!-- Loading Screen -->
   <div id="loading-screen">
-    <div class="loader">
-      <div class="loader-circle"></div>
-      <p>Loading Portfolio...</p>
+    <div class="ls-bg">
+      <div class="ls-orb ls-orb--1"></div>
+      <div class="ls-orb ls-orb--2"></div>
+      <div class="ls-grid"></div>
+    </div>
+    <div class="ls-center">
+      <div class="ls-brand">
+        <div class="ls-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <span class="ls-name">Jahid<span class="ls-dot">.</span></span>
+      </div>
+      <p class="ls-tagline">Crafting experiences with code</p>
+      <div class="ls-bar-wrap">
+        <div class="ls-bar"></div>
+      </div>
+      <span class="ls-pct">0%</span>
     </div>
   </div>
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand-wrap">
-        <a class="brand" href="#home">Md. Jahidul <span>Hasan</span></a>
-      </div>
+
+      <!-- Brand -->
+      <a class="brand" href="#home">
+        <span class="brand-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </span>
+        <span class="brand-name">Jahid<span class="brand-dot">.</span></span>
+      </a>
+
+      <!-- Floating pill nav -->
       <nav class="nav" id="nav">
+        <span class="nav-pill"></span>
         <a href="#home" class="nav-link">Home</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#skills" class="nav-link">Skills</a>
@@ -491,597 +513,935 @@
         <a href="#hobby" class="nav-link">Hobby</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
+
+      <!-- Controls -->
       <div class="header-controls">
-        <button id="navToggle" class="btn mobile-only icon-btn" aria-label="Toggle menu">☰</button>
+        <a href="#contact" class="nav-cta desktop-only">Hire Me</a>
+        <button id="navToggle" class="nav-hamburger mobile-only" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
+
     </div>
   </header>
 
   <main>
     <!-- HERO -->
     <section id="home" class="hero" aria-label="Home / Hero section">
-      <div class="container hero-grid">
-        <div class="hero-text">
-          <h1 class="name">Hi, I'm <span class="accent">Md. Jahidul Hasan</span></h1>
-          <h2 class="role">CSE Student | Backend Developer | AI/ML Enthusiast</h2>
-          <p class="tagline">Dedicated CSE student at BRAC University with passion for backend development, leadership, and innovation in technology.</p>
 
-          <div class="hero-ctas">
-            <!-- View Projects / Download Resume: enable brand-like hover animation -->
-            <a class="btn outline" href="#projects">View Projects</a>
-            <a class="btn outline" href="assets/resume.pdf" download>Download Resume</a>
-          </div>
-
-          <div class="hero-meta">
-            <span class="meta-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Dhaka, Bangladesh
-            </span>
-            <span class="meta-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-              BRAC University
-            </span>
-          </div>
-
+      <!-- Animated background -->
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-orb hero-orb--1"></div>
+        <div class="hero-orb hero-orb--2"></div>
+        <div class="hero-orb hero-orb--3"></div>
+        <div class="hero-mesh"></div>
+        <div class="hero-noise"></div>
+        <div class="hero-scanline"></div>
+        <div class="hero-vignette"></div>
+        <!-- Tech icon watermarks -->
+        <div class="hero-wm" aria-hidden="true">
+          <span class="hero-wm-icon" style="--x:6%;--y:12%;--s:52px;--d:0s;--r:-18deg"><span class="iconify" data-icon="simple-icons:python"></span></span>
+          <span class="hero-wm-icon" style="--x:18%;--y:68%;--s:44px;--d:1.2s;--r:12deg"><span class="iconify" data-icon="simple-icons:javascript"></span></span>
+          <span class="hero-wm-icon" style="--x:3%;--y:44%;--s:38px;--d:2.4s;--r:-8deg"><span class="iconify" data-icon="simple-icons:mongodb"></span></span>
+          <span class="hero-wm-icon" style="--x:78%;--y:8%;--s:46px;--d:0.6s;--r:14deg"><span class="iconify" data-icon="simple-icons:mysql"></span></span>
+          <span class="hero-wm-icon" style="--x:88%;--y:55%;--s:42px;--d:3.1s;--r:-22deg"><span class="iconify" data-icon="simple-icons:html5"></span></span>
+          <span class="hero-wm-icon" style="--x:72%;--y:80%;--s:48px;--d:1.8s;--r:6deg"><span class="iconify" data-icon="simple-icons:git"></span></span>
+          <span class="hero-wm-icon" style="--x:92%;--y:28%;--s:36px;--d:0.3s;--r:-10deg"><span class="iconify" data-icon="simple-icons:github"></span></span>
+          <span class="hero-wm-icon" style="--x:10%;--y:88%;--s:40px;--d:2.7s;--r:20deg"><span class="iconify" data-icon="simple-icons:django"></span></span>
+          <span class="hero-wm-icon" style="--x:55%;--y:5%;--s:44px;--d:1.5s;--r:-15deg"><span class="iconify" data-icon="simple-icons:nodedotjs"></span></span>
+          <span class="hero-wm-icon" style="--x:42%;--y:90%;--s:38px;--d:3.8s;--r:9deg"><span class="iconify" data-icon="simple-icons:flask"></span></span>
+          <span class="hero-wm-icon" style="--x:64%;--y:42%;--s:34px;--d:2.1s;--r:-5deg"><span class="iconify" data-icon="simple-icons:linux"></span></span>
+          <span class="hero-wm-icon" style="--x:30%;--y:15%;--s:36px;--d:4.2s;--r:17deg"><span class="iconify" data-icon="simple-icons:postman"></span></span>
         </div>
+      </div>
 
-        <div class="hero-card">
-          <div class="avatar">
-            <!-- Replace src with your photo -->
-            <img src="assets/jahid.jpg" alt="Md. Jahidul Hasan" loading="eager" width="220" height="220">
+      <div class="container hero-container">
+        <div class="hp3-grid">
+
+          <!-- Left: text -->
+          <div class="hp3-text">
+            <div class="h-badge"><span class="h-badge-dot"></span>Available for Opportunities</div>
+            <h1 class="hp3-name">Md.&nbsp;Jahidul<br><span class="hp3-accent">Hasan</span></h1>
+            <p class="hp3-role">CSE Student &middot; Backend Developer &middot; AI/ML Enthusiast</p>
+            <p class="hp3-tagline">Dedicated CSE student at BRAC University with passion for backend development, leadership, and innovation in technology.</p>
+            <div class="hp3-ctas">
+              <a class="btn primary" href="#projects">View Projects</a>
+              <a class="btn outline" href="assets/resume.pdf" download>Download Resume</a>
+            </div>
+            <div class="h-social">
+              <a class="h-soc-link" href="https://github.com/iammjh" target="_blank" rel="noopener" aria-label="GitHub"><span class="iconify" data-icon="simple-icons:github" style="width:18px;height:18px"></span></a>
+              <a class="h-soc-link" href="https://www.linkedin.com/in/iammjh" target="_blank" rel="noopener" aria-label="LinkedIn"><span class="iconify" data-icon="simple-icons:linkedin" style="width:18px;height:18px"></span></a>
+              <a class="h-soc-link" href="https://www.facebook.com/iammjh.io" target="_blank" rel="noopener" aria-label="Facebook"><span class="iconify" data-icon="simple-icons:facebook" style="width:18px;height:18px"></span></a>
+              <a class="h-soc-link" href="mailto:captainjahid45@gmail.com" aria-label="Email"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+            </div>
           </div>
 
-          <div class="wave-card">
-            <h3>Quick Links</h3>
-            <ul>
-              <li><a href="#projects">Featured Projects</a></li>
-              <li><a href="#skills">Top Skills</a></li>
-              <li><a href="#contact">Say Hello</a></li>
-            </ul>
+          <!-- Right: photo -->
+          <div class="hp3-right">
+            <div class="hp3-photo-wrap">
+              <!-- rotating gradient ring -->
+              <div class="hp3-ring"></div>
+              <!-- glow blob -->
+              <div class="hp3-glow"></div>
+              <!-- photo -->
+              <div class="hp3-photo">
+                <img src="assets/jahid.jpg" alt="Md. Jahidul Hasan" width="240" height="300" loading="lazy">
+              </div>
+              <!-- floating stat badges -->
+              <div class="hp3-badge hp3-badge--tl">
+                <span class="hp3-badge-icon">🎓</span>
+                <span>BRAC University</span>
+              </div>
+              <div class="hp3-badge hp3-badge--br">
+                <span class="hp3-badge-icon">⚡</span>
+                <span>Backend Dev</span>
+              </div>
+              <div class="hp3-badge hp3-badge--tr">
+                <span class="hp3-badge-icon">🤖</span>
+                <span>AI / ML</span>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
+
+    <div class="section-divider" aria-hidden="true"><span class="section-divider-gem">✦</span></div>
 
     <!-- ABOUT -->
     <section id="about" class="section about container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>
-            I am a CSE undergraduate at BRAC University bridging the gap between technical development and team leadership. With a strong foundation in Backend Development, I also bring proven experience in project management and event coordination. I don’t just build the backend; I help manage the workflow to get the product across the finish line.
-          </p>
-
-          <ul class="about-list">
-            <li>
-                <div class="education">
-                <h3 class="edu-heading">Education</h3>
-                <ol class="education-grid timeline" aria-label="Education timeline">
-
-                  <li class="timeline-item" aria-current="true">
-                    <div class="timeline-dot" aria-hidden="true"></div>
-                    <div class="timeline-content">
-                      <div class="timeline-date">2022 — Present</div>
-                      <strong>BRAC University</strong>
-                      <div class="edu-meta">B.Sc. in Computer Science &amp; Engineering (Summer 2022–Present)</div>
-                      <div class="edu-meta">Expected Graduation: Spring 2026</div>
-                    </div>
-                  </li>
-
-                  <li class="timeline-item">
-                    <div class="timeline-dot" aria-hidden="true"></div>
-                    <div class="timeline-content">
-                      <div class="timeline-date">2018 — 2020</div>
-                      <strong>Ispahani Public School &amp; College</strong>
-                      <div class="edu-meta">Cumilla Cantonment — HSC (Science)</div>
-                      <div class="edu-meta">GPA: 5.00/5.00</div>
-                    </div>
-                  </li>
-
-                  <li class="timeline-item">
-                    <div class="timeline-dot" aria-hidden="true"></div>
-                    <div class="timeline-content">
-                      <div class="timeline-date timeline-date--split">
-                        <span class="tl-pill">2009 — 2013</span>
-                        <span class="tl-pill-arrow" aria-hidden="true">→</span>
-                        <span class="tl-pill">2013 — 2018</span>
-                      </div>
-                      <strong>Ispahani Public School &amp; College</strong>
-                      <div class="edu-meta">Cumilla Cantonment — SSC (Science)</div>
-                      <div class="edu-meta">GPA: 5.00/5.00</div>
-                    </div>
-                  </li>
-
-                  <li class="timeline-item">
-                    <div class="timeline-dot" aria-hidden="true"></div>
-                    <div class="timeline-content">
-                      <div class="timeline-date">2013</div>
-                      <strong>Cumilla Zilla School</strong>
-                      <div class="edu-meta">Attended 2013 (later transferred)</div>
-                    </div>
-                  </li>
-
-                  <li class="timeline-item">
-                    <div class="timeline-dot" aria-hidden="true"></div>
-                    <div class="timeline-content">
-                      <div class="timeline-date">2006 — 2009</div>
-                      <strong>Chittagong Cantonment Public College</strong>
-                      <div class="edu-meta">Attended 2006–2009 (later transferred)</div>
-                    </div>
-                  </li>
-
-                </ol>
-              </div>
-            </li>
-            <li>
-              <div class="achievements">
-                <h3 class="edu-heading">Academic Achievements</h3>
-                <ul class="ach-list">
-
-                  <li class="achievement-item">
-                    <div class="ach-icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-2"/><path d="M6 9V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4"/><path d="M6 13v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3"/><path d="M9 21h6"/><path d="M12 17v4"/></svg>
-                    </div>
-                    <div class="ach-body">
-                      <div class="ach-year">2020</div>
-                      <strong>General Scholarship</strong>
-                      <div class="ach-subtitle">Higher Secondary Certificate (HSC)</div>
-                      <div class="edu-meta">Awarded government scholarship for outstanding academic performance.</div>
-                    </div>
-                  </li>
-
-                  <li class="achievement-item">
-                    <div class="ach-icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    </div>
-                    <div class="ach-body">
-                      <div class="ach-year">2012</div>
-                      <strong>Talent Pool Scholarship</strong>
-                      <div class="ach-subtitle">Primary School Certificate (PSC)</div>
-                      <div class="edu-meta">Recognized among top-performing students nationwide for exceptional academic merit.</div>
-                    </div>
-                  </li>
-
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="skills-overview">
-                <h3 class="edu-heading">Expertise</h3>
-              <div class="skill-chips">
-                <span class="chip">Backend Development</span>
-                <span class="chip">Python</span>
-                <span class="chip">JavaScript</span>
-                <span class="chip">MongoDB</span>
-                <span class="chip">MySQL</span>
-                <span class="chip">AI/ML</span>
-                <span class="chip">Event Management</span>
-              </div>
-              </div>
-            </li>
-          </ul>
-
-          
+      <div class="section-header">
+        <span class="section-eyebrow">Who I am</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <!-- Intro card -->
+      <div class="about-intro-card">
+        <div class="about-intro-avatar">
+          <img src="assets/Re_Jahid.jpg" alt="Md. Jahidul Hasan">
         </div>
-
-        <div class="about-stats">
-          <div class="stat">
-            <div class="stat-val">8+</div>
-            <div class="stat-label">University Projects</div>
-          </div>
-          <div class="stat">
-            <div class="stat-val">3+</div>
-            <div class="stat-label">Years in Leadership</div>
-          </div>
-          <div class="stat">
-            <div class="stat-val">15+</div>
-            <div class="stat-label">Events Organized</div>
+        <div class="about-intro-body">
+          <p class="about-intro-text">I am a CSE undergraduate at BRAC University bridging the gap between technical development and team leadership. With a strong foundation in Backend Development, I also bring proven experience in project management and event coordination. I don't just build the backend; I help manage the workflow to get the product across the finish line.</p>
+          <div class="about-stats-row">
+            <div class="about-stat">
+              <span class="about-stat-val">8+</span>
+              <span class="about-stat-label">University Projects</span>
+            </div>
+            <div class="about-stat-sep"></div>
+            <div class="about-stat">
+              <span class="about-stat-val">3+</span>
+              <span class="about-stat-label">Years in Leadership</span>
+            </div>
+            <div class="about-stat-sep"></div>
+            <div class="about-stat">
+              <span class="about-stat-val">15+</span>
+              <span class="about-stat-label">Events Organized</span>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Two-column: timeline | achievements + expertise -->
+      <div class="about-cols">
+
+        <!-- Left: Education timeline -->
+        <div class="about-col-edu">
+          <h3 class="edu-heading">Education</h3>
+          <ol class="education-grid timeline" aria-label="Education timeline">
+
+            <li class="timeline-item" aria-current="true">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <div class="timeline-date">2022 — Present</div>
+                <strong>BRAC University</strong>
+                <div class="edu-meta">B.Sc. in Computer Science &amp; Engineering (Summer 2022–Present)</div>
+                <div class="edu-meta">Expected Graduation: Spring 2026</div>
+              </div>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <div class="timeline-date">2018 — 2020</div>
+                <strong>Ispahani Public School &amp; College</strong>
+                <div class="edu-meta">Cumilla Cantonment — HSC (Science)</div>
+                <div class="edu-meta">GPA: 5.00/5.00</div>
+              </div>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <div class="timeline-date timeline-date--split">
+                  <span class="tl-pill">2009 — 2013</span>
+                  <span class="tl-pill-arrow" aria-hidden="true">→</span>
+                  <span class="tl-pill">2013 — 2018</span>
+                </div>
+                <strong>Ispahani Public School &amp; College</strong>
+                <div class="edu-meta">Cumilla Cantonment — SSC (Science)</div>
+                <div class="edu-meta">GPA: 5.00/5.00</div>
+              </div>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <div class="timeline-date">2013</div>
+                <strong>Cumilla Zilla School</strong>
+                <div class="edu-meta">Attended 2013 (later transferred)</div>
+              </div>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <div class="timeline-date">2006 — 2009</div>
+                <strong>Chittagong Cantonment Public College</strong>
+                <div class="edu-meta">Attended 2006–2009 (later transferred)</div>
+              </div>
+            </li>
+
+          </ol>
+        </div>
+
+        <!-- Right: Achievements + Expertise -->
+        <div class="about-col-right">
+
+          <div class="achievements">
+            <h3 class="edu-heading">Academic Achievements</h3>
+            <ul class="ach-list">
+
+              <li class="achievement-item">
+                <div class="ach-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-2"/><path d="M6 9V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4"/><path d="M6 13v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3"/><path d="M9 21h6"/><path d="M12 17v4"/></svg>
+                </div>
+                <div class="ach-body">
+                  <div class="ach-year">2020</div>
+                  <strong>General Scholarship</strong>
+                  <div class="ach-subtitle">Higher Secondary Certificate (HSC)</div>
+                  <div class="edu-meta">Awarded government scholarship for outstanding academic performance.</div>
+                </div>
+              </li>
+
+              <li class="achievement-item">
+                <div class="ach-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="ach-body">
+                  <div class="ach-year">2012</div>
+                  <strong>Talent Pool Scholarship</strong>
+                  <div class="ach-subtitle">Primary School Certificate (PSC)</div>
+                  <div class="edu-meta">Recognized among top-performing students nationwide for exceptional academic merit.</div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="skills-overview">
+            <h3 class="edu-heading">Expertise</h3>
+            <div class="exp-grid">
+              <div class="exp-tile" style="--exp-accent:var(--accent1)">
+                <span class="exp-icon">⚙️</span>
+                <span class="exp-label">Backend Dev</span>
+              </div>
+              <div class="exp-tile" style="--exp-accent:#4b8bbe">
+                <span class="exp-icon">🐍</span>
+                <span class="exp-label">Python</span>
+              </div>
+              <div class="exp-tile" style="--exp-accent:#f0db4f">
+                <span class="exp-icon">𝙅𝙎</span>
+                <span class="exp-label">JavaScript</span>
+              </div>
+              <div class="exp-tile" style="--exp-accent:#4db33d">
+                <span class="exp-icon">🍃</span>
+                <span class="exp-label">MongoDB</span>
+              </div>
+              <div class="exp-tile" style="--exp-accent:#00758f">
+                <span class="exp-icon">🗄️</span>
+                <span class="exp-label">MySQL</span>
+              </div>
+              <div class="exp-tile" style="--exp-accent:var(--accent3)">
+                <span class="exp-icon">🤖</span>
+                <span class="exp-label">AI / ML</span>
+              </div>
+              <div class="exp-tile" style="--exp-accent:var(--accent2);grid-column:1/-1">
+                <span class="exp-icon">🎯</span>
+                <span class="exp-label">Event Management</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
+
+    <div class="section-divider" aria-hidden="true"><span class="section-divider-gem">✦</span></div>
 
     <!-- SKILLS -->
     <section id="skills" class="section skills">
       <div class="container">
-        <h2 class="section-title">Skills</h2>
+        <div class="section-header">
+          <span class="section-eyebrow">What I know</span>
+          <h2 class="section-title">Skills</h2>
+        </div>
+        <p class="muted-lead">Languages, tools, and competencies I use to build and ship things.</p>
 
-        <div class="skills-grid">
-          <div class="skill-card">
-            <h3>Languages &amp; Databases</h3>
-            <div class="tool-grid" role="list" aria-label="Languages and Databases">
-              <div class="tool tool-icon" role="listitem" aria-label="Python">
-                <span class="iconify" data-icon="simple-icons:python" data-inline="false" aria-hidden="true"></span>
-                <span class="tool-initial">PY</span>
-                <span class="visually-hidden">Python</span>
+        <div class="sk-grid">
+
+          <!-- Card 1: Languages & Databases -->
+          <div class="sk-card sk-card--lang">
+            <div class="sk-card-header">
+              <div class="sk-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
               </div>
-
-              <div class="tool tool-icon" role="listitem" aria-label="JavaScript">
-                <span class="iconify" data-icon="simple-icons:javascript" data-inline="false" aria-hidden="true"></span>
-                <span class="tool-initial">JS</span>
-                <span class="visually-hidden">JavaScript</span>
+              <h3>Languages &amp; Databases</h3>
+            </div>
+            <div class="sk-icons" role="list">
+              <div class="sk-item" role="listitem">
+                <div class="sk-icon"><span class="iconify" data-icon="simple-icons:python" data-inline="false"></span><span class="sk-tool-initial">PY</span></div>
+                <span>Python</span>
               </div>
-
-              <div class="tool tool-icon" role="listitem" aria-label="MySQL">
-                <span class="iconify" data-icon="simple-icons:mysql" data-inline="false" aria-hidden="true"></span>
-                <span class="tool-initial">SQL</span>
-                <span class="visually-hidden">MySQL</span>
+              <div class="sk-item" role="listitem">
+                <div class="sk-icon"><span class="iconify" data-icon="simple-icons:javascript" data-inline="false"></span><span class="sk-tool-initial">JS</span></div>
+                <span>JavaScript</span>
               </div>
-
-              <div class="tool tool-icon" role="listitem" aria-label="MongoDB">
-                <span class="iconify" data-icon="simple-icons:mongodb" data-inline="false" aria-hidden="true"></span>
-                <span class="tool-initial">MDB</span>
-                <span class="visually-hidden">MongoDB</span>
+              <div class="sk-item" role="listitem">
+                <div class="sk-icon"><span class="iconify" data-icon="simple-icons:mysql" data-inline="false"></span><span class="sk-tool-initial">SQL</span></div>
+                <span>MySQL</span>
               </div>
-
-              <div class="tool tool-icon" role="listitem" aria-label="HTML5">
-                <span class="iconify" data-icon="simple-icons:html5" data-inline="false" aria-hidden="true"></span>
-                <span class="tool-initial">HTML</span>
-                <span class="visually-hidden">HTML5</span>
+              <div class="sk-item" role="listitem">
+                <div class="sk-icon"><span class="iconify" data-icon="simple-icons:mongodb" data-inline="false"></span><span class="sk-tool-initial">MDB</span></div>
+                <span>MongoDB</span>
+              </div>
+              <div class="sk-item" role="listitem">
+                <div class="sk-icon"><span class="iconify" data-icon="simple-icons:html5" data-inline="false"></span><span class="sk-tool-initial">HTML</span></div>
+                <span>HTML5</span>
+              </div>
+              <div class="sk-item" role="listitem">
+                <div class="sk-icon"><span class="iconify" data-icon="simple-icons:css3" data-inline="false"></span><span class="sk-tool-initial">CSS</span></div>
+                <span>CSS3</span>
               </div>
             </div>
           </div>
 
-          <div class="skill-card">
-            <h3>Dev Tools &amp; Environments</h3>
-            <div class="tool-grid" role="list" aria-label="Dev tools and environments">
-
-              <div class="tool tool-icon" role="listitem" aria-label="Git">
-                <span class="iconify" data-icon="simple-icons:git" data-inline="false" aria-hidden="true"></span>
-                <span class="tool-initial">GIT</span>
-                <span class="visually-hidden">Git</span>
+          <!-- Card 2: Frameworks & Dev Tools -->
+          <div class="sk-card sk-card--tools">
+            <div class="sk-card-header">
+              <div class="sk-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
               </div>
-
-              <div class="tool tool-icon" role="listitem" aria-label="GitHub">
-                <span class="iconify" data-icon="simple-icons:github" data-inline="false" aria-hidden="true"></span>
-                <span class="tool-initial">GH</span>
-                <span class="visually-hidden">GitHub</span>
+              <h3>Frameworks &amp; Dev Tools</h3>
+            </div>
+            <div class="sk-icons sk-icons--4col" role="list">
+              <div class="sk-item" role="listitem">
+                <div class="sk-icon"><span class="iconify" data-icon="simple-icons:fastapi" data-inline="false"></span><span class="sk-tool-initial">FA</span></div>
+                <span>FastAPI</span>
               </div>
-
-              <div class="tool tool-icon" role="listitem" aria-label="VS Code">
-                <span class="iconify" data-icon="simple-icons:visualstudiocode" data-inline="false" aria-hidden="true"></span>
-                <span class="tool-initial">VS</span>
-                <span class="visually-hidden">VS Code</span>
+              <div class="sk-item" role="listitem">
+                <div class="sk-icon"><span class="iconify" data-icon="simple-icons:nodedotjs" data-inline="false"></span><span class="sk-tool-initial">Node</span></div>
+                <span>Node.js</span>
               </div>
-
-              <div class="tool tool-icon" role="listitem" aria-label="Postman">
-                <span class="iconify" data-icon="simple-icons:postman" data-inline="false" aria-hidden="true"></span>
-                <span class="tool-initial">PM</span>
-                <span class="visually-hidden">Postman</span>
+              <div class="sk-item" role="listitem">
+                <div class="sk-icon"><span class="iconify" data-icon="simple-icons:opengl" data-inline="false"></span><span class="sk-tool-initial">GL</span></div>
+                <span>OpenGL</span>
               </div>
-
-              <div class="tool tool-icon" role="listitem" aria-label="MacOS">
-                <span class="iconify" data-icon="simple-icons:apple" data-inline="false" aria-hidden="true"></span>
-                <span class="tool-initial">mac</span>
-                <span class="visually-hidden">MacOS</span>
+              <div class="sk-item" role="listitem">
+                <div class="sk-icon"><span class="iconify" data-icon="simple-icons:git" data-inline="false"></span><span class="sk-tool-initial">GIT</span></div>
+                <span>Git</span>
               </div>
-
-              <div class="tool tool-icon" role="listitem" aria-label="Windows OS">
-                <span class="iconify" data-icon="simple-icons:microsoft" data-inline="false" aria-hidden="true"></span>
-                <span class="tool-initial">win</span>
-                <span class="visually-hidden">Windows OS</span>
+              <div class="sk-item" role="listitem">
+                <div class="sk-icon"><span class="iconify" data-icon="simple-icons:github" data-inline="false"></span><span class="sk-tool-initial">GH</span></div>
+                <span>GitHub</span>
+              </div>
+              <div class="sk-item" role="listitem">
+                <div class="sk-icon"><span class="iconify" data-icon="simple-icons:visualstudiocode" data-inline="false"></span><span class="sk-tool-initial">VS</span></div>
+                <span>VS Code</span>
+              </div>
+              <div class="sk-item" role="listitem">
+                <div class="sk-icon"><span class="iconify" data-icon="simple-icons:postman" data-inline="false"></span><span class="sk-tool-initial">PM</span></div>
+                <span>Postman</span>
               </div>
             </div>
           </div>
 
-          <div class="skill-card">
-            <h3>Soft Skills</h3>
-            <div class="skill-chips" style="margin-top:.75rem">
-              <span class="chip">Leadership</span>
-              <span class="chip">Team Management</span>
-              <span class="chip">Event Coordination</span>
-              <span class="chip">Public Speaking</span>
-              <span class="chip">Project Management</span>
-              <span class="chip">Problem Solving</span>
+          <!-- Card 3: Soft Skills -->
+          <div class="sk-card sk-card--soft">
+            <div class="sk-card-header">
+              <div class="sk-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h3>Soft Skills</h3>
             </div>
-          </div>
+            <div class="sk-chips">
+              <span class="sk-chip">Leadership</span>
+              <span class="sk-chip">Team Management</span>
+              <span class="sk-chip">Event Coordination</span>
+              <span class="sk-chip">Public Speaking</span>
+              <span class="sk-chip">Project Management</span>
+              <span class="sk-chip">Problem Solving</span>
+              <span class="sk-chip">Time Management</span>
+            </div>
+          </div>  
         </div>
       </div>
     </section>
 
+    <div class="section-divider" aria-hidden="true"><span class="section-divider-gem">✦</span></div>
+
+         
     <!-- PROJECTS -->
     <section id="projects" class="section projects container">
-      <h2 class="section-title">Projects</h2>
+      <div class="section-header">
+        <span class="section-eyebrow">What I've built</span>
+        <h2 class="section-title">Projects</h2>
+      </div>
+      <p class="muted-lead">A selection of things I've built — from games and web apps to system-level programs.</p>
 
       <div class="projects-controls">
-          <div class="filter-group" id="projectFilter">
-          <button class="chip active no-hover" data-filter="featured">Featured</button>
-          <button class="chip no-hover" data-filter="all">All</button>
-          <button class="chip no-hover" data-filter="js">JavaScript</button>
-          <button class="chip no-hover" data-filter="python">Python</button>
-          <button class="chip no-hover" data-filter="web">Web</button>
-          <button class="chip no-hover" data-filter="game">Game</button>
+        <div class="filter-bar" id="projectFilter" role="toolbar" aria-label="Filter projects">
+          <button class="filter-btn active" data-filter="featured">⭐ Featured</button>
+          <button class="filter-btn" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="js">JavaScript</button>
+          <button class="filter-btn" data-filter="python">Python</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="game">Game</button>
         </div>
       </div>
 
       <div class="projects-grid" id="projectsGrid">
-        <!-- project item: Singularity-Wars -->
+
+        <!-- Singularity-Wars -->
         <article class="project featured" data-tags="python game">
-          <img src="assets/singularity-wars.jpg" alt="Singularity-Wars screenshot" loading="lazy" width="800" height="450">
+          <div class="proj-img-wrap">
+            <img src="assets/singularity-wars.jpg" alt="Singularity-Wars screenshot" loading="lazy" width="800" height="450">
+            <div class="proj-overlay" aria-hidden="true">
+              <a class="proj-action" href="https://github.com/iammjh/Singularity-Wars/releases" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Releases
+              </a>
+              <a class="proj-action" href="https://github.com/iammjh/Singularity-Wars" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.5 10.5 0 0 1 5.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+                GitHub
+              </a>
+            </div>
+            <span class="proj-badge">Featured</span>
+          </div>
           <div class="project-body">
+            <div class="proj-tags">
+              <span class="proj-tag tag-py">Python</span>
+              <span class="proj-tag tag-game">OpenGL</span>
+              <span class="proj-tag tag-game">Game</span>
+            </div>
             <h3>Singularity-Wars</h3>
             <p>3D space combat game built with OpenGL and Python.</p>
-            <div class="project-cta">
-              <a class="btn small" href="https://github.com/iammjh/Singularity-Wars/releases" target="_blank" rel="noopener">Releases</a>
-              <a class="btn small outline" href="https://github.com/iammjh/Singularity-Wars" target="_blank" rel="noopener">Code</a>
-            </div>
           </div>
         </article>
 
         <!-- TripBloom -->
         <article class="project featured" data-tags="web js">
-          <img src="assets/tripbloom.jpg" alt="TripBloom screenshot" loading="lazy" width="800" height="450">
-          <div class="project-body">
-            <h3>TripBloom</h3>
-            <p>JavaScript travel planning app (interactive UI & routing).</p>
-            <div class="project-cta">
-              <a class="btn small outline" href="https://github.com/iammjh/TripBloom" target="_blank" rel="noopener">Code</a>
+          <div class="proj-img-wrap">
+            <img src="assets/tripbloom.jpg" alt="TripBloom screenshot" loading="lazy" width="800" height="450">
+            <div class="proj-overlay" aria-hidden="true">
+              <a class="proj-action" href="https://github.com/iammjh/TripBloom" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.5 10.5 0 0 1 5.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+                GitHub
+              </a>
             </div>
+            <span class="proj-badge">Featured</span>
+          </div>
+          <div class="project-body">
+            <div class="proj-tags">
+              <span class="proj-tag tag-js">JavaScript</span>
+              <span class="proj-tag tag-web">HTML/CSS</span>
+              <span class="proj-tag tag-web">Web</span>
+            </div>
+            <h3>TripBloom</h3>
+            <p>JavaScript travel planning app with interactive UI and routing.</p>
           </div>
         </article>
 
-        
-
         <!-- Tic-Tac-Toe -->
         <article class="project" data-tags="python game">
-          <img src="assets/tic-tac-toe.jpg" alt="Tic Tac Toe screenshot" loading="lazy" width="800" height="450">
-          <div class="project-body">
-            <h3>Tic-Tac-Toe</h3>
-            <p>Python implementation with AI opponent (minimax).</p>
-            <div class="project-cta">
-              <a class="btn small outline" href="https://github.com/iammjh/Tic-Tac-Toe" target="_blank" rel="noopener">Code</a>
+          <div class="proj-img-wrap">
+            <img src="assets/tic-tac-toe.jpg" alt="Tic Tac Toe screenshot" loading="lazy" width="800" height="450">
+            <div class="proj-overlay" aria-hidden="true">
+              <a class="proj-action" href="https://github.com/iammjh/Tic-Tac-Toe" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.5 10.5 0 0 1 5.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+                GitHub
+              </a>
             </div>
+          </div>
+          <div class="project-body">
+            <div class="proj-tags">
+              <span class="proj-tag tag-py">Python</span>
+              <span class="proj-tag tag-game">AI/ML</span>
+              <span class="proj-tag tag-game">Game</span>
+            </div>
+            <h3>Tic-Tac-Toe</h3>
+            <p>Python implementation with AI opponent using minimax algorithm.</p>
           </div>
         </article>
 
         <!-- Weather-Forecast -->
         <article class="project" data-tags="web js">
-          <img src="assets/weather.jpg" alt="Weather Forecast screenshot" loading="lazy" width="800" height="450">
-          <div class="project-body">
-            <h3>Weather-Forecast</h3>
-            <p>Interactive weather forecasting app using real-time APIs.</p>
-            <div class="project-cta">
-              <a class="btn small" href="https://iammjh.github.io/Weather-Forecast" target="_blank" rel="noopener">Live</a>
-              <a class="btn small outline" href="https://github.com/iammjh/Weather-Forecast" target="_blank" rel="noopener">Code</a>
+          <div class="proj-img-wrap">
+            <img src="assets/weather.jpg" alt="Weather Forecast screenshot" loading="lazy" width="800" height="450">
+            <div class="proj-overlay" aria-hidden="true">
+              <a class="proj-action" href="https://iammjh.github.io/Weather-Forecast" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live
+              </a>
+              <a class="proj-action" href="https://github.com/iammjh/Weather-Forecast" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.5 10.5 0 0 1 5.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+                GitHub
+              </a>
             </div>
+          </div>
+          <div class="project-body">
+            <div class="proj-tags">
+              <span class="proj-tag tag-js">JavaScript</span>
+              <span class="proj-tag tag-web">API</span>
+              <span class="proj-tag tag-web">Web</span>
+            </div>
+            <h3>Weather-Forecast</h3>
+            <p>Interactive weather app with real-time API data and dynamic UI.</p>
           </div>
         </article>
 
         <!-- Snake-Game -->
         <article class="project" data-tags="js game">
-          <img src="assets/snake.jpg" alt="Snake Game screenshot" loading="lazy" width="800" height="450">
+          <div class="proj-img-wrap">
+            <img src="assets/snake.jpg" alt="Snake Game screenshot" loading="lazy" width="800" height="450">
+            <div class="proj-overlay" aria-hidden="true">
+              <a class="proj-action" href="https://iammjh.github.io/Snake-Game" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live
+              </a>
+              <a class="proj-action" href="https://github.com/iammjh/Snake-Game" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.5 10.5 0 0 1 5.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
           <div class="project-body">
+            <div class="proj-tags">
+              <span class="proj-tag tag-js">JavaScript</span>
+              <span class="proj-tag tag-game">Canvas</span>
+              <span class="proj-tag tag-game">Game</span>
+            </div>
             <h3>Snake-Game</h3>
             <p>Classic canvas-based snake with responsive controls and highscore saving.</p>
-            <div class="project-cta">
-              <a class="btn small" href="https://iammjh.github.io/Snake-Game" target="_blank" rel="noopener">Live</a>
-              <a class="btn small outline" href="https://github.com/iammjh/Snake-Game" target="_blank" rel="noopener">Code</a>
-            </div>
           </div>
         </article>
 
         <!-- banijjo -->
         <article class="project" data-tags="web js">
-          <img src="assets/banijjo.jpg" alt="trading website screenshot" loading="lazy" width="800" height="450">
-          <div class="project-body">
-            <h3>banijjo</h3>
-            <p>JavaScript trading style project, showcasing product listings and bidding functionality.</p>
-            <div class="project-cta">
-              <a class="btn small" href="https://banijjo471.vercel.app" target="_blank" rel="noopener">Live</a>
-              <a class="btn small outline" href="https://github.com/iammjh/banijjo" target="_blank" rel="noopener">Code</a>
+          <div class="proj-img-wrap">
+            <img src="assets/banijjo.jpg" alt="Banijjo trading website screenshot" loading="lazy" width="800" height="450">
+            <div class="proj-overlay" aria-hidden="true">
+              <a class="proj-action" href="https://banijjo471.vercel.app" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live
+              </a>
+              <a class="proj-action" href="https://github.com/iammjh/banijjo" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.5 10.5 0 0 1 5.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+                GitHub
+              </a>
             </div>
+          </div>
+          <div class="project-body">
+            <div class="proj-tags">
+              <span class="proj-tag tag-js">JavaScript</span>
+              <span class="proj-tag tag-web">Vercel</span>
+              <span class="proj-tag tag-web">Web</span>
+            </div>
+            <h3>banijjo</h3>
+            <p>Trading-style web app with product listings and bidding functionality.</p>
           </div>
         </article>
 
         <!-- PCB-WEBSITE -->
         <article class="project" data-tags="web php">
-          <img src="assets/pcb.jpg" alt="PCB Website screenshot" loading="lazy" width="800" height="450">
-          <div class="project-body">
-            <h3>PCB-WEBSITE</h3>
-            <p>PHP-based website project demonstrating server-side rendering and forms.</p>
-            <div class="project-cta">
-              <a class="btn small outline" href="https://github.com/iammjh/PCB-WEBSITE" target="_blank" rel="noopener">Code</a>
+          <div class="proj-img-wrap">
+            <img src="assets/pcb.jpg" alt="PCB Website screenshot" loading="lazy" width="800" height="450">
+            <div class="proj-overlay" aria-hidden="true">
+              <a class="proj-action" href="https://github.com/iammjh/PCB-WEBSITE" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.5 10.5 0 0 1 5.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+                GitHub
+              </a>
             </div>
           </div>
+          <div class="project-body">
+            <div class="proj-tags">
+              <span class="proj-tag tag-web">PHP</span>
+              <span class="proj-tag tag-web">Web</span>
+            </div>
+            <h3>PCB-WEBSITE</h3>
+            <p>PHP-based website with server-side rendering and dynamic forms.</p>
+          </div>
         </article>
-        
+
         <!-- ATM-Machine -->
         <article class="project" data-tags="other asm">
-          <img src="assets/atm.png" alt="Assembly / microprocessor screenshot" loading="lazy" width="800" height="450">
-          <div class="project-body">
-            <h3>ATM-Machine</h3>
-            <p>Assembly-language ATM machine with user interaction and basic transaction handling.</p>
-            <div class="project-cta">
-              <a class="btn small outline" href="https://github.com/iammjh/ATM-Machine" target="_blank" rel="noopener">Code</a>
+          <div class="proj-img-wrap">
+            <img src="assets/atm.png" alt="Assembly ATM machine screenshot" loading="lazy" width="800" height="450">
+            <div class="proj-overlay" aria-hidden="true">
+              <a class="proj-action" href="https://github.com/iammjh/ATM-Machine" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.5 10.5 0 0 1 5.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+                GitHub
+              </a>
             </div>
+          </div>
+          <div class="project-body">
+            <div class="proj-tags">
+              <span class="proj-tag tag-sys">Assembly</span>
+              <span class="proj-tag tag-sys">Systems</span>
+            </div>
+            <h3>ATM-Machine</h3>
+            <p>Assembly-language ATM with user interaction and transaction handling.</p>
           </div>
         </article>
       </div>
     </section>
 
+    <div class="section-divider" aria-hidden="true"><span class="section-divider-gem">✦</span></div>
+
     <!-- LEADERSHIP -->
     <section id="leadership" class="section leadership">
       <div class="container">
-        <h2 class="section-title">Leadership / Extracurricular</h2>
+        <div class="section-header">
+          <span class="section-eyebrow">Community</span>
+          <h2 class="section-title">Leadership / Extracurricular</h2>
+        </div>
         <p class="muted-lead">Active in student leadership and community service, managing large-scale events and overseeing club operations.</p>
 
-        <div class="leadership-grid">
-          <div class="lead-card" data-expanded="false">
-            <div class="lead-header">
-              <h3>BRAC University Computer Club — Assistant Director (Event Management)</h3>
-              <div class="lead-meta">December 2024 – February 2026 | Dhaka, Bangladesh</div>
+        <div class="lead-list">
+
+          <!-- Card 1 -->
+          <div class="lc" data-expanded="false">
+            <div class="lc-aside">
+              <div class="lc-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="lc-line" aria-hidden="true"></div>
             </div>
-            <div class="lead-body">
-              <p>Leading event management and operations across <strong>7 departments</strong>, coordinating logistics, vendor relations, volunteer teams, and budgets to deliver workshops and competitions for <strong>1400+ active members</strong>.</p>
-              <div class="lead-details" hidden>
+            <div class="lc-body">
+              <div class="lc-top">
+                <div>
+                  <span class="lc-role-badge lc-role-badge--director">Executive Body</span>
+                  <h3 class="lc-title">BRAC University Computer Club</h3>
+                  <div class="lc-subtitle">Assistant Director — Event Management</div>
+                </div>
+                <span class="lc-date">Dec 2024 – Feb 2026</span>
+              </div>
+              <p class="lc-desc">Leading event management across <strong>7 departments</strong>, coordinating logistics, vendor relations, volunteer teams, and budgets for competitions and workshops serving <strong>1400+ active members</strong>.</p>
+              <div class="lc-stats">
+                <div class="lc-stat"><span class="lc-stat-val">7</span><span class="lc-stat-lbl">Departments</span></div>
+                <div class="lc-stat"><span class="lc-stat-val">1400+</span><span class="lc-stat-lbl">Members</span></div>
+              </div>
+              <div class="lc-details" hidden>
                 <ul>
                   <li>Overseeing event operations and ensuring alignment between student initiatives and university policies.</li>
-                  <li>Managing event budgets, sponsor negotiations, and expense tracking to support large-scale events.</li>
-                  <li>Coordinating with faculty advisors, external partners, and vendors to plan technical workshops, competitions, and seminars.</li>
-                  <li>Supervising volunteer teams and on-site logistics to ensure smooth event execution and participant experience.</li>
+                  <li>Managing event budgets, sponsor negotiations, and expense tracking for large-scale events.</li>
+                  <li>Coordinating with faculty advisors, external partners, and vendors for workshops, competitions, and seminars.</li>
+                  <li>Supervising volunteer teams and on-site logistics for smooth event execution.</li>
                 </ul>
               </div>
-              <button class="btn small toggle-details" aria-expanded="false">Show more</button>
+              <button class="lc-toggle" aria-expanded="false">
+                <span class="lc-toggle-txt">Show details</span>
+                <svg class="lc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
             </div>
           </div>
 
-          <div class="lead-card" data-expanded="false">
-            <div class="lead-header">
-              <h3>BUCC Bit Battles — Organizer</h3>
-              <div class="lead-meta">July 2025 | Dhaka, Bangladesh</div>
+          <!-- Card 2 -->
+          <div class="lc" data-expanded="false">
+            <div class="lc-aside">
+              <div class="lc-icon lc-icon--green">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div class="lc-line" aria-hidden="true"></div>
             </div>
-            <div class="lead-body">
-              <p>Coordinated Intra BRAC University Programming Contest for 150+ participants, liaising with Online Judge platform.</p>
-              <div class="lead-details" hidden>
+            <div class="lc-body">
+              <div class="lc-top">
+                <div>
+                  <span class="lc-role-badge lc-role-badge--organizer">Organizer</span>
+                  <h3 class="lc-title">BUCC Bit Battles</h3>
+                  <div class="lc-subtitle">Intra BRAC University Programming Contest</div>
+                </div>
+                <span class="lc-date">July 2025</span>
+              </div>
+              <p class="lc-desc">Coordinated programming contest for <strong>150+ participants</strong>, liaising with the Online Judge platform for contest configuration and monitoring.</p>
+              <div class="lc-stats">
+                <div class="lc-stat"><span class="lc-stat-val">150+</span><span class="lc-stat-lbl">Participants</span></div>
+              </div>
+              <div class="lc-details" hidden>
                 <ul>
                   <li>Oversaw end-to-end event execution and technical setup.</li>
                   <li>Liaised with the Online Judge platform to configure contest settings and monitoring.</li>
                 </ul>
               </div>
-              <button class="btn small toggle-details" aria-expanded="false">Show more</button>
+              <button class="lc-toggle" aria-expanded="false">
+                <span class="lc-toggle-txt">Show details</span>
+                <svg class="lc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
             </div>
           </div>
-          
-          <!-- extra items moved below the controls to keep grid layout intact -->
 
         </div>
+
         <div class="lead-controls">
-          <button id="lead-toggle" class="btn outline" aria-expanded="false">View all</button>
+          <button id="lead-toggle" class="btn outline" aria-expanded="false">View all activity</button>
         </div>
 
-        <!-- Extra leadership items: placed below the controls so they appear under the button -->
-        <div id="lead-extra-container" class="lead-extra-container" hidden>
-          <div class="lead-card" data-expanded="false">
-            <div class="lead-header">
-              <h3>TechConnect: Engineering &amp; Computer Science Career Fair — Executive Volunteer</h3>
-              <div class="lead-meta">Dec 2024 | Dhaka, Bangladesh</div>
+        <!-- Extra leadership items -->
+        <div id="lead-extra-container" class="lead-extra-container lead-list" hidden>
+
+          <!-- Card 3 -->
+          <div class="lc" data-expanded="false">
+            <div class="lc-aside">
+              <div class="lc-icon lc-icon--yellow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="lc-line" aria-hidden="true"></div>
             </div>
-            <div class="lead-body">
-              <p>Facilitated networking opportunities between students and <strong>40+ tech organizations</strong>, promoting industry engagement and supporting event logistics.</p>
-              <div class="lead-details" hidden>
+            <div class="lc-body">
+              <div class="lc-top">
+                <div>
+                  <span class="lc-role-badge lc-role-badge--volunteer">Volunteer</span>
+                  <h3 class="lc-title">TechConnect Career Fair</h3>
+                  <div class="lc-subtitle">Engineering &amp; Computer Science — Executive Volunteer</div>
+                </div>
+                <span class="lc-date">Dec 2024</span>
+              </div>
+              <p class="lc-desc">Facilitated networking between students and <strong>40+ tech organizations</strong>, supporting event logistics and booth coordination.</p>
+              <div class="lc-stats">
+                <div class="lc-stat"><span class="lc-stat-val">40+</span><span class="lc-stat-lbl">Organizations</span></div>
+              </div>
+              <div class="lc-details" hidden>
                 <ul>
-                  <li>Assisted in managing event operations and coordination between company representatives, faculty, and participants.</li>
+                  <li>Assisted in managing event operations between company representatives, faculty, and participants.</li>
                   <li>Facilitated booth setups and networking sessions for 40+ tech organizations.</li>
-                  <li>Supported attendee registration and logistics to ensure a professional and organized environment.</li>
+                  <li>Supported attendee registration and logistics for a professional environment.</li>
                 </ul>
               </div>
-              <button class="btn small toggle-details" aria-expanded="false">Show more</button>
+              <button class="lc-toggle" aria-expanded="false">
+                <span class="lc-toggle-txt">Show details</span>
+                <svg class="lc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
             </div>
           </div>
 
-          <div class="lead-card" data-expanded="false">
-            <div class="lead-header">
-              <h3>IntraHacktive 1.0 — Volunteer</h3>
-              <div class="lead-meta">Nov 2024 | Dhaka, Bangladesh</div>
+          <!-- Card 4 -->
+          <div class="lc" data-expanded="false">
+            <div class="lc-aside">
+              <div class="lc-icon lc-icon--yellow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              </div>
             </div>
-            <div class="lead-body">
-              <p>Contributed to the successful execution of a university hackathon, handling logistics and participant coordination.</p>
-              <div class="lead-details" hidden>
+            <div class="lc-body">
+              <div class="lc-top">
+                <div>
+                  <span class="lc-role-badge lc-role-badge--volunteer">Volunteer</span>
+                  <h3 class="lc-title">IntraHacktive 1.0</h3>
+                  <div class="lc-subtitle">University Hackathon</div>
+                </div>
+                <span class="lc-date">Nov 2024</span>
+              </div>
+              <p class="lc-desc">Contributed to the successful execution of a university hackathon, handling logistics, vendor coordination, and participant management.</p>
+              <div class="lc-details" hidden>
                 <ul>
                   <li>Coordinated food arrangements by communicating with vendors and negotiating prices.</li>
                   <li>Assisted with on-site execution, logistics, and participant management.</li>
-                  <li>Collaborated with organizing teams to ensure timely task completion and overall event success.</li>
+                  <li>Collaborated with organizing teams to ensure timely task completion and event success.</li>
                 </ul>
               </div>
-              <button class="btn small toggle-details" aria-expanded="false">Show more</button>
+              <button class="lc-toggle" aria-expanded="false">
+                <span class="lc-toggle-txt">Show details</span>
+                <svg class="lc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
             </div>
           </div>
-          
-          
+
         </div>
       </div>
     </section>
+
+    <div class="section-divider" aria-hidden="true"><span class="section-divider-gem">✦</span></div>
 
     <!-- HOBBIES -->
     <section id="hobby" class="section hobby">
       <div class="container">
-        <h2 class="section-title">Hobbies</h2>
+        <div class="section-header">
+          <span class="section-eyebrow">Outside code</span>
+          <h2 class="section-title">Hobbies</h2>
+        </div>
+        <p class="muted-lead">What I do when I'm not writing code.</p>
 
-        <div class="skills-grid">
-          <div class="skill-card">
-            <h3>Sports</h3>
-            <p>Basketball, football, athletics, and general fitness. I play and follow team sports and enjoy staying active.</p>
-          </div>
- 
-          <div class="skill-card">
-            <h3>Games</h3>
-            <p>Forza Horizon, PUBG, eFootball and other racing &amp; multiplayer games. I enjoy open-world racing, competitive shooters, and cooperative sessions with friends.</p>
-          </div>           
+        <div class="hobby-grid">
 
-          <div class="skill-card">
-            <h3>Movies / Shows / Anime</h3>
-            <p>Enjoy watching movies, TV shows, and anime across genres — from action and sci-fi to slice-of-life and thrillers.</p>
+          <div class="hobby-card">
+            <div class="hobby-icon-wrap hobby-icon-wrap--red">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l4.24 4.24"/><path d="M14.83 9.17l4.24-4.24"/><path d="M14.83 14.83l4.24 4.24"/><path d="M9.17 14.83l-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg>
+            </div>
+            <div class="hobby-content">
+              <h3>Sports</h3>
+              <div class="hobby-tags">
+                <span>Basketball</span>
+                <span>Football</span>
+                <span>Athletics</span>
+                <span>Fitness</span>
+              </div>
+            </div>
           </div>
+
+          <div class="hobby-card">
+            <div class="hobby-icon-wrap hobby-icon-wrap--purple">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="16" height="10" rx="2"/><path d="M8 6V4"/><path d="M16 6V4"/><path d="M2 14h2"/><path d="M20 14h2"/><circle cx="8" cy="11" r="1" fill="currentColor"/><circle cx="16" cy="11" r="1" fill="currentColor"/><path d="M10 11h4"/></svg>
+            </div>
+            <div class="hobby-content">
+              <h3>Games</h3>             
+              <div class="hobby-tags">
+                <span>Forza</span>
+                <span>Need For Speed</span>
+                <span>Call of Duty</span>
+                <span>PUBG</span>
+                <span>eFootball</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hobby-card">
+            <div class="hobby-icon-wrap hobby-icon-wrap--cyan">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+            </div>
+            <div class="hobby-content">
+              <h3>Listening & Watching</h3>              
+              <div class="hobby-tags">
+                <span>Action</span>
+                <span>Sci-fi</span>
+                <span>Anime</span>
+                <span>Thrillers</span>
+                <span>Songs</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
+
+    <div class="section-divider" aria-hidden="true"><span class="section-divider-gem">✦</span></div>
 
 
     <!-- CONTACT -->
     <section id="contact" class="section contact">
       <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-grid">
-          <form id="contactForm" class="contact-form" action="https://formsubmit.co/captainjahid45@gmail.com" method="POST">
-            <!-- Contact form submission via FormSubmit -->
+        <div class="section-header">
+          <span class="section-eyebrow">Say hello</span>
+          <h2 class="section-title">Contact</h2>
+        </div>
+
+        <div class="ct-grid">
+
+          <!-- Left: info panel -->
+          <div class="ct-info">
+            <p class="ct-intro">Have a project in mind, want to collaborate, or just want to say hi? My inbox is always open.</p>
+            <!-- Profile header -->
+            <div class="ct-card">
+              <div class="ct-card-header">
+                <div class="ct-card-glow"></div>
+                <div class="ct-avatar">
+                  <img src="assets/jahid.jpg" alt="Md. Jahidul Hasan" width="72" height="72">
+                </div>
+                <div class="ct-card-name">
+                  <strong>Md. Jahidul Hasan</strong>
+                  <span>CSE Student &middot; Backend Developer</span>
+                </div>
+                <div class="ct-badge"><span class="ct-avail-dot"></span>Available</div>
+              </div>
+
+              <div class="ct-rows">
+                <a class="ct-row" href="mailto:captainjahid45@gmail.com">
+                  <div class="ct-row-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  </div>
+                  <div class="ct-row-body">
+                    <span class="ct-row-label">Email</span>
+                    <span class="ct-row-value">captainjahid45@gmail.com</span>
+                  </div>
+                  <svg class="ct-row-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+
+                <a class="ct-row" href="tel:+8801827832458">
+                  <div class="ct-row-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </div>
+                  <div class="ct-row-body">
+                    <span class="ct-row-label">Phone</span>
+                    <span class="ct-row-value">+880 1827 832 458</span>
+                  </div>
+                  <svg class="ct-row-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+
+                <div class="ct-row ct-row--static">
+                  <div class="ct-row-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                  <div class="ct-row-body">
+                    <span class="ct-row-label">Location</span>
+                    <span class="ct-row-value">Dhaka, Bangladesh</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ct-soc-row">
+                <a class="ct-soc-btn" href="https://github.com/iammjh" target="_blank" rel="noopener">
+                  <span class="iconify" data-icon="simple-icons:github" style="width:16px;height:16px"></span>
+                  GitHub
+                </a>
+                <a class="ct-soc-btn" href="https://www.linkedin.com/in/iammjh/" target="_blank" rel="noopener">
+                  <span class="iconify" data-icon="simple-icons:linkedin" style="width:16px;height:16px"></span>
+                  LinkedIn
+                </a>
+                <a class="ct-soc-btn" href="https://facebook.com/iammjh.io" target="_blank" rel="noopener">
+                  <span class="iconify" data-icon="simple-icons:facebook" style="width:16px;height:16px"></span>
+                  Facebook
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right: form -->
+          <form id="contactForm" class="ct-form" action="https://formsubmit.co/captainjahid45@gmail.com" method="POST">
             <input type="hidden" name="_subject" value="New message from Portfolio site">
             <input type="hidden" name="_captcha" value="false">
 
-            <label>
-              <span>Name</span>
-              <input type="text" name="name" required />
-            </label>
+            <div class="ct-field">
+              <input class="ct-input" type="text" name="name" id="ct-name" placeholder=" " required />
+              <label class="ct-label" for="ct-name">Your Name</label>
+            </div>
 
-            <label>
-              <span>Email</span>
-              <input type="email" name="email" required />
-            </label>
+            <div class="ct-field">
+              <input class="ct-input" type="email" name="email" id="ct-email" placeholder=" " required />
+              <label class="ct-label" for="ct-email">Email Address</label>
+            </div>
 
-            <label>
-              <span>Message</span>
-              <textarea name="message" rows="6" required></textarea>
-            </label>
+            <div class="ct-field">
+              <textarea class="ct-input ct-textarea" name="message" id="ct-msg" rows="5" placeholder=" " required></textarea>
+              <label class="ct-label" for="ct-msg">Message</label>
+            </div>
 
-            <div class="form-actions">
-              <button class="btn primary" type="submit">Send Message</button>
-              <button class="btn outline" type="reset">Reset</button>
+            <div class="ct-form-actions">
+              <button class="btn primary ct-submit" type="submit">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                Send Message
+              </button>
             </div>
           </form>
 
-          <div class="contact-info">
-            <h3>Get in touch</h3>
-            <p>Prefer email?</p>
-            <p>Personal: <a href="mailto:captainjahid45@gmail.com">captainjahid45@gmail.com</a></p>
-            <p>Phone: <a href="tel:+8801827832458">+880 1827832458</a></p>
-            <p>Or find me on social media.</p>
-            <div class="socials">
-              <a class="social-btn" href="https://github.com/iammjh" aria-label="Visit GitHub profile" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" class="icon"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.2-3.5-1.2-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 .1 1.6.8 2 1.4.1-1 .4-1.7.8-2.1-2.3-.3-4.7-1.2-4.7-5.3 0-1.2.4-2.1 1-2.9-.1-.3-.4-1.4.1-3 0 0 .8-.3 2.9 1 1-.3 2-.4 3-.4s2 .1 3 .4c2.1-1.3 2.9-1 2.9-1 .5 1.6.2 2.7.1 3 0 .8 1 1.7 1 2.9 0 4.1-2.4 5-4.7 5.3.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
-                <span class="label">GitHub</span>
-              </a>
-
-              <a class="social-btn" href="https://www.linkedin.com/in/iammjh/" aria-label="Visit LinkedIn profile" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" class="icon"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4zM8 8h3.85v2.07h.05c.54-1.02 1.86-2.07 3.83-2.07 4.1 0 4.85 2.7 4.85 6.2V23h-4V14.5c0-2.04-.04-4.67-2.85-4.67-2.85 0-3.28 2.22-3.28 4.53V23H8z"/></svg>
-                <span class="label">LinkedIn</span>
-              </a>
-              
-                <a class="social-btn" href="https://facebook.com/iammjh.io" aria-label="Visit Facebook profile" target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" class="icon"><path d="M22 12a10 10 0 10-11.5 9.9v-7h-2.2v-2.9h2.2V9.1c0-2.2 1.3-3.4 3.3-3.4.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.3v1.6h2.2l-.4 2.9h-1.8v7A10 10 0 0022 12z"/></svg>
-                  <span class="label">Facebook</span>
-                </a>
-            </div>
-
-            <div class="contact-cards">
-              <div class="card">
-                <strong>Availability</strong>
-                <p>Open for Opportunities</p>
-              </div>
-              <div class="card">
-                <strong>Location</strong>
-                <p>Merul Badda, Dhaka<br>Bangladesh</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -1097,7 +1457,10 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-  <small>© <span id="year"></span> Md. Jahidul Hasan | @iammjh.io</small>
+      <div class="ft-copy">
+        <small>© <span id="year"></span> Md. Jahidul Hasan &nbsp;·&nbsp; @iammjh.io</small>
+        <p class="ft-tagline">Building backends. Leading teams.</p>
+      </div>
       <div class="foot-links">
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
