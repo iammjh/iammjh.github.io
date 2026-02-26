@@ -1177,6 +1177,9 @@ h4{font-size:1rem}
 .lc-icon--yellow{background:linear-gradient(135deg,rgba(255,195,113,0.18),rgba(255,95,109,0.08));border-color:rgba(255,195,113,0.3);color:var(--accent2)}
 .lc-line{flex:1;width:2px;background:linear-gradient(to bottom,rgba(255,95,109,0.25),rgba(255,255,255,0.04));margin-top:6px;min-height:20px}
 .lc:last-child .lc-line{display:none}
+/* Bridge line: shown on main list's last card when extra section is expanded */
+.lead-list-bridge .lc:last-child .lc-line{display:block}
+#lead-extra-container .lc:last-child .lc-line{display:none}
 
 /* Right column: content */
 .lc-body{flex:1;background:linear-gradient(135deg,rgba(21,24,33,0.8),rgba(21,24,33,0.5));border:1px solid rgba(255,255,255,0.06);border-radius:18px;padding:1.25rem 1.4rem;box-shadow:0 8px 32px rgba(0,0,0,0.35);position:relative;overflow:hidden;transition:transform 240ms ease,box-shadow 240ms ease}
@@ -1188,6 +1191,7 @@ h4{font-size:1rem}
 .lc-role-badge--director{background:rgba(255,95,109,0.15);color:var(--accent1);border:1px solid rgba(255,95,109,0.25)}
 .lc-role-badge--organizer{background:rgba(122,252,255,0.1);color:var(--accent3);border:1px solid rgba(122,252,255,0.25)}
 .lc-role-badge--volunteer{background:rgba(255,195,113,0.12);color:var(--accent2);border:1px solid rgba(255,195,113,0.25)}
+.lc-role-badge--champion{background:rgba(47,158,68,0.12);color:#4caf50;border:1px solid rgba(47,158,68,0.3)}
 .lc-title{margin:0 0 2px;font-size:1.05rem;font-weight:700;color:var(--text)}
 .lc-subtitle{color:var(--muted);font-size:.875rem}
 .lc-date{font-size:.8rem;color:var(--muted);white-space:nowrap;background:rgba(255,255,255,.04);padding:3px 9px;border-radius:8px;border:1px solid rgba(255,255,255,.07);height:fit-content;flex-shrink:0}
@@ -1202,6 +1206,11 @@ h4{font-size:1rem}
 
 .lc-details{margin:.65rem 0 .75rem;padding-left:1.1rem;color:var(--muted);font-size:.875rem}
 .lc-details li+li{margin-top:.4rem}
+
+.lc-photos{display:flex;gap:.6rem;flex-wrap:wrap;margin:.75rem 0 .5rem}
+.lc-photo{width:120px;height:90px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,.08);transition:transform 200ms ease,box-shadow 200ms ease;cursor:pointer}
+.lc-photo:hover{transform:scale(1.04);box-shadow:0 6px 20px rgba(0,0,0,.45)}
+@media(max-width:480px){.lc-photo{width:calc(50% - .3rem);height:80px}}
 
 .lc-toggle{background:transparent;border:none;padding:0;color:var(--muted);font-size:.82rem;cursor:pointer;display:inline-flex;align-items:center;gap:.35rem;transition:color 180ms ease}
 .lc-toggle:hover{color:var(--text)}

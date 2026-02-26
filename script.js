@@ -280,6 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.getElementById('lead-toggle');
     const extraContainer = document.getElementById('lead-extra-container');
     const controls = document.querySelector('.lead-controls');
+    const mainList = document.querySelector('.lead-list:not(#lead-extra-container)');
     if (!toggle || !extraContainer || !controls) return;
 
     toggle.addEventListener('click', function(){
@@ -289,6 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // collapsing: remove visible class to trigger hide animation,
         // then set hidden after transition and move controls back above.
         extraContainer.classList.remove('is-visible');
+        if (mainList) mainList.classList.remove('lead-list-bridge');
         const onTransitionEnd = function(e){
           if (e.target !== extraContainer) return;
           extraContainer.setAttribute('hidden','');
@@ -309,6 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // allow layout to update before adding class
         requestAnimationFrame(function(){
           extraContainer.classList.add('is-visible');
+          if (mainList) mainList.classList.add('lead-list-bridge');
         });
 
         this.textContent = 'Show less';
