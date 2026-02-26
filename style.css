@@ -24,6 +24,10 @@
   font-display: swap;
 }
 
+/* Remove click-highlight outline; keep outline for keyboard-only navigation */
+*:focus:not(:focus-visible) { outline: none !important; }
+*:focus-visible { outline: 2px solid var(--accent1); outline-offset: 3px; }
+
 /* Expertise chips used in About section */
 .skill-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
 .chip{background:var(--card-overlay);border:1px solid var(--chip-border);color:var(--text);padding:.35rem .6rem;border-radius:999px;font-size:.85rem;display:inline-flex;align-items:center}
