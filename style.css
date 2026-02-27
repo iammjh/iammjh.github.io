@@ -62,7 +62,7 @@
   font-size:var(--s,40px);
   transform:rotate(var(--r,0deg));
   color:#ffffff;
-  opacity:.045;
+  opacity:.09;
   line-height:1;
   animation:wm-float 8s ease-in-out var(--d,0s) infinite alternate;
   will-change:transform;
@@ -1040,6 +1040,15 @@ body.light .nav-link.active{color:#fff;font-weight:700}
 .h-scroll{display:inline-flex;flex-direction:column;align-items:center;gap:.25rem;color:var(--muted);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;opacity:.55;animation:h-scrollbob 2.4s infinite ease-in-out}
 @keyframes h-scrollbob{0%,100%{transform:translateY(0)}55%{transform:translateY(7px)}}
 
+/* Scroll chevron container */
+.hp3-scroll{
+  position:absolute;
+  bottom:2rem;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:2;
+}
+
 /* ── HP responsive ── */
 @media(max-width:960px){
   .hp3-grid{grid-template-columns:1fr 240px;gap:2.5rem}
@@ -1925,7 +1934,7 @@ main.container a[href^="mailto:"]{color:var(--accent2)}
   width: 200%;
   height: 200%;
   background: radial-gradient(circle, rgba(255,95,109,0.1) 0%, transparent 70%);
-  animation: parallaxRotate 20s linear infinite;
+  animation: parallaxRotate 20s linear infinite paused;
   pointer-events: none;
 }
 
