@@ -1419,6 +1419,9 @@ h4{font-size:1rem}
 .hobby-content p{margin:0 0 .65rem;font-size:.875rem;color:var(--muted);line-height:1.55}
 .hobby-tags{display:flex;flex-wrap:wrap;gap:.35rem}
 .hobby-tags span{font-size:.72rem;font-weight:600;padding:2px 8px;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--muted)}
+/* Beyond-hobbies sub-section (inside Life Beyond Academics) */
+.beyond-hobbies{margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.07)}
+.beyond-hobbies-title{font-size:1.1rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin:0 0 1.5rem}
 .skill-list .skill{display:block;margin-bottom:0.8rem}
 .skill .bar{height:10px;background:var(--input-border);border-radius:8px;overflow:hidden;margin-top:6px;border:1px solid var(--outline-border)}
 .skill .bar{position:relative}
@@ -1692,6 +1695,21 @@ a.ct-row:hover .ct-row-arrow{opacity:1;transform:translateX(2px)}
 .ct-input:focus ~ .ct-label,
 .ct-input:not(:placeholder-shown) ~ .ct-label{top:-.62rem;font-size:.72rem;color:var(--accent3);background:var(--bg);padding:0 .3rem;left:.8rem}
 .ct-form-actions{margin-top:.25rem}
+/* Inline form error */
+.ct-form-error{display:flex;align-items:center;gap:.55rem;font-size:.85rem;color:#ff6b6b;background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.25);border-radius:10px;padding:.65rem .9rem}
+.ct-form-error[hidden]{display:none!important}
+.ct-form-error svg{flex-shrink:0;color:#ff6b6b}
+/* Success modal */
+.ct-modal{position:fixed;inset:0;z-index:9000;display:flex;align-items:center;justify-content:center;padding:1.5rem}
+.ct-modal[hidden]{display:none!important}
+.ct-modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.ct-modal-box{position:relative;z-index:1;background:rgba(21,24,33,.97);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:3rem 2.5rem 2.5rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.1rem;box-shadow:0 24px 80px rgba(0,0,0,.55);max-width:400px;width:100%;animation:modal-in .3s ease}
+@keyframes modal-in{from{opacity:0;transform:scale(.92) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.ct-modal-close{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);transition:background 200ms,color 200ms}
+.ct-modal-close:hover{background:rgba(255,255,255,.13);color:var(--text)}
+.ct-success-icon{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,rgba(47,158,68,.25),rgba(47,158,68,.1));border:1px solid rgba(47,158,68,.35);display:flex;align-items:center;justify-content:center;color:#4caf50}
+.ct-modal-box h3{margin:0;font-size:1.35rem;font-weight:700;color:var(--text)}
+.ct-modal-box p{margin:0;color:var(--muted);font-size:.95rem;line-height:1.6}
 .ct-submit{display:inline-flex;align-items:center;gap:.55rem;width:100%;justify-content:center;padding:.85rem;font-size:1rem}
 
 /* Responsive */

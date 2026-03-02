@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (!isMobile && !prefersReduce) {
     createFloatingParticles();
-    addTypingEffect();
     initHeroParallax();
   }
 
@@ -229,15 +228,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 120);
   })();
 
-  // Optional: intercept contact form to show a quick client-side message
+  // Contact form: AJAX submit — keeps user on page, shows inline success/error
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      // Let formsubmit handle it normally; but show a quick message and disable submit to avoid duplicates
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
       const submitBtn = contactForm.querySelector('button[type="submit"]');
-      submitBtn && (submitBtn.disabled = true);
-      submitBtn && (submitBtn.textContent = 'Sending...');
+      const originalHTML = submitBtn ? submitBtn.innerHTML : '';
+      const errorEl = contactForm.querySelector('.ct-form-error');
+
+      // Reset error state
+      if (errorEl) errorEl.hidden = true;
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Sending...';
+      }
+
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/captainjahid45@gmail.com', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(contactForm)
+        });
+        if (!res.ok) throw new Error('Server error');
+        // Reset button & form, show success modal
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalHTML; }
+        contactForm.reset();
+        const modal = document.getElementById('ct-success-modal');
+        if (modal) modal.hidden = false;
+      } catch (err) {
+        // Re-enable button and show inline error
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalHTML;
+        }
+        if (errorEl) errorEl.hidden = false;
+      }
     });
+  }
+
+  // Success modal: close on × button, backdrop click, or Escape key
+  const successModal = document.getElementById('ct-success-modal');
+  if (successModal) {
+    const closeModal = () => { successModal.hidden = true; };
+    document.getElementById('ct-modal-close') && document.getElementById('ct-modal-close').addEventListener('click', closeModal);
+    successModal.querySelector('.ct-modal-backdrop') && successModal.querySelector('.ct-modal-backdrop').addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !successModal.hidden) closeModal(); });
   }
 
   // Entrance animations: add class after small delay unless user prefers reduced motion
@@ -300,7 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         extraContainer.addEventListener('transitionend', onTransitionEnd);
 
-        this.textContent = 'View all';
+        this.textContent = 'View all activity';
         this.setAttribute('aria-expanded','false');
         this.scrollIntoView({behavior:'smooth', block:'nearest'});
       } else {
@@ -316,8 +353,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         this.textContent = 'Show less';
         this.setAttribute('aria-expanded','true');
-        // scroll to the button after animation so it sits under the results
-        setTimeout(()=> this.scrollIntoView({behavior:'smooth', block:'nearest'}), 420);
       }
     });
   })();
@@ -425,44 +460,6 @@ function initMagneticButtons() {
   });
 }
 
-// Typing effect for hero name
-function addTypingEffect() {
-  const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduce) return;
-
-  const nameElement = document.querySelector('.hero-text .name .accent');
-  if (!nameElement) return;
-
-  const originalText = nameElement.textContent;
-  nameElement.textContent = '';
-  
-  // Add cursor
-  const cursor = document.createElement('span');
-  cursor.className = 'typing-cursor';
-  nameElement.parentElement.appendChild(cursor);
-  
-  let charIndex = 0;
-  const typingSpeed = 100;
-  
-  function typeChar() {
-    if (charIndex < originalText.length) {
-      nameElement.textContent += originalText.charAt(charIndex);
-      charIndex++;
-      setTimeout(typeChar, typingSpeed);
-    } else {
-      // Start cursor blinking after typing is complete
-      setTimeout(() => {
-        cursor.style.animation = 'blink 0.7s step-end infinite';
-        // Stop cursor blinking after 2 seconds
-        setTimeout(() => {
-          cursor.style.opacity = '0';
-        }, 2000);
-      }, 500);
-    }
-  }
-  
-  setTimeout(typeChar, 800);
-}
 
 // Hide loading screen with fade effect
 function hideLoadingScreen() {
