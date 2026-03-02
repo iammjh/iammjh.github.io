@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalHTML; }
         contactForm.reset();
         const modal = document.getElementById('ct-success-modal');
-        if (modal) { modal.hidden = false; document.body.classList.add('modal-open'); }
+        if (modal) modal.hidden = false;
       } catch (err) {
         // Re-enable button and show inline error
         if (submitBtn) {
@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Success modal: close on × button, backdrop click, or Escape key
   const successModal = document.getElementById('ct-success-modal');
   if (successModal) {
-    const closeModal = () => { successModal.hidden = true; document.body.classList.remove('modal-open'); };
+    const closeModal = () => { successModal.hidden = true; };
     document.getElementById('ct-modal-close') && document.getElementById('ct-modal-close').addEventListener('click', closeModal);
     successModal.querySelector('.ct-modal-backdrop') && successModal.querySelector('.ct-modal-backdrop').addEventListener('click', closeModal);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !successModal.hidden) closeModal(); });
@@ -339,9 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         this.textContent = 'View all activity';
         this.setAttribute('aria-expanded','false');
-        // scroll back to the section top so the user isn't left stranded
-        const section = document.getElementById('leadership');
-        if (section) section.scrollIntoView({behavior:'smooth', block:'start'});
+        this.scrollIntoView({behavior:'smooth', block:'nearest'});
       } else {
         // expanding: move the controls below the extra container,
         // un-hide the container then add the visible class to animate in.
