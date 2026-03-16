@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   
   if (!isMobile && !prefersReduce) {
-    createFloatingParticles();
     initHeroParallax();
   }
 
@@ -47,9 +46,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Light/dark toggle removed; site uses single dark theme.
 
+  // Project image tap handler (mobile overlay interaction)
+  const projectsGrid = document.getElementById('projectsGrid');
+  if (projectsGrid) {
+    // Close all overlays when clicking outside
+    const closeAllOverlays = () => {
+      projectsGrid.querySelectorAll('.project.active').forEach(p => {
+        p.classList.remove('active');
+      });
+    };
+
+    // Handle image clicks to show/hide overlay
+    projectsGrid.addEventListener('click', (e) => {
+      const imgWrap = e.target.closest('.proj-img-wrap');
+      if (!imgWrap) return;
+      
+      const project = imgWrap.closest('.project');
+      if (!project) return;
+
+      // On mobile, toggle active state; on desktop, let hover handle it
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      if (isMobile) {
+        // Close others, toggle current
+        projectsGrid.querySelectorAll('.project.active').forEach(p => {
+          if (p !== project) p.classList.remove('active');
+        });
+        project.classList.toggle('active');
+      }
+    });
+
+    // Close overlay when clicking action buttons or outside
+    document.addEventListener('click', (e) => {
+      // Don't close if clicking on a proj-action button (let it navigate)
+      if (e.target.closest('.proj-action')) return;
+      // Close if clicking outside projectsGrid
+      if (!e.target.closest('.project *')) {
+        closeAllOverlays();
+      }
+    });
+  }
+
   // Project filtering
   const filterWrap = document.getElementById('projectFilter');
-  const projectsGrid = document.getElementById('projectsGrid');
   if (filterWrap && projectsGrid){
     const applyProjectFilter = (filter) => {
       const allBtns = filterWrap.querySelectorAll('button[data-filter]');
@@ -362,52 +400,104 @@ document.addEventListener('DOMContentLoaded', () => {
 function initHeroParallax() {
   const orbs = document.querySelectorAll('.hero-orb');
   const hero = document.getElementById('home');
+  const heroBg = document.querySelector('.hero-bg');
+  const hp3Right = document.querySelector('.hp3-right');
+  
   if (!orbs.length || !hero) return;
+  
   const factors = [0.022, -0.016, 0.012];
   let rafId = null;
   let tx = 0, ty = 0;
+  let isHovering = false;
+
+  // Create mouse shadow element - append to hero-bg so it's clipped
+  let mouseShadow = document.querySelector('.mouse-shadow');
+  if (!mouseShadow) {
+    mouseShadow = document.createElement('div');
+    mouseShadow.className = 'mouse-shadow';
+    mouseShadow.style.cssText = `
+      position: absolute;
+      pointer-events: none;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(122,252,255,0.8) 0%, rgba(255,95,109,0.4) 40%, rgba(255,95,109,0.05) 100%);
+      filter: blur(100px);
+      opacity: 0;
+      z-index: 0.5;
+      mix-blend-mode: screen;
+      transition: opacity 0.3s ease;
+      top: 0;
+      left: 0;
+    `;
+    // Append to hero-bg so it respects hero's overflow:hidden
+    heroBg.appendChild(mouseShadow);
+  }
+
+  // Track mouse only over hero
+  hero.addEventListener('mouseenter', () => {
+    isHovering = true;
+    mouseShadow.style.opacity = '1';
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    isHovering = false;
+    mouseShadow.style.opacity = '0';
+    // Reset photo tilt
+    if (hp3Right) {
+      hp3Right.style.transform = 'translateZ(0) rotateX(0deg) rotateY(0deg)';
+    }
+  });
 
   document.addEventListener('mousemove', (e) => {
     const cx = window.innerWidth / 2;
     const cy = window.innerHeight / 2;
     tx = e.clientX - cx;
     ty = e.clientY - cy;
-    if (!rafId) rafId = requestAnimationFrame(moveOrbs);
+    
+    if (isHovering) {
+      // Get hero position relative to viewport
+      const heroRect = hero.getBoundingClientRect();
+      const heroBgRect = heroBg.getBoundingClientRect();
+      
+      // Position shadow relative to hero-bg
+      const shadowX = e.clientX - heroBgRect.left - 200;
+      const shadowY = e.clientY - heroBgRect.top - 200;
+      
+      mouseShadow.style.left = `${shadowX}px`;
+      mouseShadow.style.top = `${shadowY}px`;
+      
+      if (!rafId) rafId = requestAnimationFrame(() => moveOrbs(e.clientX, e.clientY));
+    }
   });
 
-  function moveOrbs() {
+  function moveOrbs(clientX, clientY) {
+    // Update orbs parallax
     orbs.forEach((orb, i) => {
       const f = factors[i] ?? 0.01;
       orb.style.transform = `translate(${tx * f}px, ${ty * f}px)`;
     });
+    
+    // Apply 3D tilt to photo - MUCH more pronounced
+    if (hp3Right) {
+      const heroRect = hero.getBoundingClientRect();
+      const heroCenterX = heroRect.left + heroRect.width / 2;
+      const heroCenterY = heroRect.top + heroRect.height / 2;
+      
+      const dx = clientX - heroCenterX;
+      const dy = clientY - heroCenterY;
+      
+      // Calculate rotation based on mouse position relative to hero center
+      const rotX = -(dy / heroRect.height) * 25; // Vertical mouse = X rotation
+      const rotY = (dx / heroRect.width) * 30;   // Horizontal mouse = Y rotation
+      
+      hp3Right.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.02)`;
+    }
+    
     rafId = null;
   }
 }
 
-// Create floating particles in the background
-function createFloatingParticles() {
-  const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduce) return;
-
-  const particlesContainer = document.createElement('div');
-  particlesContainer.className = 'particles';
-  document.body.appendChild(particlesContainer);
-
-  const particleCount = 20; // Reduced from 25 for better performance
-  for (let i = 0; i < particleCount; i++) {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    
-    const size = Math.random() * 4 + 2;
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
-    particle.style.left = `${Math.random() * 100}%`;
-    particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
-    particle.style.animationDelay = `${Math.random() * 5}s`;
-    
-    particlesContainer.appendChild(particle);
-  }
-}
 
 // Scroll-triggered fade-in animations
 function initScrollAnimations() {

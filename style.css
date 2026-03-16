@@ -206,11 +206,49 @@
 
 /* Highlight current (BRAC Uni) */
 .timeline-item[aria-current="true"] .timeline-content{
-  border-color:rgba(122,252,255,.12);
-  box-shadow:0 12px 40px rgba(0,0,0,.45),0 0 0 1px rgba(122,252,255,.06);
+  border-color:rgba(122,252,255,.4);
+  border-width:2px;
+  background:linear-gradient(135deg,rgba(21,24,33,.95),rgba(21,24,33,.75));
+  box-shadow:
+    0 24px 60px rgba(122,252,255,.15),
+    0 0 0 2px rgba(122,252,255,.2),
+    0 0 30px rgba(122,252,255,.25),
+    inset 0 0 24px rgba(122,252,255,.08);
+  position:relative;
+}
+.timeline-item[aria-current="true"] .timeline-content::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at top right, rgba(122,252,255,.1), transparent 70%);
+  border-radius:12px;
+  pointer-events:none;
 }
 .timeline-item[aria-current="true"] .timeline-dot{
-  box-shadow:0 0 0 4px rgba(255,95,109,.18),0 0 14px rgba(255,95,109,.45);
+  box-shadow:
+    0 0 0 6px rgba(122,252,255,.25),
+    0 0 20px rgba(122,252,255,.6),
+    0 0 40px rgba(122,252,255,.3);
+  border-color:rgba(122,252,255,.5);
+  width:18px;
+  height:18px;
+  border-width:3px;
+  animation:pulse-current 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-current {
+  0%, 100% {
+    box-shadow:
+      0 0 0 6px rgba(122,252,255,.25),
+      0 0 20px rgba(122,252,255,.6),
+      0 0 40px rgba(122,252,255,.3);
+  }
+  50% {
+    box-shadow:
+      0 0 0 8px rgba(122,252,255,.15),
+      0 0 25px rgba(122,252,255,.8),
+      0 0 50px rgba(122,252,255,.45);
+  }
 }
 
 /* ── Medium screens ── */
@@ -706,21 +744,13 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 10% 20%, rgba(255,95,109,0.12), transparent 50%),
-              radial-gradient(circle at 90% 80%, rgba(127,246,255,0.1), transparent 50%),
-              radial-gradient(circle at 50% 50%, rgba(255,195,113,0.08), transparent 70%);
-  background-size: 200% 200%;
-  /* Disable large background animation to prevent page-wide zigzag motion */
-  animation: none !important;
-  background-position: 50% 50% !important;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(255,95,109,0.08), transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(127,246,255,0.06), transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255,195,113,0.05), transparent 70%);
   pointer-events: none;
   z-index: -1;
-  opacity: 0.6;
-}
-
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  opacity: 0.5;
 }
 
 /* Container */
@@ -828,13 +858,46 @@ body.light .nav-link.active{color:#fff;font-weight:700}
   min-height:calc(100vh - var(--header-height));
   display:flex;align-items:center;
   overflow:hidden;
+  perspective:1500px;
+}
+/* Mouse shadow glow effect */
+.mouse-shadow{
+  position:absolute;
+  pointer-events:none;
+  z-index:0.5;
+  border-radius:50%;
+  filter:blur(100px);
+  opacity:0;
+  mix-blend-mode:screen;
+  transition:opacity 0.3s ease;
 }
 .hero-container{position:relative;z-index:2}
-.hp3-grid{display:grid;grid-template-columns:1fr 300px;gap:4rem;align-items:center}
-/* ── Background layers ── */
+.hp3-grid{
+  display:grid;
+  grid-template-columns:1fr 300px;
+  gap:4rem;
+  align-items:center;
+  perspective:1500px;
+}
+.hp3-text{
+  transform-style:preserve-3d;
+  transition:transform 0.15s ease-out;
+}
+.hp3-right{
+  transform-style:preserve-3d;
+  transition:transform 0.15s ease-out;
+}
+.hp3-photo-wrap{
+  transform-style:preserve-3d;
+  position:relative;
+  width:260px;
+  height:310px;
+  animation:photo-enter .9s .35s cubic-bezier(.2,.9,.3,1) both;
+}
 .hero-bg{
   position:absolute;inset:0;z-index:0;
   pointer-events:none;
+  overflow:hidden;
 }
 
 /* Drifting orbs */
@@ -942,11 +1005,12 @@ body.light .nav-link.active{color:#fff;font-weight:700}
 .hp3-photo{
   position:relative;z-index:1;
   width:260px;height:310px;
-  border-radius:26px;overflow:hidden;
+  border-radius:26px;overflow:visible;
   border:1px solid rgba(255,255,255,.12);
   box-shadow:0 32px 72px rgba(0,0,0,.6);
+  transform-style:preserve-3d;
 }
-.hp3-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.hp3-photo img{width:100%;height:100%;object-fit:cover;display:block;border-radius:26px}
 
 /* ── Floating stat badges ── */
 .hp3-badge{
@@ -1519,7 +1583,8 @@ h4{font-size:1rem}
   display:flex;flex-direction:column;
   transition:transform 260ms cubic-bezier(.2,.9,.3,1), box-shadow 260ms ease, border-color 260ms ease;
 }
-.project:hover,.project:focus-within{
+.project:hover,
+.project.active{
   transform:translateY(-6px);
   box-shadow:0 28px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(122,252,255,.18);
   border-color:rgba(122,252,255,.18);
@@ -1562,7 +1627,9 @@ h4{font-size:1rem}
   transition:opacity 280ms ease;
 }
 .project:hover .proj-overlay,
-.project:focus-within .proj-overlay{opacity:1}
+.project.active .proj-overlay{
+  opacity:1;
+}
 
 .proj-action{
   display:inline-flex;align-items:center;gap:.4rem;
@@ -1846,45 +1913,6 @@ main.container a[href^="mailto:"]{color:var(--accent2)}
 }
 .project, .sk-card, .stat, .hobby-card{animation:pop .6s ease both}
 
-/* Floating particles background */
-.particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-  overflow: hidden;
-  will-change: transform;
-}
-
-.particle {
-  position: absolute;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent1), var(--accent2));
-  opacity: 0.15;
-  animation: float linear infinite;
-  will-change: transform, opacity;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(100vh) translateX(0) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.15;
-  }
-  90% {
-    opacity: 0.15;
-  }
-  100% {
-    transform: translateY(-100px) translateX(100px) rotate(360deg);
-    opacity: 0;
-  }
-}
-
 /* Scroll-triggered fade-in animations */
 .fade-in {
   opacity: 0;
@@ -2039,8 +2067,6 @@ main.container a[href^="mailto:"]{color:var(--accent2)}
   
   body::before,
   .hero::before,
-  .particles,
-  .particle,
   .typing-cursor {
     display: none !important;
   }
@@ -2084,11 +2110,6 @@ main.container a[href^="mailto:"]{color:var(--accent2)}
     opacity: 0.3;
   }
   
-  /* Disable particles on mobile (most expensive) */
-  .particles,
-  .particle {
-    display: none !important;
-  }
   
   /* Simplify border glow animation */
   .skill-card::after {
