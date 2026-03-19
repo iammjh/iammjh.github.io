@@ -417,7 +417,7 @@
         "name": "What projects has Md. Jahidul Hasan built?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Md. Jahidul Hasan has built several projects including Singularity-Wars (3D space combat game with OpenGL and Python), TripBloom (JavaScript travel planning app), Weather-Forecast app, Snake-Game, banijjo (trading website), and various other web and game development projects available on his GitHub profile."
+          "text": "Md. Jahidul Hasan has built several projects including Singularity-Wars (3D space combat game with OpenGL and Python), TripBloom (JavaScript travel planning app), Weather-Forecast app, Snake-Game, banijjo (trading website), 3D Particles (WebGL visualization), Cars (web project), SDS Chemical Extractor (PDF parser that extracts chemical data and exports to Excel), and various other web and game development projects available on his GitHub profile."
         }
       }
     ]
@@ -539,6 +539,60 @@
           },
           "codeRepository": "https://github.com/iammjh/Tic-Tac-Toe"
         }
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "WebApplication",
+          "name": "3D Particles",
+          "description": "Interactive 3D particle effects visualization with WebGL graphics",
+          "applicationCategory": "WebApplication",
+          "programmingLanguage": "JavaScript",
+          "author": {
+            "@type": "Person",
+            "name": "Md. Jahidul Hasan",
+            "@id": "https://iammjh.github.io/#person"
+          },
+          "codeRepository": "https://github.com/iammjh/3d-perticles",
+          "url": "https://iammjh.github.io/3d-perticles/"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "item": {
+          "@type": "WebApplication",
+          "name": "Cars",
+          "description": "Interactive web project showcasing car-related visualizations and animations",
+          "applicationCategory": "WebApplication",
+          "programmingLanguage": "JavaScript",
+          "author": {
+            "@type": "Person",
+            "name": "Md. Jahidul Hasan",
+            "@id": "https://iammjh.github.io/#person"
+          },
+          "codeRepository": "https://github.com/iammjh/cars",
+          "url": "https://iammjh.github.io/cars/"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "SDS Chemical Extractor",
+          "description": "Web app built for a corporate textile office that extracts Product Name, Chemical Name, and CAS Numbers from SDS PDFs and exports results as Excel files.",
+          "applicationCategory": "WebApplication",
+          "programmingLanguage": "Python",
+          "author": {
+            "@type": "Person",
+            "name": "Md. Jahidul Hasan",
+            "@id": "https://iammjh.github.io/#person"
+          },
+          "codeRepository": "https://github.com/iammjh/sds_chemical_extractor",
+          "url": "https://sds-chemical-extractor.up.railway.app/"
+        }
       }
     ]
   }
@@ -546,6 +600,13 @@
 
 </head>
 <body>
+  <!-- Skip to Main Content Link for A11y -->
+  <a href="#main" class="skip-to-main">Skip to main content</a>
+
+  <!-- Custom Cursor Elements -->
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+
   <!-- Loading Screen -->
   <div id="loading-screen">
     <div class="ls-bg">
@@ -600,7 +661,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- HERO -->
     <section id="home" class="hero" aria-label="Home / Hero section">
 
@@ -1050,6 +1111,34 @@
           </div>
         </article>
 
+        <!-- Cars -->
+        <article class="project featured" data-tags="web js">
+          <div class="proj-img-wrap">
+            <img src="assets/cars.webp" alt="Cars project screenshot" loading="lazy" width="800" height="450">
+            <div class="proj-overlay" aria-hidden="true">
+              <a class="proj-action" href="https://iammjh.github.io/cars/" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live
+              </a>
+              <a class="proj-action" href="https://github.com/iammjh/cars" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.5 10.5 0 0 1 5.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+                GitHub
+              </a>
+            </div>
+            <span class="proj-badge">Featured</span>
+          </div>
+          <div class="project-body">
+            <div class="proj-tags">
+              <span class="proj-tag tag-js">JavaScript</span>
+              <span class="proj-tag tag-web">HTML/CSS</span>
+              <span class="proj-tag tag-web">Web</span>
+            </div>
+            <h3>Cars</h3>
+            <p>Interactive web project showcasing car-related visualizations and animations.</p>
+          </div>
+        </article>
+
+
         <!-- Tic-Tac-Toe -->
         <article class="project" data-tags="python game">
           <div class="proj-img-wrap">
@@ -1189,6 +1278,59 @@
             </div>
             <h3>ATM-Machine</h3>
             <p>Assembly-language ATM with user interaction and transaction handling.</p>
+          </div>
+        </article>
+
+        <!-- 3D Particles -->
+        <article class="project" data-tags="web js">
+          <div class="proj-img-wrap">
+            <img src="assets/3d-particles.webp" alt="3D Particles visualization" loading="lazy" width="800" height="450">
+            <div class="proj-overlay" aria-hidden="true">
+              <a class="proj-action" href="https://iammjh.github.io/3d-perticles/" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live
+              </a>
+              <a class="proj-action" href="https://github.com/iammjh/3d-perticles" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.5 10.5 0 0 1 5.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="proj-tags">
+              <span class="proj-tag tag-js">JavaScript</span>
+              <span class="proj-tag tag-web">WebGL</span>
+              <span class="proj-tag tag-web">Web</span>
+            </div>
+            <h3>3D Particles</h3>
+            <p>Interactive 3D particle effects visualization with WebGL graphics.</p>
+          </div>
+        </article>
+
+        <!-- SDS Chemical Extractor -->
+        <article class="project" data-tags="web python">
+          <div class="proj-img-wrap">
+            <img src="assets/sds-chemical-extractor.webp" alt="SDS Chemical Extractor screenshot" loading="lazy" width="800" height="450">
+            <div class="proj-overlay" aria-hidden="true">
+              <a class="proj-action" href="https://sds-chemical-extractor.up.railway.app/" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live
+              </a>
+              <a class="proj-action" href="https://github.com/iammjh/sds_chemical_extractor" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.5 10.5 0 0 1 5.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+                GitHub
+              </a>
+            </div>
+            <span class="proj-badge">Corporate</span>
+          </div>
+          <div class="project-body">
+            <div class="proj-tags">
+              <span class="proj-tag tag-py">Python</span>
+              <span class="proj-tag tag-web">PDF Parser</span>
+              <span class="proj-tag tag-web">Excel Export</span>
+            </div>
+            <h3>SDS Chemical Extractor</h3>
+            <p>Extracts Product Name, Chemical Name, and CAS Numbers from SDS PDFs and downloads results as Excel files.</p>
           </div>
         </article>
       </div>
@@ -1654,5 +1796,20 @@
   </div>
 
   <script src="script.js" defer></script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((reg) => {
+            console.log('Service Worker registered successfully:', reg);
+          })
+          .catch((err) => {
+            console.log('Service Worker registration failed:', err);
+          });
+      });
+    }
+  </script>
 </body>
 </html>

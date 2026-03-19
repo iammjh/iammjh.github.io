@@ -28,6 +28,26 @@
 *:focus:not(:focus-visible) { outline: none !important; }
 *:focus-visible { outline: 2px solid var(--accent1); outline-offset: 3px; }
 
+/* Skip to main content link for A11y */
+.skip-to-main{
+  position:absolute;
+  top:-9999px;
+  left:-9999px;
+  z-index:9999;
+  padding:.75rem 1.5rem;
+  background:var(--accent1);
+  color:#000;
+  text-decoration:none;
+  border-radius:4px;
+  font-weight:600;
+  font-size:.95rem;
+}
+.skip-to-main:focus{
+  top:1rem;
+  left:1rem;
+  outline:none;
+}
+
 /* Expertise chips used in About section */
 .skill-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
 .chip{background:var(--card-overlay);border:1px solid var(--chip-border);color:var(--text);padding:.35rem .6rem;border-radius:999px;font-size:.85rem;display:inline-flex;align-items:center}
@@ -2123,4 +2143,101 @@ main.container a[href^="mailto:"]{color:var(--accent2)}
   
   /* Keep other animations - they're lightweight and add personality */
   /* Pop animations, hover effects, and transitions stay enabled */
+}
+
+/* ── Custom Cursor System ─────────────────────────────────────── */
+html {
+  cursor: none;
+}
+
+html,
+body,
+button,
+a,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+.nav-link,
+.filter-btn,
+.proj-action,
+.btn,
+.lc-toggle,
+[onclick],
+select,
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  cursor: none !important;
+}
+
+#cursor {
+  position: fixed;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--accent3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+
+#cursor-trail {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(122, 252, 255, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  opacity: 0.6;
+}
+
+/* Cursor scale on interactive elements */
+button,
+a,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+.nav-link,
+.filter-btn,
+.proj-action,
+.btn {
+  --cursor-scale: 2.4;
+}
+
+/* Hide default cursor on touch devices */
+@media (hover: none) {
+  html {
+    cursor: auto;
+  }
+
+  html,
+  body,
+  button,
+  a,
+  [role="button"],
+  input[type="submit"],
+  input[type="button"],
+  .nav-link,
+  .filter-btn,
+  .proj-action,
+  .btn,
+  .lc-toggle,
+  [onclick],
+  select,
+  textarea,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    cursor: auto !important;
+  }
+  
+  #cursor,
+  #cursor-trail {
+    display: none;
+  }
 }

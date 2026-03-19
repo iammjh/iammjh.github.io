@@ -38,6 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add lazy loading for images
   initLazyLoading();
 
+  // Initialize custom cursor
+  initCustomCursor();
+
   // Mobile nav toggle
   navToggle && navToggle.addEventListener('click', () => {
     nav.classList.toggle('open');
@@ -624,4 +627,90 @@ function initLazyLoading() {
       img.src = img.dataset.src || img.src;
     });
   }
+}
+
+// Custom Cursor System
+function initCustomCursor() {
+  // Only initialize on desktop devices with pointer support
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    return;
+  }
+
+  const cursor = document.getElementById('cursor');
+  const trail = document.getElementById('cursor-trail');
+  
+  if (!cursor || !trail) return;
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let trailX = 0;
+  let trailY = 0;
+  let isScaled = false;
+
+  // Track mouse position
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    // Main cursor follows immediately
+    cursor.style.left = mouseX + 'px';
+    cursor.style.top = mouseY + 'px';
+  });
+
+  // Smooth trail animation using requestAnimationFrame
+  function animateTrail() {
+    // Lag factor for smooth trailing (0.15 = 15% of distance per frame)
+    const lagFactor = 0.15;
+    
+    trailX += (mouseX - trailX) * lagFactor;
+    trailY += (mouseY - trailY) * lagFactor;
+    
+    trail.style.left = trailX + 'px';
+    trail.style.top = trailY + 'px';
+    
+    requestAnimationFrame(animateTrail);
+  }
+  animateTrail();
+
+  // Parallax effect on hero section (subtle background shift)
+  document.addEventListener('mousemove', (e) => {
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+      const px = (e.clientX / window.innerWidth - 0.5) * 2;
+      const py = (e.clientY / window.innerHeight - 0.5) * 2;
+      // ±14px horizontal, ±9px vertical
+      heroSection.style.backgroundPosition = `${50 + px * 2}% ${50 + py * 1.3}%`;
+    }
+  });
+
+  // Scale cursor on interactive element hover
+  const interactiveElements = document.querySelectorAll(
+    'button, a, [role="button"], input[type="submit"], input[type="button"], ' +
+    '.nav-link, .filter-btn, .proj-action, .btn, .lc-toggle, [onclick]'
+  );
+
+  interactiveElements.forEach((el) => {
+    el.addEventListener('mouseenter', () => {
+      isScaled = true;
+      cursor.style.transform = 'translate(-50%, -50%) scale(2.4)';
+      trail.style.transform = 'translate(-50%, -50%) scale(1.5)';
+    });
+
+    el.addEventListener('mouseleave', () => {
+      isScaled = false;
+      cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+      trail.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+  });
+
+  // Hide cursor when leaving window
+  document.addEventListener('mouseleave', () => {
+    cursor.style.opacity = '0';
+    trail.style.opacity = '0';
+  });
+
+  document.addEventListener('mouseenter', () => {
+    cursor.style.opacity = '1';
+    trail.style.opacity = '0.6';
+  });
 }
