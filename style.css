@@ -2146,29 +2146,15 @@ main.container a[href^="mailto:"]{color:var(--accent2)}
 }
 
 /* ── Custom Cursor System ─────────────────────────────────────── */
-html {
-  cursor: none;
+/* Hide default cursor on desktop (all elements) */
+* {
+  cursor: none !important;
 }
 
+/* Ensure html and body also hide cursor */
 html,
-body,
-button,
-a,
-[role="button"],
-input[type="submit"],
-input[type="button"],
-.nav-link,
-.filter-btn,
-.proj-action,
-.btn,
-.lc-toggle,
-[onclick],
-select,
-textarea,
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  cursor: none !important;
+body {
+  cursor: none;
 }
 
 #cursor {
@@ -2211,31 +2197,10 @@ input[type="button"],
 
 /* Hide default cursor on touch devices */
 @media (hover: none) {
-  html {
-    cursor: auto;
-  }
-
-  html,
-  body,
-  button,
-  a,
-  [role="button"],
-  input[type="submit"],
-  input[type="button"],
-  .nav-link,
-  .filter-btn,
-  .proj-action,
-  .btn,
-  .lc-toggle,
-  [onclick],
-  select,
-  textarea,
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
+  * {
     cursor: auto !important;
   }
-  
+
   #cursor,
   #cursor-trail {
     display: none;

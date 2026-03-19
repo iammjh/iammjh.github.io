@@ -686,7 +686,8 @@ function initCustomCursor() {
   // Scale cursor on interactive element hover
   const interactiveElements = document.querySelectorAll(
     'button, a, [role="button"], input[type="submit"], input[type="button"], ' +
-    '.nav-link, .filter-btn, .proj-action, .btn, .lc-toggle, [onclick]'
+    'input[type="text"], input[type="email"], input[type="password"], input[type="search"], ' +
+    'textarea, select, .nav-link, .filter-btn, .proj-action, .btn, .lc-toggle, [onclick]'
   );
 
   interactiveElements.forEach((el) => {
@@ -701,6 +702,21 @@ function initCustomCursor() {
       cursor.style.transform = 'translate(-50%, -50%) scale(1)';
       trail.style.transform = 'translate(-50%, -50%) scale(1)';
     });
+
+    // Add focus listeners for form inputs (keyboard navigation)
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') {
+      el.addEventListener('focus', () => {
+        isScaled = true;
+        cursor.style.transform = 'translate(-50%, -50%) scale(2.4)';
+        trail.style.transform = 'translate(-50%, -50%) scale(1.5)';
+      });
+
+      el.addEventListener('blur', () => {
+        isScaled = false;
+        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        trail.style.transform = 'translate(-50%, -50%) scale(1)';
+      });
+    }
   });
 
   // Hide cursor when leaving window
