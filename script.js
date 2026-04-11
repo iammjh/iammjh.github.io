@@ -235,11 +235,49 @@ qq('.cnt').forEach(el=>co.observe(el));
 (function(){
   const form = q('#cf');
   if(!form) return;
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
     const btn = form.querySelector('.fs');
     const orig = btn.textContent;
     btn.textContent = 'Sending...';
     btn.style.opacity = '.7';
     btn.disabled = true;
+    
+    try {
+      const formData = new FormData(form);
+      const response = await fetch('https://formsubmit.co/ajax/captainjahid45@gmail.com', {
+        method: 'POST',
+        body: formData
+      });
+      
+      if(response.ok) {
+        // Show success popup
+        const popup = q('#successPopup');
+        popup.classList.add('show');
+        
+        // Reset form
+        form.reset();
+        
+        // Reset button
+        btn.textContent = orig;
+        btn.style.opacity = '1';
+        btn.disabled = false;
+        
+        // Auto-close popup after 5 seconds
+        setTimeout(() => {
+          popup.classList.remove('show');
+        }, 5000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch(err) {
+      console.error('Error:', err);
+      btn.textContent = 'Error! Try again';
+      btn.style.opacity = '1';
+      btn.disabled = false;
+      setTimeout(() => {
+        btn.textContent = orig;
+      }, 2000);
+    }
   });
 })();
