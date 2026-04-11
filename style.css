@@ -68,6 +68,8 @@ body.cur-link .cursor-ring{width:64px;height:64px;background:rgba(232,147,74,.07
   border-bottom:1px solid transparent;
   transition:background .5s,border-color .5s,backdrop-filter .5s;
 }
+@media(max-width:768px){.nav{padding:0 20px;height:64px}}
+@media(max-width:480px){.nav{padding:0 16px;height:56px}}
 .nav.stuck{
   background:rgba(12,10,8,.88);
   backdrop-filter:blur(24px);
@@ -123,6 +125,7 @@ body.cur-link .cursor-ring{width:64px;height:64px;background:rgba(232,147,74,.07
 ═══════════════════════════════════════════════════ */
 .wrap{max-width:1240px;margin:0 auto;padding:0 48px}
 @media(max-width:800px){.wrap{padding:0 20px}}
+@media(max-width:480px){.wrap{padding:0 16px}}
 .tag{
   display:inline-flex;align-items:center;
   font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
@@ -320,8 +323,15 @@ body.cur-link .cursor-ring{width:64px;height:64px;background:rgba(232,147,74,.07
   .hero-name{font-size:clamp(3rem,14vw,7rem)}
 }
 @media(max-width:560px){
+  .hero-eyebrow{flex-direction:column;align-items:flex-start;gap:8px;margin-bottom:24px}
+  .hero-avail{padding:4px 10px;font-size:.65rem;gap:5px}
+  .avail-dot{width:5px;height:5px}
+  .hero{padding-bottom:60px;padding-top:64px}
   .hero-stats{flex-wrap:wrap;gap:20px}
   .hero-ctas{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){
+  .hero{padding-bottom:48px;padding-top:60px}
 }
 
 /* ═══════════════════════════════════════════════════
@@ -442,6 +452,28 @@ body.cur-link .cursor-ring{width:64px;height:64px;background:rgba(232,147,74,.07
 .a-lbl{font-size:.72rem;color:var(--dim);font-weight:500;letter-spacing:.04em}
 
 @media(max-width:960px){.about-grid{grid-template-columns:1fr;gap:48px}.about-label{writing-mode:horizontal-tb;font-size:4rem}}
+
+@media(max-width:480px){
+  .about-section{padding:80px 0}
+  .about-grid{gap:32px}
+  .about-label{font-size:2.5rem}
+  .about-left{gap:16px}
+  .about-h{font-size:clamp(1.5rem,5vw,2.5rem);margin-bottom:20px}
+  .about-bio{font-size:.9rem;line-height:1.7}
+  .about-bio p{margin-bottom:14px}
+  .about-stats-row{margin-top:28px}
+  .a-stat{padding:20px 16px;font-size:.8rem}
+  .a-val{font-size:1.8rem}
+  .about-right{gap:16px}
+  .info-block-head{padding:14px 16px;font-size:.65rem}
+  .info-row{padding:12px 16px;font-size:.8rem;gap:10px}
+  .info-key{min-width:60px;font-size:.7rem}
+  .info-val{font-size:.75rem}
+  .edu-block{padding:18px;gap:12px}
+  .edu-icon{width:40px;height:40px;font-size:1rem}
+  .edu-body h4{font-size:.9rem}
+  .edu-body p{font-size:.75rem}
+}
 
 /* ═══════════════════════════════════════════════════
    PROJECTS – BENTO GRID
