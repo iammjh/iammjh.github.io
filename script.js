@@ -212,6 +212,9 @@ qq('.cnt').forEach(el=>co.observe(el));
   // drag/swipe
   let startX=0,startY=0,dragging=false;
   slider.addEventListener('pointerdown',e=>{
+    // Let interactive elements (project links/buttons) receive normal click behavior.
+    if(e.button !== 0) return;
+    if(e.target.closest('a, button, input, textarea, select, label')) return;
     startX=e.clientX; startY=e.clientY; dragging=true;
     slider.classList.add('dragging');
     slider.setPointerCapture(e.pointerId);
@@ -226,6 +229,11 @@ qq('.cnt').forEach(el=>co.observe(el));
       if(dx<0) goTo(current+1);
       else goTo(current-1);
     }
+  });
+
+  slider.addEventListener('pointercancel',()=>{
+    dragging=false;
+    slider.classList.remove('dragging');
   });
 
   update();
