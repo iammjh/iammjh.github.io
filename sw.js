@@ -1,12 +1,10 @@
 // Service Worker for portfolio caching
-const CACHE_NAME = 'portfolio-v1';
+const CACHE_NAME = 'portfolio-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
   '/style.css',
   '/script.js',
-  '/privacy.html',
-  '/terms.html',
   '/robots.txt',
   '/sitemap.xml'
 ];
