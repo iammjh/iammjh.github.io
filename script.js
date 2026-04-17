@@ -92,50 +92,6 @@ const co=new IntersectionObserver(ents=>{
 },{threshold:.6});
 qq('.cnt').forEach(el=>co.observe(el));
 
-// --- SHOWCASE SCROLL DRIVER ---
-(function(){
-  const isMob = window.matchMedia('(max-width:960px)').matches;
-  if(isMob){
-    const mobs = qq('#projMobile .pmob-card');
-    const mo = new IntersectionObserver(ents=>{
-      ents.forEach((e,i)=>{ if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*90); mo.unobserve(e.target);} });
-    },{threshold:.1});
-    mobs.forEach(c=>mo.observe(c));
-    return;
-  }
-  const triggers  = qq('#projTriggers .proj-trigger');
-  const navItems  = qq('#projNav .proj-nav-item');
-  const imgs      = qq('#ppImg img');
-  const slots     = qq('#ppInfo .pp-slot');
-  const numEl     = q('#ppNum');
-  let current     = -1;
-
-  function activate(idx){
-    if(idx === current) return;
-    current = idx;
-    if(numEl) numEl.textContent = String(idx+1).padStart(2,'0');
-    imgs.forEach((img,i)=>img.classList.toggle('active', i===idx));
-    slots.forEach((s,i)=>s.classList.toggle('active', i===idx));
-    navItems.forEach((n,i)=>n.classList.toggle('active', i===idx));
-    triggers.forEach((t,i)=>t.classList.toggle('active', i===idx));
-  }
-
-  const obs = new IntersectionObserver(ents=>{
-    ents.forEach(e=>{
-      if(!e.isIntersecting) return;
-      activate(+e.target.dataset.pi);
-    });
-  },{threshold:0.55, rootMargin:'-10% 0px -10% 0px'});
-  triggers.forEach(t=>obs.observe(t));
-
-  navItems.forEach(item=>{
-    item.addEventListener('click',()=>{
-      triggers[+item.dataset.pi].scrollIntoView({behavior:'smooth', block:'center'});
-    });
-  });
-  activate(0);
-})();
-
 // --- ACTIVITY EXPAND ---
 (function(){
   const btn = q('#actMoreBtn');
