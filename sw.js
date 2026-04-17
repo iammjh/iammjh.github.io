@@ -1,12 +1,24 @@
 // Service Worker for portfolio caching
-const CACHE_NAME = 'portfolio-v2';
+const CACHE_NAME = 'portfolio-v3';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
   '/style.css',
   '/script.js',
   '/robots.txt',
-  '/sitemap.xml'
+  '/sitemap.xml',
+  // Warm key visuals so repeat visits render quickly on weak connections.
+  '/assets/mjahidul.jpg',
+  '/assets/Re_Jahid.webp',
+  '/assets/f1-analytics.webp',
+  '/assets/tripbloom.webp',
+  '/assets/singularity-wars.webp',
+  '/assets/sds-chemical-extractor.webp',
+  '/assets/atm.webp',
+  '/assets/weather.webp',
+  '/assets/tic-tac-toe.webp',
+  '/assets/snake.webp',
+  '/assets/cars.webp'
 ];
 
 // Install: cache critical assets

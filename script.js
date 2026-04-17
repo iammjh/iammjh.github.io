@@ -15,7 +15,7 @@ q('#yr').textContent=new Date().getFullYear();
     rx+=(mx-rx)*.15;ry+=(my-ry)*.15;
     dot.style.cssText=`left:${mx}px;top:${my}px`;
     ring.style.cssText=`left:${rx}px;top:${ry}px`;
-    requestAnimationFrame(loop);
+    if(!pref) requestAnimationFrame(loop);
   })();
   qq('a,button').forEach(el=>{
     el.addEventListener('mouseenter',()=>document.body.classList.add('cur-link'));
@@ -159,6 +159,37 @@ qq('.cnt').forEach(el=>co.observe(el));
   });
 })();
 
+// --- MODALS + POPUP CLOSE ---
+(function(){
+  const openers = qq('[data-modal-open]');
+  const modals = qq('[data-modal]');
+
+  openers.forEach(el=>{
+    el.addEventListener('click',()=>{
+      const target = q(el.dataset.modalOpen);
+      if(target) target.classList.add('active');
+    });
+  });
+
+  modals.forEach(modal=>{
+    modal.addEventListener('click',e=>{
+      // Close only when clicking the backdrop, not modal content.
+      if(e.target === modal) modal.classList.remove('active');
+    });
+  });
+
+  qq('[data-modal-close]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const modal = btn.closest('[data-modal]');
+      if(modal) modal.classList.remove('active');
+    });
+  });
+
+  qq('[data-popup-close]').forEach(btn=>{
+    btn.addEventListener('click',()=>q('#successPopup')?.classList.remove('show'));
+  });
+})();
+
 
 // --- SLIDER ---
 (function(){
@@ -170,7 +201,8 @@ qq('.cnt').forEach(el=>co.observe(el));
   const dotsEl  = document.getElementById('projDots');
   if(!slider||!track) return;
 
-  const TOTAL   = 12;
+  const TOTAL   = track.querySelectorAll('.proj-slide').length;
+  if(!TOTAL) return;
   let current   = 0;
 
   // build dots
@@ -188,7 +220,7 @@ qq('.cnt').forEach(el=>co.observe(el));
     prevBtn.disabled = current===0;
     nextBtn.disabled = current===TOTAL-1;
     // update count
-    countEl.innerHTML = '<strong>'+(current+1)+'</strong> / 12';
+    countEl.innerHTML = '<strong>'+(current+1)+'</strong> / '+TOTAL;
     // update dots
     document.querySelectorAll('#projDots .ps-dot').forEach((d,i)=>d.classList.toggle('on',i===current));
   }
