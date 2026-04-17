@@ -1,7 +1,6 @@
 # robots.txt — iammjh.github.io
 User-agent: *
 Allow: /
-Disallow: /assets/resume.pdf
 
 # Explicitly allow major search engine bots
 User-agent: Googlebot

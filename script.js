@@ -115,6 +115,10 @@ qq('.cnt').forEach(el=>co.observe(el));
   });
 })();
 
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('/sw.js');
+}
+
 // --- MODALS + POPUP CLOSE ---
 (function(){
   const openers = qq('[data-modal-open]');
