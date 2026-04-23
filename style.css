@@ -397,7 +397,43 @@ body.cur-link .cursor-ring{width:64px;height:64px;background:rgba(232,147,74,.07
 /* ═══════════════════════════════════════════════════
    ABOUT
 ═══════════════════════════════════════════════════ */
-.about-section{padding:120px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about-section{
+  padding:120px 0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.about-section .wrap{position:relative;z-index:1}
+
+.about-bg-marquee{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-end;
+  padding-bottom:16px;
+  pointer-events:none;
+  z-index:0;
+  opacity:.08;
+}
+.about-bg-marquee-track{
+  display:flex;
+  width:max-content;
+  white-space:nowrap;
+  will-change:transform;
+  animation:aboutBgMarquee 80s linear infinite;
+}
+.about-bg-marquee-track span{
+  display:inline-block;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(7rem,20vw,19rem);
+  font-weight:800;
+  letter-spacing:.06em;
+  padding-right:2rem;
+  color:var(--text);
+  text-transform:uppercase;
+}
+@keyframes aboutBgMarquee{to{transform:translateX(-50%)}}
 .about-grid{
   display:grid;grid-template-columns:1fr 1fr;
   gap:80px;align-items:start;
@@ -488,6 +524,12 @@ body.cur-link .cursor-ring{width:64px;height:64px;background:rgba(232,147,74,.07
 .a-lbl{font-size:.72rem;color:var(--dim);font-weight:500;letter-spacing:.04em}
 
 @media(max-width:960px){.about-grid{grid-template-columns:1fr;gap:48px}.about-label{writing-mode:horizontal-tb;font-size:4rem}}
+
+@media(max-width:700px){.about-bg-marquee{display:none}}
+
+@media (prefers-reduced-motion: reduce){
+  .about-bg-marquee-track{animation:none}
+}
 
 @media(max-width:480px){
   .about-section{padding:80px 0}
