@@ -3,19 +3,21 @@
 const q=s=>document.querySelector(s);
 const qq=s=>[...document.querySelectorAll(s)];
 const pref=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(pref) document.documentElement.classList.add('reduce-motion');
 q('#yr').textContent=new Date().getFullYear();
 
 // ─── CUSTOM CURSOR ────────────────────────────────
 (function(){
-  if('ontouchstart' in window) return;
+  if('ontouchstart' in window || pref) return;
   const dot=q('#cd'),ring=q('#cr');
+  if(!dot||!ring) return;
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
   (function loop(){
     rx+=(mx-rx)*.15;ry+=(my-ry)*.15;
     dot.style.cssText=`left:${mx}px;top:${my}px`;
     ring.style.cssText=`left:${rx}px;top:${ry}px`;
-    if(!pref) requestAnimationFrame(loop);
+    requestAnimationFrame(loop);
   })();
   qq('a,button').forEach(el=>{
     el.addEventListener('mouseenter',()=>document.body.classList.add('cur-link'));
@@ -27,29 +29,62 @@ q('#yr').textContent=new Date().getFullYear();
   });
 })();
 
-// ─── NAV + BTT ────────────────────────────────────
+// ─── NAV + BTT + SCROLL SPY ───────────────────────
 const nav=q('#nav'),btt=q('#btt'),footer=q('.footer');
+const navLinks=qq('.nav-links .nl, .mob-drawer .nl');
+const sections=qq('main section[id]');
+let activeSection='home';
+
+function setActiveNav(id){
+  if(!id||id===activeSection) return;
+  activeSection=id;
+  navLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href')==='#'+id);
+  });
+}
+
+if(sections.length){
+  const spy=new IntersectionObserver(ents=>{
+    ents.forEach(e=>{
+      if(e.isIntersecting) setActiveNav(e.target.id);
+    });
+  },{rootMargin:'-42% 0px -52% 0px',threshold:0});
+  sections.forEach(sec=>spy.observe(sec));
+  setActiveNav(sections[0].id);
+}
+
 window.addEventListener('scroll',()=>{
   nav.classList.toggle('stuck',scrollY>40);
-  
-  // Hide BTT when footer is in view to prevent overlap
-  const footerInView = footer.getBoundingClientRect().top < window.innerHeight - 80;
-  btt.classList.toggle('show', scrollY>500 && !footerInView);
+  const footerInView=footer&&footer.getBoundingClientRect().top<window.innerHeight-80;
+  btt.classList.toggle('show', scrollY>500&&!footerInView);
 },{passive:true});
-btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:pref?'auto':'smooth'}));
 
 // ─── HAMBURGER ────────────────────────────────────
 const ham=q('#ham'),mob=q('#mob');
-ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':'';});
-qq('[data-close]').forEach(el=>el.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
+function closeMob(){
+  ham.classList.remove('open');
+  mob.classList.remove('open');
+  document.body.style.overflow='';
+}
+ham.addEventListener('click',()=>{
+  ham.classList.toggle('open');
+  mob.classList.toggle('open');
+  document.body.style.overflow=mob.classList.contains('open')?'hidden':'';
+});
+qq('[data-close]').forEach(el=>el.addEventListener('click',closeMob));
 
 // ─── HERO ANIMATIONS ──────────────────────────────
+const nl2=q('#nl2');
 if(!pref){
   setTimeout(()=>{
     q('#heroRule')&&q('#heroRule').classList.add('in');
     q('#heroEye') && setTimeout(()=>q('#heroEye').classList.add('in'),200);
     q('#nl1') && setTimeout(()=>q('#nl1').classList.add('in'),300);
-    q('#nl2') && setTimeout(()=>q('#nl2').classList.add('in'),450);
+    nl2 && setTimeout(()=>{
+      nl2.classList.add('in');
+      setTimeout(()=>nl2.classList.add('filled'),900);
+    },450);
     q('#heroDesc') && setTimeout(()=>q('#heroDesc').classList.add('in'),650);
     q('#heroStats') && setTimeout(()=>q('#heroStats').classList.add('in'),750);
     q('#heroCtas') && setTimeout(()=>q('#heroCtas').classList.add('in'),850);
@@ -58,7 +93,7 @@ if(!pref){
 } else {
   ['heroRule','heroEye','heroDesc','heroStats','heroCtas','heroTicker'].forEach(id=>{const el=q('#'+id);if(el)el.classList.add('in');});
   q('#nl1')&&q('#nl1').classList.add('in');
-  q('#nl2')&&q('#nl2').classList.add('in');
+  nl2&&nl2.classList.add('in','filled');
 }
 
 // ─── SCROLL REVEAL ────────────────────────────────
@@ -91,6 +126,28 @@ const co=new IntersectionObserver(ents=>{
   });
 },{threshold:.6});
 qq('.cnt').forEach(el=>co.observe(el));
+
+// ─── MAGNETIC CTAs ────────────────────────────────
+(function(){
+  if(pref||'ontouchstart' in window) return;
+  const max=10;
+  qq('.hero-ctas .btn-fill, .nav-hire').forEach(btn=>{
+    btn.classList.add('magnetic');
+    btn.addEventListener('mousemove',e=>{
+      const r=btn.getBoundingClientRect();
+      const x=e.clientX-r.left-r.width/2;
+      const y=e.clientY-r.top-r.height/2;
+      const dx=Math.max(-max,Math.min(max,x*0.22));
+      const dy=Math.max(-max,Math.min(max,y*0.22));
+      btn.style.setProperty('--mag-x', dx+'px');
+      btn.style.setProperty('--mag-y', dy+'px');
+    });
+    btn.addEventListener('mouseleave',()=>{
+      btn.style.setProperty('--mag-x','0px');
+      btn.style.setProperty('--mag-y','0px');
+    });
+  });
+})();
 
 // --- ACTIVITY EXPAND ---
 (function(){
@@ -163,6 +220,7 @@ if('serviceWorker' in navigator){
 
   const TOTAL   = track.querySelectorAll('.proj-slide').length;
   if(!TOTAL) return;
+  const slides  = [...track.querySelectorAll('.proj-slide')];
   let current   = 0;
 
   // build dots
@@ -174,20 +232,28 @@ if('serviceWorker' in navigator){
   }
 
   function update(){
-    // translate track
-    track.style.transform = 'translateX('+(-current*100)+'%)';
-    // update prev/next buttons
-    prevBtn.disabled = current===0;
-    nextBtn.disabled = current===TOTAL-1;
-    // update count
-    countEl.innerHTML = '<strong>'+(current+1)+'</strong> / '+TOTAL;
-    // update dots
+    track.style.transform='translateX('+(-current*100)+'%)';
+    prevBtn.disabled=current===0;
+    nextBtn.disabled=current===TOTAL-1;
+    countEl.innerHTML='<strong>'+(current+1)+'</strong> / '+TOTAL;
     document.querySelectorAll('#projDots .ps-dot').forEach((d,i)=>d.classList.toggle('on',i===current));
+    slides.forEach((slide,i)=>slide.classList.toggle('is-active',i===current));
   }
 
   function goTo(n){
-    current=Math.max(0,Math.min(TOTAL-1,n));
-    update();
+    const next=Math.max(0,Math.min(TOTAL-1,n));
+    if(next===current) return;
+    if(!pref){
+      track.classList.add('is-fading');
+      setTimeout(()=>{
+        current=next;
+        update();
+        track.classList.remove('is-fading');
+      },120);
+    } else {
+      current=next;
+      update();
+    }
   }
 
   prevBtn.addEventListener('click',()=>goTo(current-1));
@@ -235,8 +301,24 @@ if('serviceWorker' in navigator){
 (function(){
   const form = q('#cf');
   if(!form) return;
+  const fields=[...form.querySelectorAll('.fi, .fta')];
+  const fieldGroups=[...form.querySelectorAll('.fg')];
+
+  function setFormError(on){
+    fields.forEach(f=>f.classList.toggle('is-error', on));
+    fieldGroups.forEach(g=>g.classList.toggle('has-error', on));
+  }
+
+  fields.forEach(f=>{
+    f.addEventListener('input',()=>{
+      f.classList.remove('is-error');
+      if(!fields.some(el=>el.classList.contains('is-error'))) fieldGroups.forEach(g=>g.classList.remove('has-error'));
+    });
+  });
+
   form.addEventListener('submit', async e => {
     e.preventDefault();
+    setFormError(false);
     const btn = form.querySelector('.fs');
     const orig = btn.textContent;
     btn.textContent = 'Sending...';
@@ -251,19 +333,12 @@ if('serviceWorker' in navigator){
       });
       
       if(response.ok) {
-        // Show success popup
         const popup = q('#successPopup');
         popup.classList.add('show');
-        
-        // Reset form
         form.reset();
-        
-        // Reset button
         btn.textContent = orig;
         btn.style.opacity = '1';
         btn.disabled = false;
-        
-        // Auto-close popup after 5 seconds
         setTimeout(() => {
           popup.classList.remove('show');
         }, 5000);
@@ -272,6 +347,7 @@ if('serviceWorker' in navigator){
       }
     } catch(err) {
       console.error('Error:', err);
+      setFormError(true);
       btn.textContent = 'Error! Try again';
       btn.style.opacity = '1';
       btn.disabled = false;
