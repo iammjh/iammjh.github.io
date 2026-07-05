@@ -8,7 +8,7 @@ const ASSETS_TO_CACHE = [
   '/robots.txt',
   '/sitemap.xml',
   // Warm key visuals so repeat visits render quickly on weak connections.
-  '/assets/mjahidul.jpg',
+  '/assets/mjahidul.webp',
   '/assets/Re_Jahid.webp',
   '/assets/f1-analytics.webp',
   '/assets/tripbloom.webp',
