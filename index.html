@@ -62,6 +62,9 @@
 
   <!-- Theme Color -->
   <meta name="theme-color" content="#e8934a" />
+
+  <!-- Color Scheme -->
+  <meta name="color-scheme" content="dark light" />
   
   <!-- JSON-LD Structured Data for Google AI -->
   <script type="application/ld+json">
@@ -684,8 +687,8 @@
 <div class="cursor-ring" id="cr"></div>
 
 <!-- BTT -->
-<button id="btt" aria-label="Back to top">
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+<button id="btt" aria-label="Back to top" type="button">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
 </button>
 
 <!-- NAV -->
@@ -702,7 +705,7 @@
   <div class="nav-right">
     <a href="#contact" class="nav-hire">Say Hello</a>
   </div>
-  <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="ham" id="ham" aria-label="Toggle menu" type="button"><span></span><span></span><span></span></button>
 </nav>
 <div class="mob-drawer" id="mob">
   <a href="#home"     class="nl" data-close>Home</a>
@@ -881,7 +884,7 @@
       <div class="about-right dly-15" data-reveal="right">
         <!-- Photo card -->
         <div class="about-photo-frame">
-          <img src="assets/jahid1.webp" onerror="this.src='assets/jahid.webp'" alt="Md. Jahidul Hasan" class="about-photo" loading="eager" fetchpriority="high">
+          <img src="assets/jahid1.webp" onerror="this.src='assets/jahid.webp'" alt="Md. Jahidul Hasan - Backend Developer from BRAC University" class="about-photo" loading="eager" fetchpriority="high" width="400" height="300" decoding="sync">
         </div>
 
         <div class="info-block">
@@ -1047,7 +1050,7 @@
         <!-- 01 F1 Analytics Hub -->
         <div class="proj-slide">
           <div class="ps-img">
-            <img src="assets/f1-analytics.webp" alt="F1 Analytics Hub" loading="eager">
+            <img src="assets/f1-analytics.webp" alt="F1 Analytics Hub - Full-stack Formula 1 analytics platform with dashboards and race telemetry" loading="eager" width="600" height="480" decoding="sync">
             <span class="ps-num">01</span>
             <span class="ps-badge ps-badge--t">Live + Improving</span>
           </div>
@@ -1065,7 +1068,7 @@
         <!-- 02 Singularity-Wars -->
         <div class="proj-slide">
           <div class="ps-img">
-            <img src="assets/singularity-wars.webp" alt="Singularity-Wars" loading="lazy">
+            <img src="assets/singularity-wars.webp" alt="Singularity-Wars - 3D space combat game built with OpenGL and Python" loading="lazy" width="600" height="480" decoding="async">
             <span class="ps-num">02</span>
             <span class="ps-badge">Featured</span>
           </div>
@@ -1083,7 +1086,7 @@
         <!-- 03 TripBloom -->
         <div class="proj-slide">
           <div class="ps-img">
-            <img src="assets/tripbloom.webp" alt="TripBloom" loading="lazy">
+            <img src="assets/tripbloom.webp" alt="TripBloom - Travel planning web app with interactive UI and smart routing" loading="lazy" width="600" height="480" decoding="async">
             <span class="ps-num">03</span>
             <span class="ps-badge ps-badge--g">Featured</span>
           </div>
@@ -1101,7 +1104,7 @@
         <!-- 04 Cars -->
         <div class="proj-slide">
           <div class="ps-img">
-            <img src="assets/cars.webp" alt="Cars" loading="lazy">
+            <img src="assets/cars.webp" alt="Cars - Interactive car visualizations with WebGL animations and smooth motion design" loading="lazy" width="600" height="480" decoding="async">
             <span class="ps-num">04</span>
             <span class="ps-badge ps-badge--t">Featured</span>
           </div>
@@ -1119,7 +1122,7 @@
         <!-- 05 SDS Extractor -->
         <div class="proj-slide">
           <div class="ps-img">
-            <img src="assets/sds-chemical-extractor.webp" alt="SDS Chemical Extractor" loading="lazy">
+            <img src="assets/sds-chemical-extractor.webp" alt="SDS Chemical Extractor - Extracts chemical data from PDFs and exports to Excel" loading="lazy" width="600" height="480" decoding="async">
             <span class="ps-num">05</span>
             <span class="ps-badge ps-badge--t">Corporate</span>
           </div>
@@ -1137,7 +1140,7 @@
         <!-- 06 3D Particles -->
         <div class="proj-slide">
           <div class="ps-img">
-            <img src="assets/3d-particles.webp" alt="3D Particles" loading="lazy">
+            <img src="assets/3d-particles.webp" alt="3D Particles - Interactive 3D particle effects with real-time WebGL rendering" loading="lazy" width="600" height="480" decoding="async">
             <span class="ps-num">06</span>
           </div>
           <div class="ps-info">
@@ -1154,7 +1157,7 @@
         <!-- 07 Tic-Tac-Toe -->
         <div class="proj-slide">
           <div class="ps-img">
-            <img src="assets/tic-tac-toe.webp" alt="Tic-Tac-Toe" loading="lazy">
+            <img src="assets/tic-tac-toe.webp" alt="Tic-Tac-Toe - AI-powered Tic-Tac-Toe with unbeatable Minimax algorithm opponent" loading="lazy" width="600" height="480" decoding="async">
             <span class="ps-num">07</span>
           </div>
           <div class="ps-info">
@@ -1170,7 +1173,7 @@
         <!-- 08 Weather -->
         <div class="proj-slide">
           <div class="ps-img">
-            <img src="assets/weather.webp" alt="Weather Forecast" loading="lazy">
+            <img src="assets/weather.webp" alt="Weather Forecast - Real-time weather app with location detection and 5-day forecast" loading="lazy" width="600" height="480" decoding="async">
             <span class="ps-num">08</span>
           </div>
           <div class="ps-info">
@@ -1187,7 +1190,7 @@
         <!-- 09 Snake Game -->
         <div class="proj-slide">
           <div class="ps-img">
-            <img src="assets/snake.webp" alt="Snake Game" loading="lazy">
+            <img src="assets/snake.webp" alt="Snake Game - Classic snake game with responsive controls and highscore saving" loading="lazy" width="600" height="480" decoding="async">
             <span class="ps-num">09</span>
           </div>
           <div class="ps-info">
@@ -1204,7 +1207,7 @@
         <!-- 10 banijjo -->
         <div class="proj-slide">
           <div class="ps-img">
-            <img src="assets/banijjo.webp" alt="banijjo" loading="lazy">
+            <img src="assets/banijjo.webp" alt="banijjo - Trading-style web app with product listings and dynamic bidding functionality" loading="lazy" width="600" height="480" decoding="async">
             <span class="ps-num">10</span>
           </div>
           <div class="ps-info">
@@ -1221,7 +1224,7 @@
         <!-- 11 PCB Website -->
         <div class="proj-slide">
           <div class="ps-img">
-            <img src="assets/pcb.webp" alt="PCB Website" loading="lazy">
+            <img src="assets/pcb.webp" alt="PCB Website - PHP company website with server-side rendering and MySQL integration" loading="lazy" width="600" height="480" decoding="async">
             <span class="ps-num">11</span>
           </div>
           <div class="ps-info">
@@ -1237,7 +1240,7 @@
         <!-- 12 ATM Machine -->
         <div class="proj-slide">
           <div class="ps-img">
-            <img src="assets/atm.webp" alt="ATM Machine" loading="lazy">
+            <img src="assets/atm.webp" alt="ATM Machine - Full ATM simulation in x86 Assembly with PIN verification and transactions" loading="lazy" width="600" height="480" decoding="async">
             <span class="ps-num">12</span>
           </div>
           <div class="ps-info">
@@ -1255,12 +1258,12 @@
 
     <!-- unified controls outside slider -->
     <div class="proj-controls-row">
-      <button id="projPrev" class="ps-btn" aria-label="Previous slide">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+      <button id="projPrev" class="ps-btn" aria-label="Previous project slide" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
       </button>
       <span id="projCount" class="proj-count"><strong>1</strong> / 12</span>
-      <button id="projNext" class="ps-btn" aria-label="Next slide">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      <button id="projNext" class="ps-btn" aria-label="Next project slide" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
       </button>
       <div id="projDots" class="proj-dots-host"></div>
     </div>
@@ -1325,7 +1328,7 @@
         <div class="ac-sub">Consecutive Placements, Track & Field</div>
         <p>Achieved podium placements in Long Jump consecutively across both school and college annual sports days.</p>
         <div class="ac-thumbs">
-          <img src="assets/longjump.webp" alt="Long Jump" class="ac-thumb" data-modal-open="#modal-longjump" data-nosnippet>
+          <img src="assets/longjump.webp" alt="Long Jump achievement - Podium placement in annual sports day track and field event" class="ac-thumb" data-modal-open="#modal-longjump" data-nosnippet loading="lazy" width="140" height="100" decoding="async">
         </div>
         <div class="ac-stats"><div><span class="acstat-v">2+</span><span class="acstat-l">Consecutive</span></div><div><span class="acstat-v">1st·2nd</span><span class="acstat-l">Placements</span></div></div>
       </div>
@@ -1338,19 +1341,19 @@
         <div class="ac-sub">RS Sports Events — Inter-House Championship</div>
         <p>Clinched the <strong class="champion-text">Champion House (Chayaneer House)</strong> title at the BRAC University RS Sports Events Basketball Tournament.</p>
         <div class="ac-thumbs">
-          <img src="assets/basketball.webp" alt="Basketball Tournament" class="ac-thumb" data-modal-open="#modal-basketball-1" data-nosnippet>
-          <img src="assets/thropy.webp" alt="Trophy" class="ac-thumb" data-modal-open="#modal-basketball-2" data-nosnippet>
+          <img src="assets/basketball.webp" alt="Basketball tournament - BRAC University RS Sports Events Inter-House Championship team photo" class="ac-thumb" data-modal-open="#modal-basketball-1" data-nosnippet loading="lazy" width="140" height="100" decoding="async">
+          <img src="assets/thropy.webp" alt="Championship trophy - BRAC University basketball tournament winning trophy" class="ac-thumb" data-modal-open="#modal-basketball-2" data-nosnippet loading="lazy" width="140" height="100" decoding="async">
         </div>
         <div class="ac-stats"><div><span class="acstat-v"><svg class="pico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 22V11"/><path d="M14 22V11"/><path d="M8 9h8v4a4 4 0 0 1-8 0V9z"/></svg></span><span class="acstat-l">Champion</span></div></div>
       </div>
 
       <!-- SHOW MORE button row -->
       <div class="act-more-wrap">
-        <button class="act-more-btn" id="actMoreBtn">
+        <button class="act-more-btn" id="actMoreBtn" type="button" aria-expanded="false" aria-label="Show more activities">
           <span>Show more</span>
           <span class="act-more-count">+2</span>
           <span class="act-more-chevron">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </span>
         </button>
       </div>
@@ -1360,19 +1363,22 @@
 </section>
 
 <!-- PROOF MODALS -->
-<div class="proof-modal" id="modal-longjump" data-modal>
-  <img src="assets/longjump.webp" alt="Long Jump Proof" data-nosnippet>
-  <button class="proof-close" type="button" data-modal-close>✕</button>
+<div class="proof-modal" id="modal-longjump" data-modal role="dialog" aria-modal="true" aria-labelledby="longjump-title">
+  <h2 id="longjump-title" style="display:none">Long Jump Achievement</h2>
+  <img src="assets/longjump.webp" alt="Long Jump achievement - Podium placement in annual sports day" data-nosnippet>
+  <button class="proof-close" type="button" data-modal-close aria-label="Close dialog">✕</button>
 </div>
 
-<div class="proof-modal" id="modal-basketball-1" data-modal>
-  <img src="assets/basketball.webp" alt="Basketball Tournament" data-nosnippet>
-  <button class="proof-close" type="button" data-modal-close>✕</button>
+<div class="proof-modal" id="modal-basketball-1" data-modal role="dialog" aria-modal="true" aria-labelledby="basketball-title">
+  <h2 id="basketball-title" style="display:none">Basketball Tournament</h2>
+  <img src="assets/basketball.webp" alt="Basketball tournament - BRAC University RS Sports Events team photo" data-nosnippet>
+  <button class="proof-close" type="button" data-modal-close aria-label="Close dialog">✕</button>
 </div>
 
-<div class="proof-modal" id="modal-basketball-2" data-modal>
-  <img src="assets/thropy.webp" alt="Trophy" data-nosnippet>
-  <button class="proof-close" type="button" data-modal-close>✕</button>
+<div class="proof-modal" id="modal-basketball-2" data-modal role="dialog" aria-modal="true" aria-labelledby="trophy-title">
+  <h2 id="trophy-title" style="display:none">Championship Trophy</h2>
+  <img src="assets/thropy.webp" alt="Championship trophy - BRAC University basketball tournament winning trophy" data-nosnippet>
+  <button class="proof-close" type="button" data-modal-close aria-label="Close dialog">✕</button>
 </div>
 
 
@@ -1387,7 +1393,7 @@
         <div class="ct-links dly-30" data-reveal="up">
           <div class="ct-card" data-reveal="up">
             <div class="ct-card-inner">
-              <img src="assets/Re_Jahid.webp" alt="Md. Jahidul Hasan" class="ct-card-img">
+              <img src="assets/Re_Jahid.webp" alt="Md. Jahidul Hasan - Backend Developer profile photo" class="ct-card-img" width="80" height="80" decoding="async">
               <div class="ct-card-content">
                 <div class="ct-card-name">Md. Jahidul Hasan</div>
                 <div class="ct-card-role">Backend Developer</div>
@@ -1404,10 +1410,19 @@
       </div>
       <div class="ct-form dly-20" data-reveal="up">
         <h3>Send a message</h3>
-        <form id="cf" method="POST">
-          <div class="fg"><label for="nm">Name</label><input class="fi" type="text" id="nm" name="name" placeholder="Your name" required></div>
-          <div class="fg"><label for="em">Email</label><input class="fi" type="email" id="em" name="email" placeholder="you@example.com" required></div>
-          <div class="fg"><label for="msg">Message</label><textarea class="fta" id="msg" name="message" placeholder="Tell me about your project or opportunity..." required></textarea></div>
+        <form id="cf" method="POST" novalidate>
+          <div class="fg">
+            <label for="nm">Name <span aria-label="required">*</span></label>
+            <input class="fi" type="text" id="nm" name="name" placeholder="Your name" required aria-required="true" autocomplete="name">
+          </div>
+          <div class="fg">
+            <label for="em">Email <span aria-label="required">*</span></label>
+            <input class="fi" type="email" id="em" name="email" placeholder="you@example.com" required aria-required="true" autocomplete="email">
+          </div>
+          <div class="fg">
+            <label for="msg">Message <span aria-label="required">*</span></label>
+            <textarea class="fta" id="msg" name="message" placeholder="Tell me about your project or opportunity..." required aria-required="true"></textarea>
+          </div>
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_autoresponse" value="Hi there!&#10;&#10;Thanks for reaching out! I've received your message and will get back to you as soon as possible.&#10;&#10;In the meantime, feel free to check out my GitHub (github.com/iammjh) or LinkedIn (linkedin.com/in/iammjh) to learn more about my work.&#10;&#10;Best regards,&#10;Md. Jahidul Hasan&#10;Backend Developer | B.Sc. Computer Science, BRAC University">
           <button type="submit" class="fs">Send Message →</button>
@@ -1420,30 +1435,30 @@
 </main>
 
 <!-- ══════════════ SUCCESS POPUP ══════════════ -->
-<div class="success-popup" id="successPopup">
+<div class="success-popup" id="successPopup" role="alert" aria-live="polite" aria-atomic="true">
   <div class="success-popup-content">
     <div class="success-popup-icon"><svg class="pico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
     <div class="success-popup-message">Message Sent Successfully!</div>
     <p class="success-popup-subtitle">Thank you for reaching out. I'll get back to you soon.</p>
-    <button class="success-popup-close" type="button" data-popup-close>×</button>
+    <button class="success-popup-close" type="button" data-popup-close aria-label="Close success message">×</button>
   </div>
 </div>
 
 <!-- ══════════════ FOOTER ══════════════ -->
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <div class="footer-left">Designed & Built by <strong>Md. Jahidul Hasan</strong> · <span id="yr"></span></div>
   <div class="footer-right">
-    <a href="https://facebook.com/iammjh.io" target="_blank" rel="noopener noreferrer" class="fsoc" aria-label="Facebook">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    <a href="https://facebook.com/iammjh.io" target="_blank" rel="noopener noreferrer" class="fsoc" aria-label="Visit Facebook profile">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
     </a>
-    <a href="https://github.com/iammjh" target="_blank" rel="noopener noreferrer" class="fsoc" aria-label="GitHub">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.5 10.5 0 0 1 5.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+    <a href="https://github.com/iammjh" target="_blank" rel="noopener noreferrer" class="fsoc" aria-label="Visit GitHub profile">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.5 10.5 0 0 1 5.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
     </a>
-    <a href="https://www.linkedin.com/in/iammjh" target="_blank" rel="noopener noreferrer" class="fsoc" aria-label="LinkedIn">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    <a href="https://www.linkedin.com/in/iammjh" target="_blank" rel="noopener noreferrer" class="fsoc" aria-label="Visit LinkedIn profile">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
     </a>
-    <a href="mailto:mohammadjahidulhasan@icloud.com" class="fsoc" aria-label="Email">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 5l9 6 9-6"/></svg>
+    <a href="mailto:mohammadjahidulhasan@icloud.com" class="fsoc" aria-label="Send email">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 5l9 6 9-6"/></svg>
     </a>
   </div>
 </footer>
