@@ -1,5 +1,5 @@
 # robots.txt - iammjh.github.io
-# Updated: 2026-07-06
+# Updated: 2026-08-31
 User-agent: *
 Allow: /
 
