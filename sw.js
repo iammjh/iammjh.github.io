@@ -1,95 +1,81 @@
-// Service Worker for portfolio caching
-const CACHE_NAME = 'portfolio-v3';
-const ASSETS_TO_CACHE = [
+'use strict';
+
+const CACHE_NAME = 'portfolio-v5';
+const PAGE_PATHS = new Set([
   '/',
   '/index.html',
-  '/style.css',
-  '/script.js',
-  '/robots.txt',
-  '/sitemap.xml',
-  // Warm key visuals so repeat visits render quickly on weak connections.
-  '/assets/mjahidul.webp',
-  '/assets/Re_Jahid.webp',
-  '/assets/f1-analytics.webp',
-  '/assets/tripbloom.webp',
-  '/assets/singularity-wars.webp',
-  '/assets/sds-chemical-extractor.webp',
-  '/assets/atm.webp',
-  '/assets/weather.webp',
-  '/assets/tic-tac-toe.webp',
-  '/assets/snake.webp',
-  '/assets/cars.webp'
+  '/projects/f1-analytics.html',
+  '/projects/sds-extractor.html',
+  '/projects/singularity-wars.html'
+]);
+const DOCUMENT_PATHS = new Set([
+  ...PAGE_PATHS,
+  '/style.css', '/script.js', '/case-study.css', '/case-study.js', '/register-sw.js',
+  '/robots.txt', '/sitemap.xml'
+]);
+const CORE_ASSETS = [
+  ...PAGE_PATHS,
+  '/style.css?v=4', '/script.js?v=4', '/case-study.css?v=4', '/case-study.js?v=4', '/register-sw.js?v=4',
+  '/assets/fonts/space-grotesk-latin.woff2', '/assets/fonts/dm-sans-latin.woff2', '/assets/fonts/ibm-plex-mono-latin.woff2',
+  '/assets/jahid1.webp', '/assets/f1-analytics.webp', '/assets/sds-chemical-extractor.webp', '/assets/singularity-wars.webp',
+  '/favicon_io/favicon.ico'
 ];
 
-// Install: cache critical assets
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
-    })
-  );
-  self.skipWaiting();
+self.addEventListener('install', event => {
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    await cache.addAll(CORE_ASSETS);
+    await self.skipWaiting();
+  })());
 });
 
-// Activate: clean old caches
-self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
-  self.clients.claim();
+self.addEventListener('activate', event => {
+  event.waitUntil((async () => {
+    const names = await caches.keys();
+    await Promise.all(names
+      .filter(name => /^portfolio-v\d+$/.test(name) && name !== CACHE_NAME)
+      .map(name => caches.delete(name)));
+    await self.clients.claim();
+  })());
 });
 
-// Fetch: network-first, fallback to cache
-self.addEventListener('fetch', (event) => {
-  // Skip non-GET requests
-  if (event.request.method !== 'GET') {
-    return;
-  }
+function offlineResponse() {
+  return new Response('This resource is not available offline. Please reconnect and try again.', {
+    status: 503,
+    headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+  });
+}
 
-  // Skip external requests (like iconify CDN) - cache them separately
-  if (event.request.url.includes('code.iconify.design')) {
-    event.respondWith(
-      caches.open('iconify-cache').then((cache) => {
-        return fetch(event.request).then((response) => {
-          cache.put(event.request, response.clone());
-          return response;
-        }).catch(() => cache.match(event.request));
-      })
-    );
-    return;
-  }
+self.addEventListener('fetch', event => {
+  const request = event.request;
+  const url = new URL(request.url);
+  if (request.method !== 'GET' || url.origin !== self.location.origin) return;
+  const isDocument = DOCUMENT_PATHS.has(url.pathname);
+  const isAsset = url.pathname.startsWith('/assets/') || url.pathname.startsWith('/favicon_io/');
+  // Do not take over other GitHub Pages projects hosted under the same origin.
+  if (!isDocument && !isAsset) return;
 
-  // For local assets: cache-first strategy
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      if (response) {
-        return response;
+  event.respondWith((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    if (!isDocument) {
+      const cached = await cache.match(request);
+      if (cached) return cached;
+    }
+    try {
+      const response = await fetch(request, isDocument ? { cache: 'no-cache' } : undefined);
+      if (response.ok) {
+        // Storage limits must never prevent a successful network response from rendering.
+        try { await cache.put(request, response.clone()); } catch { /* Cache is optional. */ }
       }
-
-      return fetch(event.request).then((response) => {
-        // Only cache successful responses
-        if (!response || response.status !== 200 || response.type === 'error') {
-          return response;
-        }
-
-        const responseToCache = response.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, responseToCache);
-        });
-
-        return response;
-      }).catch(() => {
-        // Return offline page if available
-        return caches.match('/index.html');
-      });
-    })
-  );
+      return response;
+    } catch {
+      // Only fall back to the requested resource; never serve the homepage as CSS or another page.
+      const cached = await cache.match(request);
+      if (cached) return cached;
+      if (PAGE_PATHS.has(url.pathname)) {
+        return (await cache.match(url.pathname)) || offlineResponse();
+      }
+      return offlineResponse();
+    }
+  })());
 });

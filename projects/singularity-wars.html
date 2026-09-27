@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="index,follow"><meta name="theme-color" content="#10110f">
+  <title>Singularity-Wars — Case study · Md. Jahidul Hasan</title>
+  <meta name="description" content="A Python and OpenGL space-combat project that connects movement, hazards, enemies, and rendering in one game loop.">
+  <link rel="canonical" href="https://iammjh.github.io/projects/singularity-wars.html">
+  <meta property="og:type" content="article"><meta property="og:title" content="Singularity-Wars — A project by Md. Jahidul Hasan">
+  <meta property="og:description" content="A Python and OpenGL space-combat project that connects movement, hazards, enemies, and rendering in one game loop."><meta property="og:url" content="https://iammjh.github.io/projects/singularity-wars.html">
+  <meta property="og:image" content="https://iammjh.github.io/assets/singularity-wars.webp"><meta property="og:image:alt" content="Singularity-Wars 3D space combat gameplay">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Singularity-Wars — Case study">
+  <meta name="twitter:description" content="A Python and OpenGL space-combat project that connects movement, hazards, enemies, and rendering in one game loop."><meta name="twitter:image" content="https://iammjh.github.io/assets/singularity-wars.webp">
+  <link rel="icon" href="../favicon_io/favicon.ico">
+  <link rel="stylesheet" href="../style.css?v=4"><link rel="stylesheet" href="../case-study.css?v=4">
+  <link rel="preload" href="../assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="../case-study.js?v=4" defer></script><script src="../register-sw.js?v=4" defer></script>
+</head>
+<body class="case-page theme-game">
+<a class="skip-link" href="#case-main">Skip to case study</a>
+<div class="case-progress" aria-hidden="true"></div>
+<header class="case-header"><a class="brand" href="../#home" aria-label="Md. Jahidul Hasan — portfolio"><span class="brand-mark">jh<span>_</span></span></a><span class="case-header-label mono">PROJECT NOTES / 03</span><a class="case-back" href="../#work"><span aria-hidden="true">↖</span> All projects</a></header>
+<main id="case-main" class="case-shell">
+  <section class="case-hero" aria-labelledby="case-title">
+    <p class="case-kicker mono"><span>03 / CASE STUDY</span> Singularity-Wars</p>
+    <h1 id="case-title">A little physics.<br><em>A lot of space.</em></h1>
+    <p class="case-intro">A Python and OpenGL space-combat project that connects movement, hazards, enemies, and rendering in one game loop.</p>
+    <div class="case-actions"><a class="case-button" href="https://github.com/iammjh/Singularity-Wars/releases" target="_blank" rel="noopener noreferrer">View releases <span aria-hidden="true">↗</span></a><a class="case-source" href="https://github.com/iammjh/Singularity-Wars" target="_blank" rel="noopener noreferrer">Explore source <span aria-hidden="true">↗</span></a></div>
+    <div class="case-brief"><div><span class="mono">CONTEXT</span><p>CSE423 coursework · Collaborative project</p></div><div><span class="mono">MY ROLE</span><p>Concept &amp; game enhancements</p></div><div><span class="mono">BUILT WITH</span><div class="case-tags"><span>Python</span><span>PyOpenGL</span><span>GLUT</span><span>Game physics</span></div></div></div>
+  </section>
+  <figure class="case-cover case-reveal"><div class="case-window mono"><span aria-hidden="true">● ● ●</span><span>Singularity-Wars</span><span>PROJECT VIEW</span></div><img src="../assets/singularity-wars.webp" alt="Singularity-Wars 3D space combat gameplay" width="1509" height="797" decoding="async" loading="lazy"><figcaption>The game combines spaceship flight, combat, and environmental hazards.</figcaption></figure>
+  <dl class="case-facts case-reveal"><div><dt>Movement through space</dt><dd>6-DOF</dd></div><div><dt>Difficulty settings</dt><dd>3</dd></div><div><dt>Camera perspectives</dt><dd>2</dd></div></dl>
+  <div class="case-reading-layout">
+    <nav class="case-toc" aria-label="Case study sections"><span class="mono">INSIDE THE BUILD</span><a href="#problem">01 <span>The problem</span></a><a href="#approach">02 <span>The approach</span></a><a href="#decisions">03 <span>Key decisions</span></a><a href="#outcome">04 <span>The result</span></a><a href="#project-sources">05 <span>Explore the code</span></a></nav>
+    <div class="case-story">
+      <section id="problem" class="case-section case-reveal" data-case-section><p class="case-eyebrow mono">01 / THE PROBLEM</p><h2>Make interacting systems feel like a game.</h2><p>Movement, collisions, enemies, and gravity must respond together. A small change in one system can change the whole flight and combat experience.</p><aside class="case-role"><h3>My contribution</h3><p>I contributed the core concept and enhanced the game for CSE423 coursework. The repository credits AlifKhan24 as the original creator; this project builds on that foundation.</p><p class="case-credit">Original creator: <a href="https://github.com/AlifKhan24" target="_blank" rel="noopener noreferrer">AlifKhan24 ↗</a> · Concept and enhancements: <a href="https://github.com/iammjh" target="_blank" rel="noopener noreferrer">Md. Jahidul Hasan ↗</a></p></aside></section>
+      <section id="approach" class="case-section case-reveal" data-case-section><p class="case-eyebrow mono">02 / THE APPROACH</p><h2>A loop that keeps the world moving.</h2><p>GLUT callbacks handle input, updates, and drawing. Python updates the simulation; OpenGL renders it. Player actions and environmental forces feed the next update.</p><figure class="case-architecture"><figcaption>A simplified view of the game loop</figcaption><ol class="case-flow"><li><span class="flow-number">01</span><strong>Read input</strong><span>Flight and weapons</span></li><li><span class="flow-number">02</span><strong>Update world</strong><span>Physics, enemies, collisions</span></li><li><span class="flow-number">03</span><strong>Render scene</strong><span>OpenGL drawing</span></li><li><span class="flow-number">04</span><strong>Repeat</strong><span>Display the next frame</span></li></ol><p>A conceptual view of the implemented callbacks. Simulation and rendering live in the main Python game file.</p></figure></section>
+      <section id="decisions" class="case-section" data-case-section><p class="case-eyebrow mono">03 / KEY DECISIONS</p><h2>The details that shape the build.</h2><div class="case-decisions"><article class="case-decision case-reveal"><span class="decision-number mono">01</span><div><h3>Connect hazards to movement</h3><p>Black holes attract, white holes repel, and wormholes relocate the player. Environmental objects affect navigation as well as the scene.</p></div></article><article class="case-decision case-reveal"><span class="decision-number mono">02</span><div><h3>Offer two perspectives</h3><p>First-person and third-person views give players different ways to judge position and threats.</p></div></article><article class="case-decision case-reveal"><span class="decision-number mono">03</span><div><h3>Let challenge grow with play</h3><p>Difficulty settings and progression affect combat. Upgrades and enemy scaling give continued play a changing rhythm.</p></div></article></div></section>
+      <section id="outcome" class="case-section case-reveal" data-case-section><p class="case-eyebrow mono">04 / THE RESULT</p><h2>An explorable combat sandbox.</h2><p>The build includes flight, enemies, weapon upgrades, gravitational hazards, and score tracking.</p><div class="case-constraint"><h3>A constraint worth understanding</h3><p>Parts of the physics use an assumed frame rate. Measured elapsed time would be a useful next step toward more consistent simulation across machines.</p></div></section>
+      <section id="project-sources" class="case-section case-reveal" data-case-section><p class="case-eyebrow mono">05 / EXPLORE THE CODE</p><h2>Go one level deeper.</h2><p>Follow the implementation behind the decisions.</p><div class="case-evidence"><a href="https://github.com/iammjh/Singularity-Wars/blob/main/README.md" target="_blank" rel="noopener noreferrer">Project overview and credits <span aria-hidden="true">↗</span></a><a href="https://github.com/iammjh/Singularity-Wars/blob/main/Singularity%20War.py" target="_blank" rel="noopener noreferrer">Game implementation <span aria-hidden="true">↗</span></a></div></section>
+    </div>
+  </div>
+  <a class="case-next case-reveal" href="f1-analytics.html"><span class="mono">NEXT CASE STUDY / 01</span><strong>F1 Analytics Hub</strong><span class="case-next-arrow" aria-hidden="true">↗</span></a>
+  <footer class="case-footer"><a href="../#work">← Back to all projects</a><a href="../#contact">Have something in mind? Let’s talk ↗</a></footer>
+</main>
+</body>
+</html>

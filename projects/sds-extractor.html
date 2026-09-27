@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="index,follow"><meta name="theme-color" content="#10110f">
+  <title>SDS Chemical Extractor — Case study · Md. Jahidul Hasan</title>
+  <meta name="description" content="A practical Python tool that turns batches of safety data sheets into a structured Excel workbook.">
+  <link rel="canonical" href="https://iammjh.github.io/projects/sds-extractor.html">
+  <meta property="og:type" content="article"><meta property="og:title" content="SDS Chemical Extractor — A project by Md. Jahidul Hasan">
+  <meta property="og:description" content="A practical Python tool that turns batches of safety data sheets into a structured Excel workbook."><meta property="og:url" content="https://iammjh.github.io/projects/sds-extractor.html">
+  <meta property="og:image" content="https://iammjh.github.io/assets/sds-chemical-extractor.webp"><meta property="og:image:alt" content="SDS Chemical Extractor upload interface">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="SDS Chemical Extractor — Case study">
+  <meta name="twitter:description" content="A practical Python tool that turns batches of safety data sheets into a structured Excel workbook."><meta name="twitter:image" content="https://iammjh.github.io/assets/sds-chemical-extractor.webp">
+  <link rel="icon" href="../favicon_io/favicon.ico">
+  <link rel="stylesheet" href="../style.css?v=4"><link rel="stylesheet" href="../case-study.css?v=4">
+  <link rel="preload" href="../assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="../case-study.js?v=4" defer></script><script src="../register-sw.js?v=4" defer></script>
+</head>
+<body class="case-page theme-sds">
+<a class="skip-link" href="#case-main">Skip to case study</a>
+<div class="case-progress" aria-hidden="true"></div>
+<header class="case-header"><a class="brand" href="../#home" aria-label="Md. Jahidul Hasan — portfolio"><span class="brand-mark">jh<span>_</span></span></a><span class="case-header-label mono">PROJECT NOTES / 02</span><a class="case-back" href="../#work"><span aria-hidden="true">↖</span> All projects</a></header>
+<main id="case-main" class="case-shell">
+  <section class="case-hero" aria-labelledby="case-title">
+    <p class="case-kicker mono"><span>02 / CASE STUDY</span> SDS Chemical Extractor</p>
+    <h1 id="case-title">Less copying.<br><em>More useful data.</em></h1>
+    <p class="case-intro">A practical Python tool that turns batches of safety data sheets into a structured Excel workbook.</p>
+    <div class="case-actions"><a class="case-button" href="https://sds-chemical-extractor.onrender.com/" target="_blank" rel="noopener noreferrer">Open project <span aria-hidden="true">↗</span></a><a class="case-source" href="https://github.com/iammjh/sds_chemical_extractor" target="_blank" rel="noopener noreferrer">Explore source <span aria-hidden="true">↗</span></a></div>
+    <div class="case-brief"><div><span class="mono">CONTEXT</span><p>Client project · Textile industry</p></div><div><span class="mono">MY ROLE</span><p>Python tool development</p></div><div><span class="mono">BUILT WITH</span><div class="case-tags"><span>Python</span><span>pdfplumber</span><span>pandas</span><span>openpyxl</span></div></div></div>
+  </section>
+  <figure class="case-cover case-reveal"><div class="case-window mono"><span aria-hidden="true">● ● ●</span><span>SDS Chemical Extractor</span><span>PROJECT VIEW</span></div><img src="../assets/sds-chemical-extractor.webp" alt="SDS Chemical Extractor upload interface" width="1917" height="863" decoding="async" loading="lazy"><figcaption>Upload SDS PDFs in the browser and download the extracted workbook.</figcaption></figure>
+  <dl class="case-facts case-reveal"><div><dt>Document workflow</dt><dd>PDF → XLSX</dd></div><div><dt>Consistent output columns</dt><dd>3</dd></div><div><dt>Two ways to run it</dt><dd>Web + CLI</dd></div></dl>
+  <div class="case-reading-layout">
+    <nav class="case-toc" aria-label="Case study sections"><span class="mono">INSIDE THE BUILD</span><a href="#problem">01 <span>The problem</span></a><a href="#approach">02 <span>The approach</span></a><a href="#decisions">03 <span>Key decisions</span></a><a href="#outcome">04 <span>The result</span></a><a href="#project-sources">05 <span>Explore the code</span></a></nav>
+    <div class="case-story">
+      <section id="problem" class="case-section case-reveal" data-case-section><p class="case-eyebrow mono">01 / THE PROBLEM</p><h2>The same information, in different layouts.</h2><p>A corporate textile client needed product names, chemical names, and CAS numbers from SDS PDFs in spreadsheet form. The challenge is that the information can sit in tables, wrap across lines, or appear under different labels.</p><aside class="case-role"><h3>My contribution</h3><p>I built the extraction tool for this client workflow, combining a Python parser with browser uploads and Excel export. The same extraction logic also supports individual files and folders from the command line.</p></aside></section>
+      <section id="approach" class="case-section case-reveal" data-case-section><p class="case-eyebrow mono">02 / THE APPROACH</p><h2>Follow the document’s structure.</h2><p>The parser reads product identifiers from Section 1 and locates the composition information in Section 3. It tries table extraction first, then falls back to text when tables yield no items. The extracted records become a three-column workbook.</p><figure class="case-architecture"><figcaption>From a batch of documents to one workbook</figcaption><ol class="case-flow"><li><span class="flow-number">01</span><strong>SDS PDFs</strong><span>Upload one or more files</span></li><li><span class="flow-number">02</span><strong>Locate sections</strong><span>Product + ingredients</span></li><li><span class="flow-number">03</span><strong>Extract records</strong><span>Tables, then text fallback</span></li><li><span class="flow-number">04</span><strong>Export workbook</strong><span>Product · Chemical · CAS</span></li></ol><p>The browser and command-line workflows reuse the same extraction function. The output preserves a product’s identity alongside its chemical records.</p></figure></section>
+      <section id="decisions" class="case-section" data-case-section><p class="case-eyebrow mono">03 / KEY DECISIONS</p><h2>The details that shape the build.</h2><div class="case-decisions"><article class="case-decision case-reveal"><span class="decision-number mono">01</span><div><h3>Use structure before pattern matching</h3><p>Section boundaries narrow the composition search. Product-name patterns handle different labels, while nearby text helps recover chemical names that wrap around CAS numbers.</p></div></article><article class="case-decision case-reveal"><span class="decision-number mono">02</span><div><h3>Make incomplete results visible</h3><p>Files with no extracted ingredients produce an N/A row. A failed file produces an error row while the batch continues, giving the reviewer a place to investigate.</p></div></article><article class="case-decision case-reveal"><span class="decision-number mono">03</span><div><h3>Deliver something usable in Excel</h3><p>pandas and openpyxl create the workbook with headers, adjusted column widths, and row heights. The result is ready for review in the client’s existing spreadsheet workflow.</p></div></article></div></section>
+      <section id="outcome" class="case-section case-reveal" data-case-section><p class="case-eyebrow mono">04 / THE RESULT</p><h2>A repeatable route from PDF to spreadsheet.</h2><p>The tool accepts multiple PDFs and exports product, chemical, and CAS fields together. It puts extraction and formatting into one workflow, with the original documents available for checking the results.</p><div class="case-constraint"><h3>A constraint worth understanding</h3><p>Extraction depends on readable PDF text and recognizable layouts. The current pipeline has no OCR stage; scanned documents and unusual formatting need separate handling or manual review.</p></div></section>
+      <section id="project-sources" class="case-section case-reveal" data-case-section><p class="case-eyebrow mono">05 / EXPLORE THE CODE</p><h2>Go one level deeper.</h2><p>Follow the implementation behind the decisions.</p><div class="case-evidence"><a href="https://github.com/iammjh/sds_chemical_extractor/blob/11149b98d1a0d3d8bb8c88e6a15222f6cd6ca80e/README.md" target="_blank" rel="noopener noreferrer">Project overview <span aria-hidden="true">↗</span></a><a href="https://github.com/iammjh/sds_chemical_extractor/blob/11149b98d1a0d3d8bb8c88e6a15222f6cd6ca80e/pdf_to_excel.py" target="_blank" rel="noopener noreferrer">Extraction pipeline <span aria-hidden="true">↗</span></a><a href="https://github.com/iammjh/sds_chemical_extractor/blob/11149b98d1a0d3d8bb8c88e6a15222f6cd6ca80e/app.py" target="_blank" rel="noopener noreferrer">Upload and export flow <span aria-hidden="true">↗</span></a></div></section>
+    </div>
+  </div>
+  <a class="case-next case-reveal" href="singularity-wars.html"><span class="mono">NEXT CASE STUDY / 03</span><strong>Singularity-Wars</strong><span class="case-next-arrow" aria-hidden="true">↗</span></a>
+  <footer class="case-footer"><a href="../#work">← Back to all projects</a><a href="../#contact">Have something in mind? Let’s talk ↗</a></footer>
+</main>
+</body>
+</html>
