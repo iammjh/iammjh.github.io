@@ -10,10 +10,12 @@ Personal portfolio of **Md. Jahidul Hasan (@iammjh)**, a backend developer and f
 
 - **Projects:** 12 builds, a filterable archive, and dedicated case studies for [F1 Analytics Hub](projects/f1-analytics.html), [SDS Chemical Extractor](projects/sds-extractor.html), and [Singularity-Wars](projects/singularity-wars.html).
 - **Beyond the code:** an introduction, toolkit, five education records, two scholarships, community leadership, events, and sports achievements.
-- **Interactions:** a system explorer, scroll reveals, an education timeline, animated counters, a scrolling Build Notes ribbon, and photo dialogs.
+- **Interactions:** a system explorer, scroll reveals, an education timeline, animated counters, a scrolling Build Notes ribbon, photo dialogs, and a custom precision cursor with reactive tracking brackets on desktop.
 - **Contact:** résumé download, social links, email, and a form that preserves new edits made while a previous message is sending.
 
 The system explorer is an illustrative local simulation; it does not call a backend. Animations follow the operating system's reduced-motion preference, and the marquee pauses on hover. Without JavaScript, the content, navigation, photo links, and native contact form remain available.
+
+Text fields use a matching terminal-style mouse pointer and an orange typing caret. The trailing brackets stay out of text fields; touch and high-contrast modes retain native mouse pointers.
 
 ## Run locally
 
@@ -34,6 +36,7 @@ Open **http://127.0.0.1:8765/**. Use this HTTP server rather than opening the HT
 | Explorer, scroll effects, filters, dialogs, and form handling | [script.js](script.js) |
 | Project stories | [projects/](projects/) |
 | Case-study layout and reading interactions | [case-study.css](case-study.css), [case-study.js](case-study.js) |
+| Custom mouse pointers and tracking brackets | [cursor.css](cursor.css), [cursor.js](cursor.js), `assets/cursor-*.svg` |
 | Photographs, project images, résumé, and local fonts | [assets/](assets/) |
 | Browser and mobile icons | [favicon_io/](favicon_io/) |
 | Service-worker registration and cache policy | [register-sw.js](register-sw.js), [sw.js](sw.js) |

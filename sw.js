@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_NAME = 'portfolio-v7';
+const CACHE_NAME = 'portfolio-v9';
 const PAGE_PATHS = new Set([
   '/',
   '/index.html',
@@ -11,11 +11,13 @@ const PAGE_PATHS = new Set([
 const DOCUMENT_PATHS = new Set([
   ...PAGE_PATHS,
   '/style.css', '/script.js', '/case-study.css', '/case-study.js', '/register-sw.js',
+  '/cursor.css', '/cursor.js',
   '/robots.txt', '/sitemap.xml', '/favicon_io/site.webmanifest'
 ]);
 const CORE_ASSETS = [
   ...PAGE_PATHS,
   '/style.css?v=4', '/script.js?v=4', '/case-study.css?v=4', '/case-study.js?v=4', '/register-sw.js?v=4',
+  '/cursor.css?v=1', '/cursor.js?v=1', '/assets/cursor-precision.svg', '/assets/cursor-link.svg', '/assets/cursor-text.svg',
   '/assets/fonts/space-grotesk-latin.woff2', '/assets/fonts/dm-sans-latin.woff2', '/assets/fonts/ibm-plex-mono-latin.woff2',
   '/assets/jahid1.webp', '/assets/f1-analytics.webp', '/assets/sds-chemical-extractor.webp', '/assets/singularity-wars.webp',
   '/favicon_io/favicon.ico?v=mjh-1', '/favicon_io/favicon.svg?v=mjh-1',
