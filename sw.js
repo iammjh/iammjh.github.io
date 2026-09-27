@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_NAME = 'portfolio-v5';
+const CACHE_NAME = 'portfolio-v7';
 const PAGE_PATHS = new Set([
   '/',
   '/index.html',
@@ -11,14 +11,18 @@ const PAGE_PATHS = new Set([
 const DOCUMENT_PATHS = new Set([
   ...PAGE_PATHS,
   '/style.css', '/script.js', '/case-study.css', '/case-study.js', '/register-sw.js',
-  '/robots.txt', '/sitemap.xml'
+  '/robots.txt', '/sitemap.xml', '/favicon_io/site.webmanifest'
 ]);
 const CORE_ASSETS = [
   ...PAGE_PATHS,
   '/style.css?v=4', '/script.js?v=4', '/case-study.css?v=4', '/case-study.js?v=4', '/register-sw.js?v=4',
   '/assets/fonts/space-grotesk-latin.woff2', '/assets/fonts/dm-sans-latin.woff2', '/assets/fonts/ibm-plex-mono-latin.woff2',
   '/assets/jahid1.webp', '/assets/f1-analytics.webp', '/assets/sds-chemical-extractor.webp', '/assets/singularity-wars.webp',
-  '/favicon_io/favicon.ico'
+  '/favicon_io/favicon.ico?v=mjh-1', '/favicon_io/favicon.svg?v=mjh-1',
+  '/favicon_io/favicon-16x16.png?v=mjh-1', '/favicon_io/favicon-32x32.png?v=mjh-1',
+  '/favicon_io/apple-touch-icon.png?v=mjh-1', '/favicon_io/site.webmanifest?v=mjh-1',
+  '/favicon_io/android-chrome-192x192.png?v=mjh-1', '/favicon_io/android-chrome-512x512.png?v=mjh-1',
+  '/favicon_io/maskable-icon-512x512.png?v=mjh-1'
 ];
 
 self.addEventListener('install', event => {

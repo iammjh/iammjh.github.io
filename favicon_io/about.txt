@@ -1,6 +1,21 @@
-This favicon was generated using the following font:
+MJH portfolio favicon set
 
-- Font Title: Poppins
-- Font Author: undefined
-- Font Source: https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLDD4V1tvFP-KUEg.ttf
-- Font License: undefined)
+Original geometric mjh_ monogram, drawn as SVG paths without a font dependency.
+Charcoal background: #10110f
+Warm white lettering: #ede9df
+Orange terminal cursor: #ff7748
+
+Editable sources:
+- favicon.svg: rounded browser/Android icon.
+- apple-touch-icon.svg: full background for the platform-applied Apple mask.
+- maskable-icon.svg: full background and smaller foreground for Android masks.
+
+Exports:
+- favicon.ico: 16, 32, 48, and 64px PNG frames.
+- favicon-16x16.png and favicon-32x32.png: small browser fallbacks.
+- apple-touch-icon.png: 180px.
+- android-chrome-192x192.png and android-chrome-512x512.png.
+- maskable-icon-512x512.png: foreground fits the central 80% safe circle.
+
+PNG exports are rasterized from the corresponding SVG at each target size.
+Changing an SVG does not automatically regenerate the PNG/ICO files.
