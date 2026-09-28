@@ -8,7 +8,7 @@ Personal portfolio of **Md. Jahidul Hasan (@iammjh)**, a backend developer and f
 
 ## What's inside
 
-- **Projects:** 12 builds, a filterable archive, and dedicated case studies for [F1 Analytics Hub](projects/f1-analytics.html), [SDS Chemical Extractor](projects/sds-extractor.html), and [Singularity-Wars](projects/singularity-wars.html).
+- **Projects:** 12 builds, a filterable archive, and dedicated case studies for [F1 Pitwall Analytics](projects/f1-analytics.html), [SDS Chemical Extractor](projects/sds-extractor.html), and [Singularity-Wars](projects/singularity-wars.html).
 - **Beyond the code:** an introduction, toolkit, five education records, two scholarships, community leadership, events, and sports achievements.
 - **Interactions:** a system explorer, scroll reveals, an education timeline, animated counters, a scrolling Build Notes ribbon, photo dialogs, and a custom precision cursor with reactive tracking brackets on desktop.
 - **Contact:** résumé download, social links, email, and a form that preserves new edits made while a previous message is sending.

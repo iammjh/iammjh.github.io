@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_NAME = 'portfolio-v9';
+const CACHE_NAME = 'portfolio-v10';
 const PAGE_PATHS = new Set([
   '/',
   '/index.html',
@@ -19,7 +19,7 @@ const CORE_ASSETS = [
   '/style.css?v=4', '/script.js?v=4', '/case-study.css?v=4', '/case-study.js?v=4', '/register-sw.js?v=4',
   '/cursor.css?v=1', '/cursor.js?v=1', '/assets/cursor-precision.svg', '/assets/cursor-link.svg', '/assets/cursor-text.svg',
   '/assets/fonts/space-grotesk-latin.woff2', '/assets/fonts/dm-sans-latin.woff2', '/assets/fonts/ibm-plex-mono-latin.woff2',
-  '/assets/jahid1.webp', '/assets/f1-analytics.webp', '/assets/sds-chemical-extractor.webp', '/assets/singularity-wars.webp',
+  '/assets/jahid1.webp', '/assets/f1-pitwall-analytics.webp', '/assets/sds-chemical-extractor.webp', '/assets/singularity-wars.webp',
   '/favicon_io/favicon.ico?v=mjh-1', '/favicon_io/favicon.svg?v=mjh-1',
   '/favicon_io/favicon-16x16.png?v=mjh-1', '/favicon_io/favicon-32x32.png?v=mjh-1',
   '/favicon_io/apple-touch-icon.png?v=mjh-1', '/favicon_io/site.webmanifest?v=mjh-1',
