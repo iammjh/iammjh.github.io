@@ -128,3 +128,5 @@ html:not(.js-enabled) .system-node:hover{transform:none}
   html:not(.js-enabled) #site-nav{position:static;order:3;display:flex;flex:1 0 100%;flex-direction:row;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;padding:10px 0 0;background:transparent;border-bottom:0;backdrop-filter:none}
   html:not(.js-enabled) #site-nav a{font-size:14px;padding:8px 0}
 }
+
+.project-links a.project-demo-link{min-height:44px;padding:10px 13px;border:1px solid #657457;font-size:12px;color:#ede9df;gap:9px}.project-links a.project-demo-link>span:first-child{color:var(--accent);font-size:11px}.project-demo-link .mono{font-size:10px;color:#bdc4b2}.project-links a.project-demo-link:hover{border-color:var(--accent);color:var(--accent)}

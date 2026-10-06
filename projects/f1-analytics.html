@@ -17,10 +17,10 @@
   <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon_io/favicon.svg?v=mjh-1">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png?v=mjh-1">
   <link rel="manifest" href="/favicon_io/site.webmanifest?v=mjh-1">
-  <link rel="stylesheet" href="../style.css?v=4"><link rel="stylesheet" href="../case-study.css?v=4">
+  <link rel="stylesheet" href="../style.css?v=5"><link rel="stylesheet" href="../case-study.css?v=5">
   <link rel="preload" href="../assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="../case-study.js?v=4" defer></script><script src="../register-sw.js?v=4" defer></script>
+  <script src="../case-study.js?v=5" defer></script><script src="../register-sw.js?v=4" defer></script>
   <link rel="stylesheet" href="../cursor.css?v=1"><script src="../cursor.js?v=1" defer></script>
 </head>
 <body class="case-page theme-f1">
@@ -35,7 +35,26 @@
     <div class="case-actions"><a class="case-button" href="https://pitwall-analytics.vercel.app/" target="_blank" rel="noopener noreferrer">Open project <span aria-hidden="true">↗</span></a><a class="case-source" href="https://github.com/iammjh/f1-analytics" target="_blank" rel="noopener noreferrer">Explore source <span aria-hidden="true">↗</span></a></div>
     <div class="case-brief"><div><span class="mono">CONTEXT</span><p>Personal project · Active development</p></div><div><span class="mono">MY ROLE</span><p>Full-stack development</p></div><div><span class="mono">BUILT WITH</span><div class="case-tags"><span>Next.js</span><span>React</span><span>Node.js</span><span>Prisma</span><span>MongoDB</span><span>Redis</span></div></div></div>
   </section>
-  <figure class="case-cover case-reveal"><div class="case-window mono"><span aria-hidden="true">● ● ●</span><span>F1 Pitwall Analytics</span><span>PROJECT VIEW</span></div><img src="../assets/f1-pitwall-analytics.webp" alt="F1 Pitwall Analytics live website" width="1913" height="902" decoding="async" loading="lazy"><figcaption>The updated F1 Pitwall Analytics homepage introduces the race analytics platform.</figcaption></figure>
+  <section id="project-demo" class="case-demo" aria-labelledby="demo-title">
+    <div class="case-demo-heading"><div><p class="case-eyebrow mono">THE PROJECT IN MOTION</p><h2 id="demo-title">See the race data in action.</h2></div><span class="case-demo-duration mono">43 SEC / FEATURE TOUR</span></div>
+    <figure class="case-cover">
+      <div class="case-player">
+      <video id="f1-demo-video" controls playsinline preload="none" width="1920" height="1080" poster="../assets/f1-pitwall-demo-poster.webp" aria-label="F1 Pitwall Analytics feature tour" aria-describedby="demo-description" tabindex="0">
+        <source src="../assets/video/f1-pitwall-analytics-demo.mp4" type="video/mp4">
+        <p>Your browser cannot play this video. <a href="../assets/video/f1-pitwall-analytics-demo.mp4">Open the MP4</a>.</p>
+      </video>
+      <button class="case-play" type="button" aria-controls="f1-demo-video" aria-label="Play the 43-second F1 Pitwall Analytics film" hidden><span class="case-play-icon" aria-hidden="true">▶</span><span>Play film <small class="mono">0:43</small></span></button>
+      </div>
+      <figcaption id="demo-description">Standings, driver comparisons, race strategy, and the stories behind the numbers. A tour using 2024 season data.</figcaption>
+    </figure>
+    <div class="case-demo-links"><span>Music only · No narration</span><a href="../assets/video/f1-pitwall-analytics-demo.mp4">Open video <span aria-hidden="true">↗</span></a></div>
+    <p class="case-video-status" role="status" hidden></p>
+    <details class="case-demo-notes"><summary>Tour overview &amp; credits</summary>
+      <ol><li><span class="mono">00:00</span> F1 Pitwall Analytics — an introduction to the platform.</li><li><span class="mono">00:04</span> Championship standings and the leading drivers.</li><li><span class="mono">00:10</span> Compare drivers head to head and change the selection.</li><li><span class="mono">00:16</span> Explore pit-stop stints and highlight Norris’s race strategy.</li><li><span class="mono">00:21</span> Follow points progression across the season.</li><li><span class="mono">00:27</span> Browse driver profiles and open Verstappen’s details.</li><li><span class="mono">00:33</span> Search for Monaco and explore its circuit information.</li><li><span class="mono">00:39</span> Visit the project to explore more.</li></ol>
+      <p>Dashboard scenes use the project running locally with public historical data.</p>
+      <p>Music: <a href="https://ende.app/en/song/12881-happy-beats-business-moves-vol-12" target="_blank" rel="noopener noreferrer">Happy Beats &amp; Business Moves Vol. 12</a> by Sascha Ende, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>. Edited excerpt with volume adjustments and fades.</p>
+    </details>
+  </section>
   <div class="case-facts-heading"><h2 id="refresh-settings">Configured refresh and caching</h2><div class="case-facts-sources"><a href="https://github.com/iammjh/f1-analytics/blob/23d2cc6e2bed7c7d56b822ea15ecd92a62e823fc/next-app/lib/live-poll-interval.ts" target="_blank" rel="noopener noreferrer">Refresh policy ↗</a><a href="https://github.com/iammjh/f1-analytics/blob/23d2cc6e2bed7c7d56b822ea15ecd92a62e823fc/next-app/app/api/telemetry/route.ts" target="_blank" rel="noopener noreferrer">Cache settings ↗</a></div></div>
   <dl class="case-facts case-reveal" aria-labelledby="refresh-settings"><div><dt>Live-session refresh</dt><dd>15s</dd></div><div><dt>Hidden-tab refresh</dt><dd>5min</dd></div><div><dt>Completed-session cache</dt><dd>24h</dd></div></dl>
   <div class="case-reading-layout">

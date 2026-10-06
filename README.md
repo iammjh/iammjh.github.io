@@ -9,6 +9,7 @@ Personal portfolio of **Md. Jahidul Hasan (@iammjh)**, a backend developer and f
 ## What's inside
 
 - **Projects:** 12 builds, a filterable archive, and dedicated case studies for [F1 Pitwall Analytics](projects/f1-analytics.html), [SDS Chemical Extractor](projects/sds-extractor.html), and [Singularity-Wars](projects/singularity-wars.html).
+- **F1 video tour:** a 43-second feature demo in the F1 case study, linked from its homepage card. Native controls, inline mobile playback, a poster, and a text overview; the video loads only on playback.
 - **Beyond the code:** an introduction, toolkit, five education records, two scholarships, community leadership, events, and sports achievements.
 - **Interactions:** a system explorer, scroll reveals, an education timeline, animated counters, a scrolling Build Notes ribbon, photo dialogs, and a custom precision cursor with reactive tracking brackets on desktop.
 - **Contact:** résumé download, social links, email, and a form that preserves new edits made while a previous message is sending.
@@ -45,6 +46,8 @@ When adding or removing projects, update the visible project-count labels and th
 
 The contact form uses FormSubmit. When changing its destination, update both the native form `action` in `index.html` and the AJAX endpoint in `script.js`. The direct email link and copy-email handler are separate settings.
 
+The F1 demo lives at `assets/video/f1-pitwall-analytics-demo.mp4`, with `assets/f1-pitwall-demo-poster.webp` as its cover. The case study includes its text overview and music attribution. Editable video source and previous cuts are kept outside this repository.
+
 ## Favicon and identity
 
 The custom **mjh_** favicon uses original SVG geometry with no font dependency: charcoal `#10110f`, warm white `#ede9df`, and orange `#ff7748`.
@@ -72,7 +75,7 @@ The homepage and all three case studies link to the favicon set. After editing a
 
 The site is intended to be served from the root of **https://iammjh.github.io/**, using the root of `main` for GitHub Pages. No build output directory is needed. Root-relative icon URLs and the service-worker scope assume this hosting location.
 
-The service worker registers on HTTPS or localhost. HTML, styles, scripts, and the web manifest use network-first requests with a cached fallback. Images, fonts, and icons use cache-first requests. After a successful worker installation, core pages and assets are precached; other assets become available offline after they have been cached. Contact submission and external project links still require a connection.
+The service worker registers on HTTPS or localhost. HTML, styles, scripts, and the web manifest use network-first requests with a cached fallback. Images, fonts, and icons use cache-first requests. After a successful worker installation, core pages and assets are precached; other assets become available offline after they have been cached. Videos bypass the service worker so the browser can stream and seek normally; they are not precached for offline playback. Contact submission, video playback, and external project links require a connection.
 
 When updating cached files:
 

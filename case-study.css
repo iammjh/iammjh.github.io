@@ -1,4 +1,22 @@
 html{scroll-padding-top:90px}
+.case-demo{scroll-margin-top:24px}
+.case-demo-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.case-demo-heading .case-eyebrow{margin-bottom:12px}
+.case-demo-heading h2{font-size:clamp(26px,3.2vw,40px);line-height:1.15;letter-spacing:-.045em}
+.case-demo-duration{font-size:11px;color:#b9c3af;white-space:nowrap}
+.case-demo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#080808;cursor:auto}
+.case-player{position:relative}
+.case-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:12px;min-height:56px;padding:10px 20px;border:1px solid #ff986f;background:#10110ff2;color:#ede9df;font:500 14px var(--display);white-space:nowrap;box-shadow:0 8px 32px #0008}
+.case-play[hidden]{display:none}.case-play-icon{color:var(--case-accent);font-size:18px}.case-play small{display:block;font-size:10px;color:#b9c3af;margin-top:3px}.case-play:hover{background:#292e22}.case-video-status{font-size:13px;line-height:1.7;color:var(--case-accent);margin-bottom:14px}
+.case-demo-links{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:10px;font-size:12px;color:#b9c3af}
+.case-demo-links a{display:inline-flex;align-items:center;gap:10px;min-height:44px;color:var(--case-accent)}
+.case-demo-notes{border-bottom:1px solid #46523a;padding-bottom:18px;color:#b9c3af;font-size:13px;line-height:1.7}
+.case-demo-notes summary{cursor:pointer;min-height:44px;padding-block:10px;color:#ede9df}
+.case-demo-notes ol{list-style:none;margin:12px 0;padding:0;display:grid;gap:10px}
+.case-demo-notes li{display:grid;grid-template-columns:50px minmax(0,1fr);gap:12px}
+.case-demo-notes li span{color:var(--case-accent);font-size:12px}
+.case-demo-notes p{margin-top:14px}
+.case-demo-notes a{text-decoration:underline;text-underline-offset:3px;color:var(--case-accent)}
 /* Project stories share the portfolio's type and palette, with a quieter reading layout. */
 .case-page{--case-accent:#ff986f;background:#10110f;color:#ede9df;overflow-wrap:break-word}
 .theme-sds{--case-accent:#8ad5c2}.theme-game{--case-accent:#c5b4ff}

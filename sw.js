@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_NAME = 'portfolio-v10';
+const CACHE_NAME = 'portfolio-v11';
 const PAGE_PATHS = new Set([
   '/',
   '/index.html',
@@ -16,10 +16,10 @@ const DOCUMENT_PATHS = new Set([
 ]);
 const CORE_ASSETS = [
   ...PAGE_PATHS,
-  '/style.css?v=4', '/script.js?v=4', '/case-study.css?v=4', '/case-study.js?v=4', '/register-sw.js?v=4',
+  '/style.css?v=5', '/script.js?v=4', '/case-study.css?v=5', '/case-study.js?v=5', '/register-sw.js?v=4',
   '/cursor.css?v=1', '/cursor.js?v=1', '/assets/cursor-precision.svg', '/assets/cursor-link.svg', '/assets/cursor-text.svg',
   '/assets/fonts/space-grotesk-latin.woff2', '/assets/fonts/dm-sans-latin.woff2', '/assets/fonts/ibm-plex-mono-latin.woff2',
-  '/assets/jahid1.webp', '/assets/f1-pitwall-analytics.webp', '/assets/sds-chemical-extractor.webp', '/assets/singularity-wars.webp',
+  '/assets/jahid1.webp', '/assets/f1-pitwall-analytics.webp', '/assets/f1-pitwall-demo-poster.webp', '/assets/sds-chemical-extractor.webp', '/assets/singularity-wars.webp',
   '/favicon_io/favicon.ico?v=mjh-1', '/favicon_io/favicon.svg?v=mjh-1',
   '/favicon_io/favicon-16x16.png?v=mjh-1', '/favicon_io/favicon-32x32.png?v=mjh-1',
   '/favicon_io/apple-touch-icon.png?v=mjh-1', '/favicon_io/site.webmanifest?v=mjh-1',
@@ -56,6 +56,8 @@ self.addEventListener('fetch', event => {
   const request = event.request;
   const url = new URL(request.url);
   if (request.method !== 'GET' || url.origin !== self.location.origin) return;
+  // Let the browser handle media streaming and byte ranges; never cache partial video responses.
+  if (request.destination === 'video' || url.pathname.startsWith('/assets/video/') || request.headers.has('range')) return;
   const isDocument = DOCUMENT_PATHS.has(url.pathname);
   const isAsset = url.pathname.startsWith('/assets/') || url.pathname.startsWith('/favicon_io/');
   // Do not take over other GitHub Pages projects hosted under the same origin.

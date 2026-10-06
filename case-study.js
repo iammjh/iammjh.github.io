@@ -11,6 +11,28 @@
   let layoutDirty = true;
   let activeId = '';
 
+  const video = document.querySelector('.case-player video');
+  const playButton = document.querySelector('.case-play');
+  const videoStatus = document.querySelector('.case-video-status');
+  if (video && playButton && videoStatus) {
+    // Keep the cover quiet until requested; native controls still work without JavaScript.
+    video.controls = false;
+    video.tabIndex = -1;
+    playButton.hidden = false;
+    playButton.addEventListener('click', async () => {
+      playButton.hidden = true;
+      videoStatus.hidden = true;
+      video.controls = true;
+      video.tabIndex = 0;
+      video.focus({ preventScroll: true });
+      try { await video.play(); }
+      catch {
+        videoStatus.textContent = 'The video could not start. Please retry with the player controls or use the Open video link.';
+        videoStatus.hidden = false;
+      }
+    });
+  }
+
   function documentTop(element) {
     let top = 0;
     // Layout offsets exclude the temporary reveal transform.
