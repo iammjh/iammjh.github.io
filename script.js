@@ -6,9 +6,13 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   const desktop = window.matchMedia('(min-width: 900px)');
+  const motionToggle = document.getElementById('motion-toggle');
+  let motionPausedByUser = false;
+  try { motionPausedByUser = localStorage.getItem('portfolio-motion-paused') === 'true'; } catch { /* Motion controls also work without storage. */ }
   const canvas = document.getElementById('ambient-canvas');
   const context = canvas?.getContext('2d', { alpha: true });
   const scrollPercent = document.getElementById('scroll-percent');
+  const pointerCards = [...document.querySelectorAll('.tilt-card, .capability, .contact-form')];
   const chapters = [...document.querySelectorAll('section[data-chapter]')];
   const chapterLinks = [...document.querySelectorAll('[data-chapter-link]')];
   const counterElements = [...document.querySelectorAll('[data-count]')];
@@ -33,7 +37,7 @@
   let lastTrailTime = 0;
 
   const clamp = (value, minimum, maximum) => Math.min(maximum, Math.max(minimum, value));
-  const motionAllowed = () => !reducedMotion.matches;
+  const motionAllowed = () => !reducedMotion.matches && !motionPausedByUser;
   const motionRunning = () => motionAllowed() && !document.hidden;
   const ambientRunning = () => motionRunning() && !saveData;
   const pointerMotionAllowed = () => motionRunning() && finePointer.matches && window.innerWidth >= 768;
@@ -153,6 +157,7 @@
     const progress = scrollRange ? clamp(scrollY / scrollRange, 0, 1) : 0;
     root.style.setProperty('--scroll-progress', progress.toFixed(4));
     root.style.setProperty('--scroll-y', `${Math.round(scrollY)}px`);
+    root.classList.toggle('is-scrolled', scrollY > 24);
     if (scrollPercent) scrollPercent.textContent = `${Math.round(progress * 100)}%`;
     const marker = window.innerHeight * 0.38;
     let current = chapters[0]?.id || '';
@@ -229,17 +234,28 @@
       element.style.setProperty('--mag-x', '0px');
       element.style.setProperty('--mag-y', '0px');
     });
-    document.querySelectorAll('.tilt-card').forEach(element => {
+    pointerCards.forEach(resetPointerCard);
+  }
+
+  function resetPointerCard(element) {
+    if (element.classList.contains('tilt-card')) {
       element.style.setProperty('--tilt-x', '0deg');
       element.style.setProperty('--tilt-y', '0deg');
-      element.style.setProperty('--pointer-x', '50%');
-      element.style.setProperty('--pointer-y', '50%');
-    });
+    }
+    element.style.setProperty('--pointer-x', '50%');
+    element.style.setProperty('--pointer-y', '50%');
   }
 
   function updateMotion() {
     const paused = !motionAllowed();
     root.classList.toggle('motion-paused', paused || document.hidden);
+    if (motionToggle) {
+      motionToggle.hidden = false;
+      motionToggle.disabled = reducedMotion.matches;
+      motionToggle.setAttribute('aria-pressed', String(paused));
+      motionToggle.title = reducedMotion.matches ? 'Reduced motion is enabled in your device settings' : paused ? 'Resume animations' : 'Pause animations';
+      motionToggle.querySelector('[data-motion-label]').textContent = paused ? 'Motion off' : 'Motion on';
+    }
     if (!motionRunning()) {
       if (frame) window.cancelAnimationFrame(frame);
       frame = 0;
@@ -249,14 +265,25 @@
       activeCounters.forEach((_, element) => finishCounter(element));
       resetPointerEffects();
     }
-    if (reducedMotion.matches) {
-      document.querySelectorAll('.reveal').forEach(element => element.classList.add('is-visible'));
+    if (paused) {
+      document.querySelectorAll('.reveal, [data-heading-enhanced]').forEach(element => element.classList.add('is-visible'));
     }
     lastPaintTime = 0;
     canvasDirty = true;
     scrollDirty = true;
     scheduleFrame();
   }
+
+  motionToggle?.addEventListener('click', () => {
+    motionPausedByUser = !motionPausedByUser;
+    try { localStorage.setItem('portfolio-motion-paused', String(motionPausedByUser)); } catch { /* The current visit still retains this choice. */ }
+    updateMotion();
+  });
+  window.addEventListener('storage', event => {
+    if (event.key !== 'portfolio-motion-paused' && event.key !== null) return;
+    motionPausedByUser = event.newValue === 'true';
+    updateMotion();
+  });
 
   window.addEventListener('pageshow', () => {
     layoutDirty = true;
@@ -274,6 +301,7 @@
   }, { passive: true });
   window.addEventListener('resize', () => {
     sizeCanvas();
+    if (!pointerMotionAllowed()) resetPointerEffects();
     layoutDirty = true;
     scrollDirty = true;
     scheduleFrame();
@@ -319,23 +347,22 @@
       element.style.setProperty('--mag-y', '0px');
     });
   });
-  document.querySelectorAll('.tilt-card').forEach(element => {
+  pointerCards.forEach(element => {
+    const tilts = element.classList.contains('tilt-card');
     element.addEventListener('pointermove', event => {
       if (!pointerMotionAllowed() || event.pointerType === 'touch') return;
       const rect = element.getBoundingClientRect();
-      const x = clamp((event.clientX - rect.left) / rect.width, 0, 1);
-      const y = clamp((event.clientY - rect.top) / rect.height, 0, 1);
-      element.style.setProperty('--tilt-x', `${((0.5 - y) * 4).toFixed(2)}deg`);
-      element.style.setProperty('--tilt-y', `${((x - 0.5) * 4).toFixed(2)}deg`);
+      const x = clamp((event.clientX - rect.left) / Math.max(1, rect.width), 0, 1);
+      const y = clamp((event.clientY - rect.top) / Math.max(1, rect.height), 0, 1);
+      if (tilts) {
+        element.style.setProperty('--tilt-x', `${((0.5 - y) * 4).toFixed(2)}deg`);
+        element.style.setProperty('--tilt-y', `${((x - 0.5) * 4).toFixed(2)}deg`);
+      }
       element.style.setProperty('--pointer-x', `${(x * 100).toFixed(1)}%`);
       element.style.setProperty('--pointer-y', `${(y * 100).toFixed(1)}%`);
     });
-    element.addEventListener('pointerleave', () => {
-      element.style.setProperty('--tilt-x', '0deg');
-      element.style.setProperty('--tilt-y', '0deg');
-      element.style.setProperty('--pointer-x', '50%');
-      element.style.setProperty('--pointer-y', '50%');
-    });
+    element.addEventListener('pointerleave', () => resetPointerCard(element));
+    element.addEventListener('pointercancel', () => resetPointerCard(element));
   });
 
   const navigation = document.getElementById('site-nav');
@@ -646,9 +673,43 @@
   updateLocalTime();
   window.setInterval(() => { if (!document.hidden) updateLocalTime(); }, 60000);
 
+  // Keep the original inline markup and heading semantics while masking each line.
+  const revealHeadings = [...document.querySelectorAll('[data-heading-reveal]')];
+  revealHeadings.forEach(heading => {
+    if (heading.hasAttribute('data-heading-enhanced')) return;
+    const groups = [[]];
+    [...heading.childNodes].forEach(node => {
+      if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'BR') groups.push([]);
+      else groups[groups.length - 1].push(node);
+    });
+    const fragment = document.createDocumentFragment();
+    groups.forEach((nodes, index) => {
+      const line = document.createElement('span');
+      const inner = document.createElement('span');
+      line.className = 'heading-line';
+      inner.className = 'heading-line-inner';
+      line.style.setProperty('--line-index', String(index));
+      inner.style.setProperty('--line-index', String(index));
+      inner.append(...nodes);
+      line.append(inner);
+      // The wrappers provide visual line breaks; text spacing preserves the name
+      // exposed to assistive technology and a readable plain-text selection.
+      if (index) fragment.append(document.createTextNode(' '));
+      fragment.append(line);
+    });
+    heading.replaceChildren(fragment);
+    heading.setAttribute('data-heading-enhanced', '');
+  });
+
+  document.querySelectorAll('.capability-grid, .selected-pair, .awards-column, .sports-spread, .impact-strip').forEach(group => {
+    [...group.children].filter(element => element.matches('.reveal:not(.award-heading)')).forEach((element, index) => {
+      element.style.setProperty('--reveal-delay', `${Math.min(index * 70, 210)}ms`);
+    });
+  });
+
   // Register all observers before opting into CSS that hides unrevealed elements.
   // Without JavaScript or IntersectionObserver, the whole page stays readable.
-  if ('IntersectionObserver' in window) {
+  if (typeof window.IntersectionObserver === 'function') {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
@@ -657,16 +718,16 @@
         observer.unobserve(entry.target);
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
-    const observed = new Set([...document.querySelectorAll('.reveal'), ...counterElements]);
+    const observed = new Set([...document.querySelectorAll('.reveal'), ...revealHeadings, ...counterElements]);
     observed.forEach(element => observer.observe(element));
     // Stop decorative CSS animations when their section is outside the viewport.
     const motionObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => entry.target.classList.toggle('motion-offscreen', !entry.isIntersecting));
     }, { rootMargin: '80px' });
-    document.querySelectorAll('.system-explorer,.marquee,.flagship,.project-tile,.capability,.award,.community-visual,.scroll-cue').forEach(element => motionObserver.observe(element));
+    document.querySelectorAll('.hero-identity,.system-explorer,.marquee,.flagship,.project-tile,.capability,.award,.community-visual,.scroll-cue').forEach(element => motionObserver.observe(element));
     root.classList.add('motion-ready');
   } else {
-    document.querySelectorAll('.reveal').forEach(element => element.classList.add('is-visible'));
+    document.querySelectorAll('.reveal, [data-heading-enhanced]').forEach(element => element.classList.add('is-visible'));
     counterElements.forEach(finishCounter);
   }
 

@@ -11,12 +11,12 @@ Personal portfolio of **Md. Jahidul Hasan (@iammjh)**, a backend developer and f
 - **Projects:** 12 builds, a filterable archive, and dedicated case studies for [F1 Pitwall Analytics](projects/f1-analytics.html), [SDS Chemical Extractor](projects/sds-extractor.html), and [Singularity-Wars](projects/singularity-wars.html).
 - **F1 video tour:** a 43-second feature demo in the F1 case study, linked from its homepage card. Native controls, inline mobile playback, a poster, and a text overview; the video loads only on playback.
 - **Beyond the code:** an introduction, toolkit, five education records, two scholarships, community leadership, events, and sports achievements.
-- **Interactions:** a system explorer, scroll reveals, an education timeline, animated counters, a scrolling Build Notes ribbon, photo dialogs, and a custom precision cursor with reactive tracking brackets on desktop.
+- **Interactions:** a system explorer, animated name entrance, an idea-to-impact signal graphic, project telemetry and scanning accents, four animated toolkit diagrams, line-by-line heading reveals, staggered cards and counters, an education timeline, a scrolling Build Notes ribbon, photo dialogs, and custom arrow pointers with a responsive hover halo on desktop.
 - **Contact:** résumé download, social links, email, and a form that preserves new edits made while a previous message is sending.
 
-The system explorer is an illustrative local simulation; it does not call a backend. Animations follow the operating system's reduced-motion preference, and the marquee pauses on hover. Without JavaScript, the content, navigation, photo links, and native contact form remain available.
+The system explorer is an illustrative local simulation; it does not call a backend. Animations follow the operating system's reduced-motion preference, and the header's motion control pauses animations and remembers the choice in this browser. Decorative graphics pause offscreen and when the tab is hidden; the marquee also pauses on hover. Without JavaScript, the content, navigation, photo links, and native contact form remain available.
 
-Text fields use a matching terminal-style mouse pointer and an orange typing caret. The trailing brackets stay out of text fields; touch and high-contrast modes retain native mouse pointers.
+Selectable copy and text fields use a crisp I-beam; typing carets use orange on dark surfaces and a deeper orange on the light contact form. Warm-white arrows turn mint over links and buttons, with a subtle halo that expands on hover and contracts on press. The halo stays out of text selection and native controls and stops when motion is paused. Touch and high-contrast modes retain native mouse pointers.
 
 ## Run locally
 
@@ -34,10 +34,11 @@ Open **http://127.0.0.1:8765/**. Use this HTTP server rather than opening the HT
 | --- | --- |
 | Homepage content, toolkit, education, activities, and contact | [index.html](index.html) |
 | Layout, colors, typography, and responsive styles | [style.css](style.css) |
+| Homepage surfaces, spacing, portrait treatment, and coordinated motion | [design.css](design.css) |
 | Explorer, scroll effects, filters, dialogs, and form handling | [script.js](script.js) |
 | Project stories | [projects/](projects/) |
 | Case-study layout and reading interactions | [case-study.css](case-study.css), [case-study.js](case-study.js) |
-| Custom mouse pointers and tracking brackets | [cursor.css](cursor.css), [cursor.js](cursor.js), `assets/cursor-*.svg` |
+| Native arrow and I-beam artwork, cursor rules, and hover halo | [cursor.css](cursor.css), [cursor.js](cursor.js), `assets/cursor-*.svg` |
 | Photographs, project images, résumé, and local fonts | [assets/](assets/) |
 | Browser and mobile icons | [favicon_io/](favicon_io/) |
 | Service-worker registration and cache policy | [register-sw.js](register-sw.js), [sw.js](sw.js) |
@@ -67,7 +68,7 @@ The homepage and all three case studies link to the favicon set. After editing a
 ## SEO and social previews
 
 - Page titles, descriptions, canonical URLs, Open Graph tags, and Twitter/X cards live in the `<head>` of `index.html` and each case-study HTML file. The homepage also includes `Person` structured data.
-- [assets/social-card.png](assets/social-card.png) is the homepage's **1200 × 630** sharing image. Its editable layout is [assets/social-card.html](assets/social-card.html); changes require rendering a new PNG. Case studies use their project images for sharing.
+- [assets/social-card.png](assets/social-card.png) is the homepage's **1200 × 630** sharing image, with the current portrait and portfolio branding. Its editable layout is [assets/social-card.html](assets/social-card.html); changes require rendering a new PNG and updating the version query in the homepage's Open Graph and Twitter/X image URLs. Case studies use their project images for sharing.
 - [robots.txt](robots.txt) allows crawling, and [sitemap.xml](sitemap.xml) lists the homepage and three case studies.
 - Old section fragments `#projects`, `#education`, and `#activity` still work.
 

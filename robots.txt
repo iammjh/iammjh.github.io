@@ -1,4 +1,7 @@
+# Public portfolio pages, sharing images, fonts, and other assets are crawlable.
 User-agent: *
 Allow: /
 
+# The editable social-card HTML declares noindex itself and remains crawlable.
+# Only canonical public pages are listed in the sitemap.
 Sitemap: https://iammjh.github.io/sitemap.xml

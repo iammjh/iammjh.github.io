@@ -90,11 +90,16 @@
     root.classList.add('case-ready');
   }
   function applyMotionPreference() {
-    const paused = reduced.matches;
+    let pausedByUser = false;
+    try { pausedByUser = localStorage.getItem('portfolio-motion-paused') === 'true'; } catch { /* System preferences still apply without storage. */ }
+    const paused = reduced.matches || pausedByUser;
     root.classList.toggle('motion-paused', paused);
     if (paused) revealElements.forEach(element => element.classList.add('is-visible'));
   }
   window.addEventListener('pageshow', applyMotionPreference);
+  window.addEventListener('storage', event => {
+    if (event.key === 'portfolio-motion-paused' || event.key === null) applyMotionPreference();
+  });
   if (reduced.addEventListener) reduced.addEventListener('change', applyMotionPreference);
   else reduced.addListener(applyMotionPreference);
   applyMotionPreference();

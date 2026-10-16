@@ -1,5 +1,269 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>Portfolio social card source</title><link rel="icon" href="../favicon_io/favicon.svg?v=mjh-1" type="image/svg+xml"><style>
-@font-face{font-family:Space;src:url('fonts/space-grotesk-latin.woff2')}@font-face{font-family:Mono;src:url('fonts/ibm-plex-mono-latin.woff2')}
-*{box-sizing:border-box}body{margin:0;width:1200px;height:630px;overflow:hidden;background:#10110f;color:#ede9df;font-family:Space,sans-serif}.card{position:relative;height:100%;padding:52px 60px;background:radial-gradient(ellipse at 95% 20%,#34453166,transparent 65%)}.top{display:flex;justify-content:space-between;font:14px Mono,monospace;letter-spacing:2px;color:#aebba2}.mark{font:600 38px Space;letter-spacing:-3px;color:#ede9df}.mark span{color:#ff7748}.intro{font:18px Mono;color:#b5c0a9;letter-spacing:3px;margin:45px 0 14px}h1{font:700 113px/.99 Space;margin:0;letter-spacing:-7px}h1 span{display:block;color:#ff7748}.role{font-size:24px;margin:25px 0 0}.bottom{position:absolute;bottom:44px;left:60px;right:60px;padding-top:23px;border-top:1px solid #414b37;display:flex;justify-content:space-between;font:14px Mono;color:#b8c6ab}.system{position:absolute;right:60px;top:180px;width:380px;height:310px}.node{position:absolute;border:1px solid #627454;background:#1c281c;padding:20px 25px;font:16px Mono;border-radius:5px;color:#dce6d0}.client{top:0;left:90px}.api{top:120px;left:72px;border-color:#ff7748;color:#ff986f}.db{bottom:0;left:0}.service{bottom:0;right:0}.wires{position:absolute;inset:0;width:100%;height:100%}
-</style></head><body><main class="card"><div class="top"><span class="mark">jh<span>_</span></span><span>DEVELOPER. BUILDER. HUMAN.</span></div><p class="intro">MD.</p><h1>JAHIDUL<span>HASAN.</span></h1><p class="role">Backend developer. Full-stack builder.</p><div class="system" aria-hidden="true"><svg class="wires" viewBox="0 0 380 310" fill="none"><path d="M190 60V120M190 180V212H66V251M190 212H306V251" stroke="#8ad5c2" stroke-width="2"/><circle cx="190" cy="212" r="5" fill="#ff7748"/><path d="M0 98H380M0 232H380M36 0V310M344 0V310" stroke="#8ad5c2" opacity=".07"/></svg><div class="node client">WEB CLIENT</div><div class="node api">BACKEND API</div><div class="node db">DATA</div><div class="node service">SERVICE</div></div><div class="bottom"><span>iammjh.github.io</span><span>DHAKA, BANGLADESH ↗</span></div></main></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1200">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Md. Jahidul Hasan — Portfolio social card</title>
+  <link rel="icon" href="../favicon_io/favicon.svg?v=mjh-1" type="image/svg+xml">
+  <style>
+    @font-face {
+      font-family: "Space Grotesk";
+      src: url("fonts/space-grotesk-latin.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 300 700;
+    }
+
+    @font-face {
+      font-family: "IBM Plex Mono";
+      src: url("fonts/ibm-plex-mono-latin.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    :root {
+      color-scheme: dark;
+      --charcoal: #10140f;
+      --paper: #f3efdf;
+      --orange: #ff956f;
+      --mint: #9de0c9;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: var(--charcoal);
+    }
+
+    body {
+      color: var(--paper);
+      font-family: "Space Grotesk", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .card {
+      position: relative;
+      isolation: isolate;
+      width: 1200px;
+      height: 630px;
+      padding: 42px 56px;
+      background: radial-gradient(ellipse at 90% 46%, #9de0c90a, transparent 52%);
+    }
+
+    .mono { font-family: "IBM Plex Mono", monospace; }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mark {
+      font-size: 43px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -3px;
+    }
+
+    .mark span { color: var(--orange); }
+
+    .edition {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #bec7b8;
+      font-size: 12px;
+      letter-spacing: 1.8px;
+    }
+
+    .edition::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--mint);
+    }
+
+    .identity {
+      position: absolute;
+      top: 158px;
+      left: 56px;
+      width: 690px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 106px;
+      font-weight: 700;
+      line-height: .98;
+      letter-spacing: -6px;
+    }
+
+    h1 span { display: block; }
+
+    h1 .prefix {
+      margin-bottom: 21px;
+      color: #bec7b8;
+      font: 400 17px/1.2 "IBM Plex Mono", monospace;
+      letter-spacing: 3px;
+    }
+
+    h1 .surname { color: var(--orange); }
+
+    .role {
+      margin: 29px 0 0;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: -.4px;
+    }
+
+    .role span { display: block; }
+
+    .portrait {
+      position: absolute;
+      top: 133px;
+      right: 56px;
+      width: 336px;
+      height: 390px;
+      margin: 0;
+    }
+
+    .portrait::before {
+      position: absolute;
+      z-index: -1;
+      inset: 12px -12px -12px 12px;
+      border: 1px solid #9de0c94d;
+      border-radius: 28px;
+      content: "";
+    }
+
+    .portrait img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #f3efdf40;
+      border-radius: 24px;
+      object-fit: cover;
+      object-position: center 28%;
+    }
+
+    .portrait-label {
+      position: absolute;
+      left: -24px;
+      bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0;
+      padding: 13px 17px;
+      border: 1px solid #f3efdf26;
+      border-radius: 10px;
+      background: var(--charcoal);
+      color: var(--paper);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .portrait-label svg {
+      width: 16px;
+      height: 16px;
+      color: var(--mint);
+    }
+
+    .orbit {
+      position: absolute;
+      z-index: -1;
+      top: 104px;
+      right: -66px;
+      width: 502px;
+      height: 502px;
+      border: 1px solid #9de0c914;
+      border-radius: 50%;
+    }
+
+    .orbit::before {
+      position: absolute;
+      inset: 31px;
+      border: 1px dashed #9de0c918;
+      border-radius: 50%;
+      content: "";
+    }
+
+    .orbit::after {
+      position: absolute;
+      top: 76px;
+      left: 65px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+      content: "";
+    }
+
+    .footer {
+      position: absolute;
+      right: 56px;
+      bottom: 31px;
+      left: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 22px;
+      border-top: 1px solid #f3efdf26;
+    }
+
+    .domain {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      font-size: 17px;
+      letter-spacing: -.3px;
+    }
+
+    .domain svg {
+      width: 17px;
+      height: 17px;
+      color: var(--orange);
+    }
+
+    .location {
+      margin: 0;
+      color: #bec7b8;
+      font-size: 12px;
+      letter-spacing: 1.4px;
+    }
+  </style>
+</head>
+<body>
+  <main class="card" aria-label="Md. Jahidul Hasan's developer portfolio">
+    <header class="topline">
+      <div class="mark" aria-label="mjh">mjh<span>_</span></div>
+      <div class="edition mono">PORTFOLIO / 2026</div>
+    </header>
+
+    <div class="identity">
+      <h1 aria-label="Md. Jahidul Hasan"><span class="prefix">MD.</span><span>JAHIDUL</span><span class="surname">HASAN.</span></h1>
+      <p class="role"><span>Backend developer.</span><span>Full-stack builder.</span></p>
+    </div>
+
+    <div class="orbit" aria-hidden="true"></div>
+    <figure class="portrait">
+      <img src="Mohammad_Jahid.webp" width="1123" height="1401" alt="Portrait of Md. Jahidul Hasan wearing a dark suit and tie.">
+      <figcaption class="portrait-label mono">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18"/></svg>
+        DEVELOPER &amp; BUILDER
+      </figcaption>
+    </figure>
+
+    <footer class="footer mono">
+      <div class="domain">iammjh.github.io<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></div>
+      <p class="location">DHAKA, BANGLADESH</p>
+    </footer>
+  </main>
+</body>
+</html>

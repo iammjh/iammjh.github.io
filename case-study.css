@@ -44,3 +44,118 @@ html.motion-paused{scroll-behavior:auto}.motion-paused .case-reveal{opacity:1!im
 @media(max-width:380px){.case-header-label{display:none}.case-shell{padding-inline:18px}.case-header{padding-inline:18px}.case-hero h1{font-size:43px}.case-facts{gap:10px}.case-facts>div+div{padding-left:10px}.case-facts dd{font-size:21px}.case-brief{grid-template-columns:1fr}.case-brief>div:last-child{grid-column:auto}}
 @media(prefers-reduced-motion:reduce){.case-ready .case-reveal{opacity:1;transform:none}.case-flow li{animation:none!important}}
 @media print{.case-page *{color:#111!important;background:transparent!important;box-shadow:none!important;text-shadow:none!important}.case-header,.case-toc,.case-actions,.case-next,.case-footer,.case-progress,.case-facts-sources{display:none}.case-shell{max-width:none;padding:0}.case-page{background:white;color:black}.case-reading-layout{display:block}.case-reveal{opacity:1!important;transform:none!important}.case-section{break-inside:avoid}.case-page p,.case-page h1,.case-page h2,.case-page h3,.case-page em{color:black}.case-hero{padding-top:0}}
+
+/* Portfolio refinement: quiet reading surfaces, consistent corners, and clear local navigation.
+   Screen-only rules leave the existing print layout and motion preferences intact. */
+@media screen{
+  .case-page{--case-radius:14px}
+  .case-page ::selection{background:var(--case-accent);color:#10110f}
+  .case-page .case-header{backdrop-filter:blur(16px)}
+  .case-page .case-header-label{letter-spacing:.08em}
+  .case-page .case-hero h1{max-width:19ch;line-height:1.06;letter-spacing:-.055em;text-wrap:balance}
+  .case-page .case-intro{max-width:61ch;line-height:1.75;text-wrap:pretty}
+  .case-page .case-brief{gap:28px 36px}
+  .case-page .case-brief .mono{font-size:11px;letter-spacing:.09em}
+  .case-page .case-brief p{max-width:34ch}
+  .case-page .case-tags{gap:8px}
+  .case-page .case-tags span{border-radius:5px;padding:5px 9px}
+  .case-page .case-button{border-radius:10px;min-height:50px;padding-inline:22px;transition:background-color .2s,box-shadow .2s}
+  .case-page .case-button:hover{filter:none;background:color-mix(in srgb,var(--case-accent) 85%,white);box-shadow:0 5px 20px #0002}
+  .case-page .case-source{padding-block:6px}
+  .case-page .case-source span,.case-page .case-back span{transition:transform .2s}
+  .case-page .case-cover{border-radius:16px;box-shadow:0 18px 48px #0002}
+  .case-page .case-cover:focus-within{outline:2px solid var(--case-accent);outline-offset:5px}
+  .case-page .case-window{min-height:46px;border-bottom:1px solid #ffffff0a;border-radius:15px 15px 0 0;padding-inline:20px}
+  .case-page .case-window>span:first-child{letter-spacing:4px}
+  .case-page .case-cover .case-player,.case-page .case-cover video{border-radius:15px 15px 0 0}
+  .case-page .case-cover figcaption{padding:18px 22px;line-height:1.75;border-radius:0 0 15px 15px;max-width:none}
+  .case-page .case-play{border-color:var(--case-accent);border-radius:12px;padding:13px 23px;gap:14px}
+  .case-page .case-demo-heading{margin-bottom:24px}
+  .case-page .case-demo-heading h2{max-width:25ch;text-wrap:balance}
+  .case-page .case-demo-links{padding-block:12px}
+  .case-page .case-demo-notes summary{text-underline-offset:5px}
+  .case-page .case-demo-notes summary:hover{text-decoration:underline;text-decoration-color:var(--case-accent)}
+  .case-page .case-facts{padding-block:34px 38px}
+  .case-page .case-facts dd{letter-spacing:-.04em}
+  .case-page .case-facts dt{max-width:25ch;line-height:1.65}
+  .case-page .case-story{min-width:0;max-width:760px}
+  .case-page .case-toc{gap:6px}
+  .case-page .case-toc>.mono{margin:0 0 12px 12px;font-size:11px;letter-spacing:.08em}
+  .case-page .case-toc a{min-height:46px;padding:10px 12px;gap:11px;border-radius:0 10px 10px 0;transition:color .2s,border-color .2s,background-color .2s}
+  .case-page .case-toc a:hover,.case-page .case-toc a[aria-current]{padding-left:12px;background:color-mix(in srgb,var(--case-accent) 8%,transparent)}
+  .case-page .case-toc a[aria-current]{border-left-width:2px;background:color-mix(in srgb,var(--case-accent) 12%,transparent)}
+  .case-page .case-section{padding-bottom:76px}
+  .case-page .case-eyebrow{font-size:11px;letter-spacing:.09em;margin-bottom:18px}
+  .case-page .case-section h2{max-width:26ch;line-height:1.17;letter-spacing:-.04em;text-wrap:balance}
+  .case-page .case-section>p:not(.case-eyebrow){max-width:68ch;line-height:1.85;text-wrap:pretty}
+  .case-page .case-role,.case-page .case-constraint{border-radius:var(--case-radius);padding:28px 30px}
+  .case-page .case-role{box-shadow:inset 0 0 0 1px #ffffff06}
+  .case-page .case-role h3,.case-page .case-constraint h3{font-size:19px;line-height:1.4;letter-spacing:-.025em}
+  .case-page .case-role p,.case-page .case-constraint p{max-width:65ch;text-wrap:pretty}
+  .case-page .case-architecture{border-radius:var(--case-radius);padding:28px}
+  .case-page .case-architecture figcaption{max-width:48ch;font-size:18px;letter-spacing:-.02em;text-wrap:balance}
+  .case-page .case-flow{margin-block:26px;gap:28px}
+  .case-page .case-flow li{border-radius:10px;padding:19px 21px;gap:0 16px}
+  .case-page .case-flow li:not(:last-child):after{bottom:-28px;line-height:27px;font-size:18px}
+  .case-page .case-flow strong{font-size:17px}
+  .case-page .case-flow li>span:last-child{line-height:1.6}
+  .case-page .case-architecture>p{max-width:66ch}
+  .case-page .case-decision{gap:24px;padding-block:28px}
+  .case-page .decision-number{display:grid;place-items:center;flex:0 0 34px;height:34px;padding-top:0;margin-top:1px;border:1px solid color-mix(in srgb,var(--case-accent) 25%,transparent);border-radius:10px;font-size:11px}
+  .case-page .case-decision>div{min-width:0}
+  .case-page .case-decision h3{font-size:22px;line-height:1.4;letter-spacing:-.025em;text-wrap:balance}
+  .case-page .case-decision p{max-width:65ch;line-height:1.85;text-wrap:pretty}
+  .case-page .case-evidence{gap:12px;margin-top:28px}
+  .case-page .case-evidence a{border-radius:10px;min-height:58px;padding:15px 18px;line-height:1.6;transition:border-color .2s,background-color .2s}
+  .case-page .case-evidence a:hover{background:color-mix(in srgb,var(--case-accent) 7%,transparent)}
+  .case-page .case-next{border:1px solid #46533b;border-radius:16px;padding:36px 84px 36px 30px;gap:14px;transition:border-color .2s,background-color .2s}
+  .case-page .case-next strong{max-width:25ch;font-size:clamp(28px,3.6vw,46px);text-wrap:balance}
+  .case-page .case-next>.mono{font-size:11px;letter-spacing:.08em}
+  .case-page .case-next-arrow{right:28px;font-size:40px}
+  .case-page .case-next:hover{border-color:var(--case-accent);background:color-mix(in srgb,var(--case-accent) 4%,transparent)}
+  .case-page .case-footer{padding-block:26px 40px}
+  .case-page .case-footer a:hover{color:var(--case-accent)}
+}
+@media screen and (min-width:1001px){
+  .case-page .case-hero{padding-block:82px 52px}
+  .case-page .case-reading-layout{padding-top:78px}
+}
+@media screen and (hover:hover) and (prefers-reduced-motion:no-preference){
+  .case-page .case-source:hover span{transform:translate(2px,-2px)}
+  .case-page .case-back:hover span{transform:translate(-2px,-2px)}
+}
+@media screen and (max-width:1000px){
+  .case-page .case-architecture{padding:24px}
+  .case-page .case-flow li{padding:17px}
+}
+@media screen and (max-width:720px){
+  .case-page .case-hero h1{letter-spacing:-.055em;line-height:1.08}
+  .case-page .case-intro{line-height:1.8}
+  .case-page .case-brief{gap:24px}
+  .case-page .case-button{min-height:48px;padding-inline:18px}
+  .case-page .case-cover{border-radius:12px}
+  .case-page .case-window,.case-page .case-cover .case-player,.case-page .case-cover video{border-radius:11px 11px 0 0}
+  .case-page .case-window{min-height:40px;padding-inline:14px}
+  .case-page .case-cover figcaption{padding:15px 16px;border-radius:0 0 11px 11px}
+  .case-page .case-play{padding:12px 18px;min-height:54px}
+  .case-page .case-facts{padding-block:27px 30px}
+  .case-page .case-toc{gap:6px 10px;margin-bottom:42px;padding-bottom:24px}
+  .case-page .case-toc>.mono{margin-left:0;margin-bottom:10px}
+  .case-page .case-toc a{min-height:44px;gap:9px;padding:9px 10px}
+  .case-page .case-toc a:hover,.case-page .case-toc a[aria-current]{padding-left:10px}
+  .case-page .case-section{padding-bottom:54px}
+  .case-page .case-eyebrow{margin-bottom:16px}
+  .case-page .case-section h2{font-size:clamp(28px,5.8vw,34px);line-height:1.2;letter-spacing:-.035em}
+  .case-page .case-role,.case-page .case-constraint,.case-page .case-architecture{padding:22px;border-radius:12px}
+  .case-page .case-architecture figcaption{font-size:17px}
+  .case-page .case-flow li{padding:17px 15px;gap:0 11px}
+  .case-page .case-flow strong{font-size:16px}
+  .case-page .case-decision{gap:16px;padding-block:25px}
+  .case-page .decision-number{flex-basis:30px;height:30px;border-radius:10px;font-size:10px}
+  .case-page .case-decision h3{font-size:21px}
+  .case-page .case-evidence a{min-height:54px;padding:14px 16px}
+  .case-page .case-next{padding:28px 62px 28px 22px;border-radius:12px}
+  .case-page .case-next strong{font-size:clamp(26px,6vw,32px);line-height:1.2}
+  .case-page .case-next-arrow{right:20px;font-size:32px}
+  .case-page .case-footer{padding-block:20px 32px}
+}
