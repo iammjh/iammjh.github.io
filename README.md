@@ -9,6 +9,7 @@ Personal portfolio of **Md. Jahidul Hasan (@iammjh)**, a backend developer and f
 ## What's inside
 
 - **Projects:** 12 builds, a filterable archive, and dedicated case studies for [F1 Pitwall Analytics](projects/f1-analytics.html), [SDS Chemical Extractor](projects/sds-extractor.html), and [Singularity-Wars](projects/singularity-wars.html).
+- **Research:** MIM-HeMIS, a first-author undergraduate thesis on brain tumor segmentation with missing MRI modalities, including three Dice scores, an expandable abstract summary and linked keywords, manuscript status, and its BRAC University repository link.
 - **F1 video tour:** a 43-second feature demo in the F1 case study, linked from its homepage card. Native controls, inline mobile playback, a poster, and a text overview; the video loads only on playback.
 - **Beyond the code:** an introduction, toolkit, five education records, two scholarships, community leadership, events, and sports achievements.
 - **Interactions:** a system explorer, animated name entrance, an idea-to-impact signal graphic, project telemetry and scanning accents, four animated toolkit diagrams, line-by-line heading reveals, staggered cards and counters, an education timeline, a scrolling Build Notes ribbon, photo dialogs, and custom arrow pointers with a responsive hover halo on desktop.
@@ -67,9 +68,11 @@ The homepage and all three case studies link to the favicon set. After editing a
 
 ## SEO and social previews
 
-- Page titles, descriptions, canonical URLs, Open Graph tags, and Twitter/X cards live in the `<head>` of `index.html` and each case-study HTML file. The homepage also includes `Person` structured data.
+- Page titles, descriptions, canonical URLs, Open Graph tags, and Twitter/X cards live in the `<head>` of `index.html` and each case-study HTML file. Keep the descriptions aligned with each page's visible content. The homepage includes linked `WebSite`, `ProfilePage`, `Person`, and `Thesis` structured data; the thesis is identified as an approved undergraduate thesis with a journal manuscript in preparation.
 - [assets/social-card.png](assets/social-card.png) is the homepage's **1200 × 630** sharing image, with the current portrait and portfolio branding. Its editable layout is [assets/social-card.html](assets/social-card.html); changes require rendering a new PNG and updating the version query in the homepage's Open Graph and Twitter/X image URLs. Case studies use their project images for sharing.
 - [robots.txt](robots.txt) allows crawling, and [sitemap.xml](sitemap.xml) lists the homepage and three case studies.
+- Update a sitemap entry's `lastmod` only when that page has a meaningful content or metadata change. Use the actual change date; deploying unchanged pages does not update their dates. Keep the homepage's `ProfilePage.dateModified` aligned with its significant updates.
+- After publishing, use Google Search Console's URL Inspection for the homepage and updated case studies, submit `https://iammjh.github.io/sitemap.xml`, and check PageSpeed Insights for the live URLs. The verification meta tag is already present; indexing and field performance must be checked separately from local code validation.
 - Old section fragments `#projects`, `#education`, and `#activity` still work.
 
 ## Caching and publishing

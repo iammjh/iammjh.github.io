@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_NAME = 'portfolio-v16';
+const CACHE_NAME = 'portfolio-v19';
 const PAGE_PATHS = new Set([
   '/',
   '/index.html',
